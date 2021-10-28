@@ -1,3 +1,6 @@
+# Figure 1a
+This figure is a schematic diagram desiged using Adobe Illustrator.
+
 # Figure 1b
 # Figure 1c
 # Figure 1d
@@ -24,3 +27,4 @@
 # Extended Figure 6
 # Extended Figure 7
 # Extended Figure 8
+# Extended Figure 9
