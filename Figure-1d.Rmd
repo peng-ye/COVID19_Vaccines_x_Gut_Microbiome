@@ -1,8 +1,6 @@
 ---
-title: "Figure 1d"
-output:
-  html_document:
-    df_print: paged
+title: "R Notebook"
+output: html_notebook
 ---
 
 # Enviroment
