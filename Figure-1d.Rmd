@@ -1,0 +1,104 @@
+---
+title: "Figure 1d"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Enviroment
+```{r}
+library(ggplot2)
+median_iqr_func <- function(y, scientific=T) {
+  y = as.numeric(y)
+  paste0(format(quantile(y, 0.5, na.rm = T), digit=3,scientific = scientific), 
+         " (", 
+         format(quantile(y, 0.25, na.rm = T), digit=3,scientific = scientific),
+         ", ", 
+         format(quantile(y, 0.75, na.rm = T), digit=3,scientific = scientific),
+         ")")}
+warning = FALSE
+```
+
+# Get data
+
+```{r}
+source("R/get_data.R")
+# phenotype.data
+# species.dat.d0.bnt
+# species.dat.d0.snv
+# species.dat.m1.bnt
+# species.dat.m1.snv
+# species_map
+```
+
+# Testing
+```{r}
+paired_wilcox_test <- function(profile.d0, profile.m1) {
+  result <- c()
+  for (i in colnames(profile.m1)) {
+    dat.d0 <- profile.d0[, i]
+    dat.m1 <- profile.m1[, i]
+    suppressWarnings(res <- wilcox.test(dat.d0, dat.m1, paired = T))
+    stat.d0 <- median_iqr_func(dat.d0)
+    stat.m1 <- median_iqr_func(dat.m1)
+    
+    res <- data.frame(t(c(stat.d0, stat.m1,
+                          res$p.value)))
+    colnames(res) <- c("D0", "M1", "wilcox.p")
+    rownames(res) <- i
+    result <- rbind(result, res)
+  }
+  result$fdr <- p.adjust(result$wilcox.p, method="fdr")
+  result$median_fold_change <- log10(apply((profile.m1+1e-8)/(profile.d0+1e-8), 2, median))
+  result$median_delta <- apply((profile.m1-profile.d0), 2, median)
+  result$prev_d0 <- colSums(profile.d0>0)/nrow(profile.d0)
+  result$prev_m1 <- colSums(profile.m1>0)/nrow(profile.m1)
+  return(result)
+}
+
+## BioNTech
+result.bnt <- paired_wilcox_test(species.data.d0.bnt, species.data.m1.bnt)
+## Sinovac
+result.snv <- paired_wilcox_test(species.data.d0.snv, species.data.m1.snv)
+```
+
+# Drawing
+
+```{r}
+# Significantly differentially abundant species
+result.bnt.sig <- result.bnt[(result.bnt$fdr<0.05) & !is.na(result.bnt$fdr), ]
+result.snv.sig <- result.snv[(result.snv$fdr<0.05) & !is.na(result.snv$fdr), ]
+result.combined <- rbind(result.bnt.sig, result.snv.sig)
+result.combined$direction <- ifelse(result.combined$median_fold_change>0, "One month", "Baseline")
+
+# Fold change
+species.data.fc.bnt <- (species.data.m1.bnt+1e-8)/(species.data.d0.bnt+1e-8)
+species.data.fc.snv <- (species.data.m1.snv+1e-8)/(species.data.d0.snv+1e-8)
+species.data.fc.bnt.sig <- species.data.fc.bnt[, rownames(result.bnt.sig)]
+species.data.fc.snv.sig <- species.data.fc.snv[, rownames(result.snv.sig)]
+
+species.data.fc.bnt.sig.long <- reshape2::melt(species.data.fc.bnt.sig)
+species.data.fc.bnt.sig.long$vaccine <- "BNT162b2"
+
+species.data.fc.snv.sig.long <- reshape2::melt(species.data.fc.snv.sig)
+species.data.fc.snv.sig.long$vaccine <- "CoronaVac"
+
+species.data.fc.sig.long <- rbind(species.data.fc.bnt.sig.long, species.data.fc.snv.sig.long)
+species.data.fc.sig.long$variable <- as.character(species.data.fc.sig.long$variable)
+species.data.fc.sig.long$phylum <- species_map[species.data.fc.sig.long$variable, "phylum"]
+species.data.fc.sig.long$direction <- result.combined[species.data.fc.sig.long$variable, "direction"]
+species.data.fc.sig.long$variable <- gsub("_", " ", species.data.fc.sig.long$variable)
+species.data.fc.sig.long$vaccine <- factor(species.data.fc.sig.long$vaccine, c("CoronaVac", "BNT162b2"))
+
+
+ggplot(data = species.data.fc.sig.long, aes(x = variable, y = log10(value), fill=factor(direction))) +
+  geom_boxplot() +
+  scale_fill_manual(values=c("Baseline"="#009E73", "One month"="#cc79a7")) +
+  facet_grid(phylum ~ vaccine, scales = "free", space = "free") +
+  coord_flip()+ 
+  labs(fill="Direction of enrichment")+
+  theme_classic()+
+  theme(strip.text.y = element_text(angle = 0),
+        axis.title.y=element_blank())
+```
+
