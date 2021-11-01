@@ -1,0 +1,494 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Enviroment
+
+```{r}
+library(dplyr)
+library(ggplot2)
+warning = FALSE
+```
+
+# Get data
+
+```{r}
+source("R/get_data.R")
+```
+
+# Figure 3a
+## Generate motility data based on phenotype databases
+```{r}
+### Database construction ###
+## JGI data
+jgi.db <- read.table("databases/GOLD_Organism-Sep-22-2021.txt", sep="\t", header = T, na.strings = c(""))
+jgi.db <- jgi.db[!is.na(jgi.db$MOTILITY), ]
+jgi.db$motility_bin <- c(1,1,0)[match(jgi.db$MOTILITY, c('Motile', 'Chemotactic', 'Nonmotile'))]
+
+## IJSEM data
+ijsem.db <- read.table("databases/IJSEM_pheno_db_v1.0-modified.txt", sep="\t", header = T, na.strings = "")
+ijsem.db$NCBI_SPECIES <- paste(ijsem.db$Genus.name, ijsem.db$species.name, sep=" ")
+ijsem.db$NAME <- paste(ijsem.db$Genus.name, ijsem.db$species.name, ijsem.db$strain.name, sep=" ")
+ijsem.db$motility_bin <- c(1,1,1,1,0,NA)[match(ijsem.db$motility, c('__motile, but unspecified structure__', 'axial filament', 'flagella', 'gliding', 'non-motile', 'not indicated'))]
+ijsem.db <- ijsem.db[!is.na(ijsem.db$motility_bin), ]
+
+## merged
+merged.db <- rbind(jgi.db[, c("NAME", "NCBI_SPECIES", "motility_bin")],
+                   ijsem.db[!(ijsem.db$NAME %in% jgi.db$NAME), c("NAME", "NCBI_SPECIES", "motility_bin")])
+
+merged.db.species.motility <- 
+  merged.db %>%
+  group_by(NCBI_SPECIES) %>%
+  summarize(mean_motility = mean(motility_bin, na.rm = TRUE))
+
+merged.db.species.motility <- na.omit(merged.db.species.motility)
+merged.db.species.motility <- as.data.frame(merged.db.species.motility)
+merged.db.species.motility$species_renamed <- gsub(" ", "_", gsub("\\. ", "_", merged.db.species.motility$NCBI_SPECIES))
+merged.db.species.motility$species_renamed <- gsub("\\[", "", gsub("\\]", "", merged.db.species.motility$species_renamed))
+rownames(merged.db.species.motility) <- merged.db.species.motility$species_renamed
+
+## Baseline gut motility profile
+motility.baseline <- merged.db.species.motility[colnames(species.data.d0), "mean_motility"] # one value per species
+species.dat.baseline.motility <- t(species.data.d0)*motility.baseline # a table
+sample.baseline.motility <- colSums(species.dat.baseline.motility, na.rm = T) # one value per sample
+
+phenotype.data$sum_motility <- sample.baseline.motility[rownames(phenotype.data)]
+```
+
+## Testing and drawing
+### SinoVac
+#### Scatter plot
+```{r}
+result <- with(phenotype.data[phenotype.data$Vac_Group=="SinoVac", ], cor.test(M1_sVNT_10, sum_motility, method="spearman"))
+ggplot(phenotype.data[phenotype.data$Vac_Group=="SinoVac", ], aes(x=log10(sum_motility), y=M1_sVNT_10)) +
+  geom_point() + 
+  geom_smooth(method=lm) + theme_classic() + theme(aspect.ratio=1) +
+  ylab("sVNT-200 (%)") + xlab("Gut bacterial motility (log10 transformed)")+
+  annotate("text", x = c(-2.1, -2.1), y = c(25, 20), 
+           label = c(paste0("R = ", round(result$estimate, 3)), 
+                     paste0("P = ", round(result$p.value, 3))), 
+            colour = "black")
+# ggsave("SNV_sVNT_motility_scatterplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+### Boxplot
+```{r}
+result <- with(phenotype.data[phenotype.data$Vac_Group=="SinoVac", ], wilcox.test(sum_motility~M1_SNV_sVNT10_60perc))
+ggplot(phenotype.data[phenotype.data$Vac_Group=="SinoVac", ], aes(x=factor(M1_SNV_sVNT10_60perc), y=log10(sum_motility), fill=factor(M1_SNV_sVNT10_60perc))) +
+  geom_boxplot() + coord_flip() +
+  scale_fill_manual(values = c("0"="#E69F00", "1"="#0072B2"))+
+  theme_classic() + theme(legend.position = "none", aspect.ratio=1) + 
+  xlab("sVNT-200 (cutoff = Q1)") +
+  scale_x_discrete(breaks=c("0","1"),
+                   labels=c("Low", "High")) +
+  annotate("text", x = 0.5, y = -2, label = c(paste0("P = ", round(result$p.value, 3))),
+           colour = "black")+
+  ylab("Gut bacterial motility (log10 transformed)")
+# ggsave("SNV_sVNT_motility_boxplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+## BioNTech
+### Scatter plot
+```{r}
+result <- with(phenotype.data[phenotype.data$Vac_Group=="BioNTech", ], cor.test(M1_sVNT_200, sum_motility, method="spearman"))
+ggplot(phenotype.data[phenotype.data$Vac_Group=="BioNTech", ], aes(x=log10(sum_motility), y=M1_sVNT_200)) +
+  geom_point() + 
+  geom_smooth(method=lm) + theme_classic() + theme(aspect.ratio=1) +
+  ylab("sVNT-200 (%)") + xlab("Gut bacterial motility (log10 transformed)")+
+  annotate("text", x = c(-1.87, -1.87), y = c(0, -5), 
+           label = c(paste0("R = ", round(result$estimate, 3)), 
+                     paste0("P = ", round(result$p.value, 3))),
+         colour = "black")
+# ggsave("BNT_sVNT_motility_scatterplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+
+```{r}
+# boxplot
+result <- with(phenotype.data[phenotype.data$Vac_Group=="BioNTech", ], wilcox.test(sum_motility~M1_BNT_sVNT200_Q1))
+ggplot(phenotype.data[phenotype.data$Vac_Group=="BioNTech", ], aes(x=factor(M1_BNT_sVNT200_Q1), y=log10(sum_motility), 
+                                               fill=factor(M1_BNT_sVNT200_Q1))) +
+  geom_boxplot() + coord_flip() +
+  scale_fill_manual(values = c("0"="#E69F00", "1"="#0072B2"))+
+  theme_classic() + theme(legend.position = "none", aspect.ratio=1) + 
+  xlab("sVNT-200 (cutoff = Q1)") +
+  scale_x_discrete(breaks=c("0","1"),
+                   labels=c("Low", "High")) +
+  annotate("text", x = 0.5, y = -2, label = c(paste0("P = ", round(result$p.value, 3))),
+           colour = "black")+
+  ylab("Gut bacterial motility (log10 transformed)")
+# ggsave("BNT_sVNT_motility_boxplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+# Figure 3b
+## Data preparation
+```{r}
+phenotype.data.snv <- phenotype.data[subjects.snv, ]
+phenotype.data.bnt <- phenotype.data[subjects.bnt, ]
+
+## GO pilus
+# Escherichia coli K-12 substr. MG1655 Gene-Ontology-Terms Class: GO:0009289 - pilus / fimbriae
+go.dat <- read.table("data/humann3.uniref90_go.relab.joined_unstratified.272S.tsv", sep="\t", header=T, row.names = 1, check.names = F)
+colnames(go.dat) <- format_names(colnames(go.dat))
+go.dat.baseline <- go.dat[, grepl("-D0", colnames(go.dat))]
+colnames(go.dat.baseline) <- gsub("-D0", "", colnames(go.dat.baseline))
+go.dat.baseline <- data.frame(t(go.dat.baseline))
+
+go.dat.baseline.snv <- go.dat.baseline[rownames(phenotype.data.snv), ]
+go.dat.baseline.bnt <- go.dat.baseline[rownames(phenotype.data.bnt), ]
+```
+
+## SinoVac
+### Scatter plot
+```{r}
+phenotype.data.snv$GO.0009289 <- go.dat.baseline.snv[rownames(phenotype.data.snv), "GO.0009289"]
+
+result <- with(phenotype.data.snv, cor.test(GO.0009289, M1_sVNT_10, method="spearman"))
+ggplot(phenotype.data.snv, aes(x=log10(GO.0009289), y=M1_sVNT_10)) +
+  geom_point() + 
+  geom_smooth(method=lm) + theme_classic() + theme(aspect.ratio=1) +
+  ylab("sVNT-10 (%)") + xlab("Fimbriae (GO:0009289) abundance (log10 transformed)")+
+  annotate("text", x = c(-3.87, -3.87), y = c(0, -4), 
+           label = c(paste0("R = ", round(result$estimate, 3)), paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")
+# ggsave("SNV_sVNT_fimbriae_scatterplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+### Boxplot
+```{r}
+result <- with(phenotype.data.snv, wilcox.test(GO.0009289~M1_SNV_sVNT10_60perc))
+ggplot(phenotype.data.snv, aes(x=factor(M1_SNV_sVNT10_60perc), y=log10(GO.0009289), 
+                     fill=factor(M1_SNV_sVNT10_60perc))) +
+  geom_boxplot() + coord_flip() +
+  scale_fill_manual(values = c("0"="#E69F00", "1"="#0072B2"))+
+  theme_classic() + theme(legend.position = "none", aspect.ratio=1) + 
+  xlab("sVNT-10 (cutoff = Q1)") +
+  scale_x_discrete(breaks=c("0","1"),
+                   labels=c("Low", "High")) +
+  annotate("text", x = c(0.5), y = c(-4), 
+           label = c(paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")+
+  ylab("Fimbriae (GO:0009289) abundance (log10 transformed)")
+# ggsave("SNV_sVNT_fimbriae_boxplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+## BioNTech
+### Scatter plot
+```{r}
+phenotype.data.bnt$GO.0009289 <- go.dat.baseline.bnt[rownames(phenotype.data.bnt), "GO.0009289"]
+
+result <- with(phenotype.data.bnt, cor.test(GO.0009289, M1_sVNT_200, method="spearman"))
+ggplot(phenotype.data.bnt, aes(x=log10(GO.0009289), y=M1_sVNT_200)) +
+  geom_point() + 
+  geom_smooth(method=lm) + theme_classic() + theme(aspect.ratio=1) +
+  ylab("sVNT-200 (%)") + xlab("Fimbriae (GO:0009289) abundance (log10 transformed)")+
+  annotate("text", x = c(-3.87, -3.87), y = c(0, -5), 
+           label = c(paste0("R = ", round(result$estimate, 3)), paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")
+# ggsave("BNT_sVNT_fimbriae_scatterplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+### Boxplot
+```{r}
+result <- with(phenotype.data.bnt, wilcox.test(GO.0009289~M1_BNT_sVNT200_Q1))
+ggplot(phenotype.data.bnt, aes(x=factor(M1_BNT_sVNT200_Q1), y=log10(GO.0009289), 
+                     fill=factor(M1_BNT_sVNT200_Q1))) +
+  geom_boxplot() + coord_flip() +
+  scale_fill_manual(values = c("0"="#E69F00", "1"="#0072B2"))+
+  theme_classic() + theme(legend.position = "none", aspect.ratio=1) + 
+  xlab("sVNT-200 (cutoff = Q1)") +
+  scale_x_discrete(breaks=c("0","1"),
+                   labels=c("Low", "High")) +
+  annotate("text", x = c(0.5), y = c(-4), 
+           label = c(paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")+
+  ylab("Fimbriae (GO:0009289) abundance (log10 transformed)")
+# ggsave("BNT_sVNT_fimbriae_boxplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+# Figure 3c
+## SinoVac
+### Scatter plot
+```{r}
+# Gene-Ontology-Terms Class: GO:0071973 - bacterial-type flagellum-dependent cell motility
+phenotype.data.snv$GO.0071973 <- go.dat.baseline.snv[rownames(phenotype.data.snv), "GO.0071973"]
+
+result <- with(phenotype.data.snv, cor.test(GO.0071973, M1_sVNT_10, method="spearman")) 
+ggplot(phenotype.data.snv, aes(x=log10(GO.0071973), y=M1_sVNT_10)) +
+  geom_point() + 
+  geom_smooth(method=lm) + theme_classic() + theme(aspect.ratio=1) +
+  ylab("sVNT-10 (%)") + xlab("Bacterial-type flagellum-dependent cell motility (GO:0071973) abundance (log10 transformed)")+
+  annotate("text", x = c(-3.87, -3.87), y = c(0, -4), 
+           label = c(paste0("R = ", round(result$estimate, 3)), paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")
+# ggsave("SNV_sVNT_flagellum_dependent_cell_motility_scatterplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+## Boxplot
+```{r}
+result <- with(phenotype.data.snv, wilcox.test(GO.0071973~M1_SNV_sVNT10_60perc))
+ggplot(phenotype.data.snv, aes(x=factor(M1_SNV_sVNT10_60perc), y=log10(GO.0071973), 
+                     fill=factor(M1_SNV_sVNT10_60perc))) +
+  geom_boxplot() + coord_flip() +
+  scale_fill_manual(values = c("0"="#E69F00", "1"="#0072B2"))+
+  theme_classic() + theme(legend.position = "none", aspect.ratio=1) + 
+  xlab("sVNT-10 (cutoff = Q1)") +
+  scale_x_discrete(breaks=c("0","1"),
+                   labels=c("Low", "High")) +
+  annotate("text", x = c(0.5), y = c(-4), 
+           label = c(paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")+
+  ylab("Bacterial-type flagellum-dependent cell motility (GO:0071973) abundance (log10 transformed)")
+# ggsave("SNV_sVNT_flagellum_dependent_cell_motility_boxplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+
+```
+## BioNTech
+### Scatter plot
+```{r}
+phenotype.data.bnt$GO.0071973 <- go.dat.baseline.bnt[rownames(phenotype.data.bnt), "GO.0071973"]
+
+result <- with(phenotype.data.bnt, cor.test(GO.0071973, M1_sVNT_200, method="spearman"))
+ggplot(phenotype.data.bnt, aes(x=log10(GO.0071973), y=M1_sVNT_200)) +
+  geom_point() + 
+  geom_smooth(method=lm) + theme_classic() + theme(aspect.ratio=1) +
+  ylab("sVNT-200 (%)") + xlab("Bacterial-type flagellum-dependent cell motility (GO:0071973) abundance (log10 transformed)")+
+  annotate("text", x = c(-3.87, -3.87), y = c(0, -5), 
+           label = c(paste0("R = ", round(result$estimate, 3)), paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")
+# ggsave("BNT_sVNT_flagellum_dependent_cell_motility_scatterplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+```
+
+### Boxplot
+```{r}
+result <- with(phenotype.data.bnt, wilcox.test(GO.0071973~M1_BNT_sVNT200_Q1))
+ggplot(phenotype.data.bnt, aes(x=factor(M1_BNT_sVNT200_Q1), y=log10(GO.0071973), 
+                     fill=factor(M1_BNT_sVNT200_Q1))) +
+  geom_boxplot() + coord_flip() +
+  scale_fill_manual(values = c("0"="#E69F00", "1"="#0072B2"))+
+  theme_classic() + theme(legend.position = "none", aspect.ratio=1) + 
+  xlab("sVNT-200 (cutoff = Q1)") +
+  scale_x_discrete(breaks=c("0","1"),
+                   labels=c("Low", "High")) +
+  annotate("text", x = c(0.5), y = c(-4.5), 
+           label = c(paste0("P = ", round(result$p.value, 3))), 
+           colour = "black")+
+  ylab("Bacterial-type flagellum-dependent cell motility (GO:0071973) abundance (log10 transformed)")
+# ggsave("BNT_sVNT_flagellum_dependent_cell_motility_boxplot.pdf", width = 3.5, height = 3.5, useDingbats=FALSE)
+
+```
+
+# Extended Data Figure 4
+```{r}
+library(Hmisc)
+library(ComplexHeatmap)
+library(RColorBrewer)
+library(circlize)
+symbol <- function(x) {
+  if (x < 0.001) {
+    return("***")
+  }
+  if (x < 0.01) {
+    return("**")
+  }
+  if (x < 0.05) {
+    return("*")
+  }
+  return("")
+}
+```
+
+```{r}
+species.dat.baseline.motility.na_rm <- na.omit(species.dat.baseline.motility)
+species.dat.baseline.motility.na_rm <- species.dat.baseline.motility.na_rm[(rowSums(species.dat.baseline.motility.na_rm)>0),]
+
+species.dat.baseline.motility.na_rm.add_sum <- rbind(species.dat.baseline.motility.na_rm,
+                                                    sum_motility=colSums(species.dat.baseline.motility.na_rm))
+
+color = colorRampPalette(rev(brewer.pal(n = 5, name = "RdYlBu")), bias=0.3)(100)
+
+df1 <- log10(species.dat.baseline.motility.na_rm.add_sum+1e-9)
+df1 <- df1[, phenotype.data[colnames(df1), "Vac_Group"]=="BioNTech"]
+df1 <- df1[, order(t(df1["sum_motility",]))]
+
+# pdf("heatmap-motility_by_species.pdf", width = 13, height = 6)
+ht<-Heatmap(as.matrix(df1),
+            row_names_gp = gpar(fontsize = 6),
+            show_column_names = F,
+            cluster_columns = F,
+            cluster_rows = T,
+            width = unit(190, "mm"),
+            height = unit(130, "mm"),
+            col=color,
+            show_column_dend = F,
+            show_row_dend = T,
+            column_title = NULL,
+            cluster_column_slices = FALSE,
+            
+            border = T,
+            column_labels = colnames(df1),
+            
+            heatmap_legend_param = list(
+              title = "Relative abundance", at = c(0, -1, -3, -5, -7, -9),
+              labels = c("1", "1e-1", "1e-3", "1e-5", "1e-7", "0")
+            )
+)
+ht
+# dev.off()
+```
+# Extended Data Figure 5
+```{r}
+### GO.0071973
+## Flagellum
+# Gene-Ontology-Terms Class: GO:0071973 - bacterial-type flagellum-dependent cell motility
+
+flagellum_result <- c()
+for (i in colnames(species.data.d0.bnt.all)) {
+  res <- cor.test(species.data.d0.bnt.all[,i], go.dat.baseline.bnt$GO.0071973, method = "spearman")
+  result <- data.frame(rho=res$estimate, spearman.p=res$p.value)
+  rownames(result) <- i
+  flagellum_result <- rbind(flagellum_result, result)
+}
+# flagellum_result$spearman.fdr <- p.adjust(results2$spearman.p, method="fdr")
+
+flagellum_result.sig <- na.omit(flagellum_result[flagellum_result$spearman.p<0.05, ])
+
+species.data.d0.bnt.all.sig <- species.data.d0.bnt.all[, rownames(flagellum_result.sig)]
+df1 <- log10(t(species.data.d0.bnt.all.sig+1e-7))
+df1 <- df1[, order(go.dat.baseline.bnt$GO.0071973)]
+df2 <- go.dat.baseline.bnt$GO.0071973[order(go.dat.baseline.bnt$GO.0071973)]
+
+color = colorRampPalette(rev(brewer.pal(n = 5, name = "RdYlBu")), bias=0.3)(100)
+col_fun = colorRamp2(seq(from = -5.2, to = -2.9, length.out = 100), color)
+ta <- HeatmapAnnotation(
+  Flagellum_abundance = log10(df2),
+  col = list(Flagellum_abundance=col_fun),
+  annotation_name_gp= gpar(fontsize = 8),
+  simple_anno_size = unit(0.3, "cm"),
+  annotation_legend_param = list(
+    title = "Flagellum abundance", at = c(-5, -4, -3),
+    labels = c("1e-5", "1e-4", "1e-3")
+  )
+)
+
+# pdf("heatmap-flagellum_dependent_motility_related_species-Oct-19-2021.pdf", width = 13, height = 6)
+ht<-Heatmap(as.matrix(df1),
+            row_names_gp = gpar(fontsize = 6),
+            show_column_names = F,
+            cluster_columns = F,
+            cluster_rows = T,
+            width = unit(190, "mm"),
+            height = unit(130, "mm"),
+            col=color,
+            show_column_dend = F,
+            show_row_dend = T,
+            column_title = NULL,
+            cluster_column_slices = FALSE,
+            
+            border = T,
+            column_labels = colnames(df1),
+            
+            heatmap_legend_param = list(
+              title = "Relative abundance", at = c(0, -1, -3, -5, -7),
+              labels = c("1", "1e-1", "1e-3", "1e-5", "0")
+            ),
+            top_annotation = c(ta)
+)
+
+df3 <- matrix(flagellum_result.sig[, "rho"])
+# df4 <- flagellum_result.sig
+df4 <- as.matrix(sapply(flagellum_result.sig$spearman.p, symbol))
+
+color2 = colorRampPalette(rev(brewer.pal(n = 5, name = "RdYlBu")), bias=1.4)(100)
+ht2 <- Heatmap(df3, col=color2, width = unit(3, "mm"),
+               cell_fun = function(j, i, x, y, width, height, fill) {
+                 grid.text(df4[i, j], x, y, gp = gpar(fontsize = 6))
+               },
+               heatmap_legend_param = list(
+                 title = "Spearman's rho"
+               )
+              )
+ht2 + ht
+
+# dev.off()
+```
+
+
+# Extended Data Figure 5
+```{r}
+### GO.0009289
+## GO pilus
+# Escherichia coli K-12 substr. MG1655 Gene-Ontology-Terms Class: GO:0009289 - pilus / fimbriae
+fimbriae_result <- c()
+for (i in colnames(species.data.d0.bnt.all)) {
+  # print(i)
+  res <- cor.test(species.data.d0.bnt.all[,i], go.dat.baseline.bnt$GO.0009289, method = "spearman")
+  result <- data.frame(rho=res$estimate, spearman.p=res$p.value)
+  rownames(result) <- i
+  fimbriae_result <- rbind(fimbriae_result, result)
+}
+fimbriae_result$spearman.fdr <- p.adjust(fimbriae_result$spearman.p, method="fdr")
+
+fimbriae_result.sig <- na.omit(fimbriae_result[fimbriae_result$spearman.p<0.05, ])
+
+
+species.data.d0.bnt.all.sig <- species.data.d0.bnt.all[, rownames(fimbriae_result.sig)]
+df1 <- t(log10(species.data.d0.bnt.all.sig+1e-7))
+df1 <- df1[, order(go.dat.baseline.bnt$GO.0009289)]
+
+df2 <- go.dat.baseline.bnt$GO.0009289[order(go.dat.baseline.bnt$GO.0009289)]
+
+color = colorRampPalette(rev(brewer.pal(n = 5, name = "RdYlBu")), bias=0.3)(100)
+col_fun = colorRamp2(seq(from = -6.4, to = -3.1, length.out = 100), color)
+
+ta <- HeatmapAnnotation(
+  Fimbriae_abundance = log10(df2),
+  col = list(Fimbriae_abundance=col_fun),
+  annotation_name_gp= gpar(fontsize = 8),
+  simple_anno_size = unit(0.3, "cm"),
+  annotation_legend_param = list(
+    title = "Fimbriae abundance", at = c(-5, -4, -3),
+    labels = c("1e-5", "1e-4", "1e-3")
+  )
+)
+
+
+# pdf("heatmap-fimbriae_related_species-Oct-19-2021.pdf", width = 13, height = 6)
+ht<-Heatmap(as.matrix(df1),
+            row_names_gp = gpar(fontsize = 6),
+            show_column_names = F,
+            cluster_columns = F,
+            cluster_rows = T,
+            width = unit(190, "mm"),
+            height = unit(130, "mm"),
+            col=color,
+            show_column_dend = F,
+            show_row_dend = T,
+            column_title = NULL,
+            cluster_column_slices = FALSE,
+            
+            border = T,
+            column_labels = colnames(df1),
+            
+            heatmap_legend_param = list(
+              title = "Relative abundance", at = c(0, -1, -3, -5, -7),
+              labels = c("1", "1e-1", "1e-3", "1e-5", "0")
+            ),
+            
+            top_annotation = c(ta)
+)
+
+df3 <- matrix(fimbriae_result.sig[, "rho"])
+df4 <- as.matrix(sapply(fimbriae_result.sig$spearman.p, symbol))
+
+color2 = colorRampPalette(rev(brewer.pal(n = 5, name = "RdYlBu")), bias=1.4)(100)
+ht2 <- Heatmap(df3, col=color2, width = unit(3, "mm"),
+        cell_fun = function(j, i, x, y, width, height, fill) {
+          grid.text(df4[i, j], x, y, gp = gpar(fontsize = 6))
+        },
+        heatmap_legend_param = list(
+          title = "Spearman's rho"
+        )
+      )
+ht2 + ht
+
+# dev.off()
+```

@@ -1,0 +1,37 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Enviroment
+
+```{r}
+library(ggplot2)
+warning = FALSE
+```
+
+# Get data
+
+```{r}
+source("R/get_data.R")
+```
+
+# Testing
+```{r}
+phenotype.data$diff_M1D0_observed <- (phenotype.data$M1_observed-phenotype.data$D0_observed)/(phenotype.data$D0_observed*phenotype.data$Time_diff)
+
+with(phenotype.data[phenotype.data$Vac_Group=="BioNTech", ], wilcox.test(diff_M1D0_observed~Dose1_AE, method="spearman")) 
+# p-value = 0.01095
+```
+
+# Drawing
+
+```{r}
+with(phenotype.data[phenotype.data$Vac_Group=="BioNTech", ], 
+     boxplot(diff_M1D0_observed~Dose1_AE, 
+             main="Normalized proportion change in observed species \n within the BNT162b2 group", 
+             ylab = "", 
+             xlab = "Any adverse events after 1st dose", 
+             names=c("No", "Yes"), col=c("#E69F00", "#0072B2")))
+```
+

@@ -1,0 +1,232 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Enviroment
+```{r}
+library(ggplot2)
+warning = FALSE
+```
+
+# Get data
+```{r}
+source("R/get_data.R")
+```
+
+# Testing and modeling
+```{r}
+phenotype.data.snv <- phenotype.data[phenotype.data$Vac_Group=="SinoVac", ]
+phenotype.data.snv$OWOB <- factor(phenotype.data.snv$OWOB, levels=c("0", "1"))
+
+temp.pheno <- phenotype.data.snv
+temp.profile <- species.data.d0.snv.all[rownames(temp.pheno), ]
+# dir.create("06.modification_BMI_SinoVac/modification_results")
+for (i in 1:nrow(species.lefse.result.snv)) {
+  species <- species.lefse.result.snv$species[i]
+  group <- species.lefse.result.snv$group[i]
+  print(species)
+
+  # prepare data
+  temp.pheno[, species] = temp.profile[rownames(temp.pheno), species]
+  species_high = paste0(species, "-high")
+  temp.pheno[, species_high] = 1*(temp.pheno[, species]>median(temp.pheno[, species]))
+  
+  owob_species = paste0("OWOB_", species)
+  temp.pheno[, owob_species] = paste(ifelse(temp.pheno[, "OWOB"]==1, "OWOB", "NW"),
+                             ifelse(temp.pheno[, species_high]==1, paste0("high_", species), paste0("low_", species)),
+                             sep="-")
+  
+  
+  if (group=="1") { # higher is better
+    temp.pheno[, species_high] <- factor(temp.pheno[, species_high],
+                                         levels = c("1", "0"))
+    temp.pheno[, owob_species] <- factor(temp.pheno[, owob_species],
+                                         levels = c(paste0("NW-", "high_", species),
+                                                    paste0("NW-", "low_", species),
+                                                    paste0("OWOB-", "high_", species),
+                                                    paste0("OWOB-", "low_", species)))
+  } else { # lower is better
+    temp.pheno[, species_high] <- factor(temp.pheno[, species_high],
+                                         levels = c("0", "1"))
+    temp.pheno[, owob_species] <- factor(temp.pheno[, owob_species],
+                                         levels = c(paste0("NW-", "low_", species),
+                                                    paste0("NW-", "high_", species),
+                                                    paste0("OWOB-", "low_", species),
+                                                    paste0("OWOB-", "high_", species)))
+  }
+  
+  filename = paste0("tables/", species, ".txt")
+  write(species, filename, append = T, sep = "\t")
+  write("\n# Sample size of each group", filename, append = T, sep = "\t")
+  write.table(data.frame(table(temp.pheno[, owob_species])), filename, append = T, sep = "\t", quote = F, col.names = NA)
+  
+  ### bacterium alone vs outcome ###
+  ## Crude
+  mod <- glm(temp.pheno[, "M1_SNV_sVNT10_60perc"]~temp.pheno[, species_high],
+             family = binomial)
+  res = cbind(OR=round(exp(coef(mod)),2), 
+              round(exp(confint.default(mod)),2),
+              p=round(summary(mod)$coefficients[,"Pr(>|z|)"], 3))
+  res
+  write("\n# High vs. low, crude", filename, append = T, sep = "\t")
+  write.table(data.frame(res), filename, append = T, sep = "\t", quote = F, col.names = NA)
+  
+  ## Adjusted for age
+  mod <- glm(temp.pheno[, "M1_SNV_sVNT10_60perc"]~temp.pheno[, species_high]+temp.pheno[, "Age"],
+             family = binomial)
+  res = cbind(OR=round(exp(coef(mod)),2), 
+              round(exp(confint.default(mod)),2),
+              p=round(summary(mod)$coefficients[,"Pr(>|z|)"], 3))
+  res
+  write("\n# High vs. low, adjusted for age", filename, append = T, sep = "\t")
+  write.table(data.frame(res), filename, append = T, sep = "\t", quote = F, col.names = NA)
+  
+  ### four-group vs. outcome ###
+  ## Crude
+  mod <- glm(temp.pheno[, "M1_SNV_sVNT10_60perc"]~temp.pheno[, owob_species],
+             family = binomial)
+  res = cbind(OR=round(exp(coef(mod)),2), 
+              round(exp(confint.default(mod)),2),
+              p=round(summary(mod)$coefficients[,"Pr(>|z|)"], 3))
+  res
+  write("\n# Four-group, Crude", filename, append = T, sep = "\t")
+  write.table(data.frame(res), filename, append = T, sep = "\t", quote = F, col.names = NA)
+  
+  ## Adjusted for age
+  mod <- glm(temp.pheno[, "M1_SNV_sVNT10_60perc"]~temp.pheno[, owob_species]+temp.pheno[, "Age"],
+             family = binomial)
+  res = cbind(OR=round(exp(coef(mod)),2), 
+              round(exp(confint.default(mod)),2),
+              p=round(summary(mod)$coefficients[,"Pr(>|z|)"], 3))
+  res
+  write("\n# Four-group, adjusted for age", filename, append = T, sep = "\t")
+  write.table(data.frame(res), filename, append = T, sep = "\t", quote = F, col.names = NA)
+}
+```
+```{r}
+## Sample sizes
+table(temp.pheno$OWOB_Bifidobacterium_adolescentis)
+# NW-high_Bifidobacterium_adolescentis    NW-low_Bifidobacterium_adolescentis 
+# 11                                     11 
+# OWOB-high_Bifidobacterium_adolescentis  OWOB-low_Bifidobacterium_adolescentis 
+# 7                                      8 
+table(temp.pheno$OWOB_Adlercreutzia_equolifaciens)
+# NW-high_Adlercreutzia_equolifaciens    NW-low_Adlercreutzia_equolifaciens 
+# 13                                     9 
+# OWOB-high_Adlercreutzia_equolifaciens  OWOB-low_Adlercreutzia_equolifaciens 
+# 5                                    10 
+table(temp.pheno$OWOB_Asaccharobacter_celatus)
+# NW-high_Asaccharobacter_celatus    NW-low_Asaccharobacter_celatus 
+# 12                                10 
+# OWOB-high_Asaccharobacter_celatus  OWOB-low_Asaccharobacter_celatus 
+# 6                                 9
+table(temp.pheno$OWOB_Butyricimonas_virosa)
+# NW-high_Butyricimonas_virosa    NW-low_Butyricimonas_virosa 
+# 13                              9 
+# OWOB-high_Butyricimonas_virosa  OWOB-low_Butyricimonas_virosa 
+# 5                             10
+```
+
+```{r}
+dunn.test::dunn.test(temp.pheno$M1_sVNT_10, temp.pheno$OWOB_Butyricimonas_virosa, method = "BH", altp = F)
+# Col Mean-|
+#   Row Mean |   NW-high_   NW-low_B   OWOB-hig
+# ---------+---------------------------------
+#   NW-low_B |   1.167217
+# |     0.2431
+# |
+#   OWOB-hig |   1.601620   0.603631
+# |     0.1639     0.3277
+# |
+#   OWOB-low |   1.915911   0.652353  -0.067467
+# |     0.1661     0.3856     0.4731
+
+dunn.test::dunn.test(temp.pheno$M1_sVNT_10, temp.pheno$OWOB_Adlercreutzia_equolifaciens, method = "BH", altp = F)
+# Col Mean-|
+#   Row Mean |   NW-high_   NW-low_A   OWOB-hig
+# ---------+---------------------------------
+#   NW-low_A |   2.168729
+# |     0.0452
+# |
+#   OWOB-hig |   1.904119   0.110420
+# |     0.0569     0.5472
+# |
+#   OWOB-low |   2.360254   0.113938  -0.016866
+# |     0.0548     0.6820     0.4933
+
+dunn.test::dunn.test(temp.pheno$M1_sVNT_10, temp.pheno$OWOB_Asaccharobacter_celatus, method = "BH", altp = F)
+# Row Mean |   NW-high_   NW-low_A   OWOB-hig
+# ---------+---------------------------------
+#   NW-low_A |   2.247532
+# |     0.0369
+# |
+#   OWOB-hig |   2.017056   0.089450
+# |     0.0437     0.4644
+# |
+#   OWOB-low |   2.438437   0.245749   0.126596
+# |     0.0443     0.6044     0.5396
+dunn.test::dunn.test(temp.pheno$M1_sVNT_10, temp.pheno$OWOB_Bifidobacterium_adolescentis, method = "BH", altp = F)
+# Row Mean |   NW-high_   NW-low_B   OWOB-hig
+# ---------+---------------------------------
+#   NW-low_B |   2.225692
+# |     0.0391
+# |
+#   OWOB-hig |   2.449252   0.486376
+# |     0.0429     0.4700
+# |
+#   OWOB-low |   2.150882   0.108447  -0.357006
+# |     0.0315     0.4568     0.4327
+
+```
+
+## Boxplots
+```{r}
+for (species in c("Bifidobacterium_adolescentis", "Adlercreutzia_equolifaciens", "Asaccharobacter_celatus", "Butyricimonas_virosa")) {
+    # pdf(paste0("figures/OWOB_", species, ".pdf"), width = 4.5, height = 3.5)
+    boxplot(temp.pheno$M1_sVNT_10~temp.pheno[, paste0("OWOB_", species)],
+        names = c("NW-high", "NW-low", "OWOB-high", "OWOB-low"),
+        xlab = species,
+        ylim = c(0, 100),
+        ylab="sVNT-10 (%)", col=c("#E69F00",
+                                  "#059E74",
+                                  "#0773B3",
+                                  "#CC79A7"), cex.axis=0.6)
+    # dev.off()
+}
+```
+
+## Forest plots
+```{r}
+model_res <- read.table("tables/Modeling_results_Sinovac_sVNT_four_species_biomarkers.txt", header = T, sep="\t")
+model_res$color <- sapply(model_res$upper, function(x){if(x<1){return("Orange")}else{return("grey28")}})
+model_res$category2 <- gsub(" .*", "", model_res$category)
+
+for (species in unique(model_res$species)) {
+  model_res.temp <- model_res[model_res$species == species, ]
+  model_res.temp$category2 <- factor(model_res.temp$category2, 
+                                     levels = c("OWOB-Low",
+                                                "OWOB-High",
+                                                "NW-Low"))
+
+  p <- ggplot(model_res.temp, aes(y = category2, x = OR, xmin = lower, xmax = upper, color=color)) +
+    geom_errorbarh(height = .3, size=.9, color = "gray50") +
+    geom_point(size = 4.5) +
+    scale_color_manual(values=c("grey", "orange"))+
+    facet_grid(cols = vars(model), scales = "free_x",
+               switch = "y",
+               labeller = label_wrap_gen(width = 21, multi_line = TRUE)) +
+    theme_bw() +
+    theme(strip.text.y = element_text(angle = 180),
+          panel.grid.minor = element_blank(),
+          legend.position = "none") +
+    ylab(species) +
+    xlab("OR")
+  print(p)
+  # ggsave(paste0("forestplot-sVNT10_60perc_OR-OWOB_", species, ".pdf"), width = 4.5, height = 2.5, useDingbats=FALSE)
+}
+
+```
+
+
+

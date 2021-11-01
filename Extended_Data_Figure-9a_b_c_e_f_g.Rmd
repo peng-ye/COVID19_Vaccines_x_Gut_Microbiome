@@ -1,0 +1,239 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Enviroment
+
+```{r}
+library(ade4)
+library(cluster)
+library(clusterSim)
+library(vegan)
+library(ggplot2)
+
+# https://enterotype.embl.de/enterotypes.html
+dist.JSD <- function(inMatrix, pseudocount=0.000001, ...) {
+  KLD <- function(x,y) sum(x *log(x/y))
+  JSD<- function(x,y) sqrt(0.5 * KLD(x, (x+y)/2) + 0.5 * KLD(y, (x+y)/2))
+  matrixColSize <- length(colnames(inMatrix))
+  matrixRowSize <- length(rownames(inMatrix))
+  colnames <- colnames(inMatrix)
+  resultsMatrix <- matrix(0, matrixColSize, matrixColSize)
+  
+  inMatrix = apply(inMatrix,1:2,function(x) ifelse (x==0,pseudocount,x))
+  
+  for(i in 1:matrixColSize) {
+    for(j in 1:matrixColSize) { 
+      resultsMatrix[i,j]=JSD(as.vector(inMatrix[,i]),
+                             as.vector(inMatrix[,j]))
+    }
+  }
+  colnames -> colnames(resultsMatrix) -> rownames(resultsMatrix)
+  as.dist(resultsMatrix)->resultsMatrix
+  attr(resultsMatrix, "method") <- "dist"
+  return(resultsMatrix) 
+}
+
+pam.clustering=function(x,k) { # x is a distance matrix and k the number of clusters
+  require(cluster)
+  cluster = as.vector(pam(as.dist(x), k, diss=TRUE)$clustering)
+  return(cluster)
+}
+
+warning = FALSE
+```
+
+# Get data
+
+```{r}
+source("R/get_data.R")
+```
+
+# PAM clustering
+## SinoVac
+```{r}
+# calculate distance matrix
+data.dist.snv=dist.JSD(t(species.data.d0.snv.all))
+
+# select an optimal number of clusters
+nclusters=NULL
+silhouette=NULL
+for (k in 1:20) { 
+  if (k==1) {
+    nclusters[k]=NA
+    silhouette[k]=NA
+  } else {
+    data.cluster_temp=pam.clustering(data.dist.snv, k)
+    nclusters[k]=index.G1(species.data.d0.snv.all,data.cluster_temp,  d = data.dist.snv,
+                          centrotypes = "medoids")
+    silhouette[k]=mean(silhouette(data.cluster_temp, data.dist.snv)[,3])
+  }
+}
+```
+
+### Extended Data Figure 9a: CH index
+```{r}
+ch.df <- data.frame(n_cluster=c(1:length(nclusters)),
+                    ch_index=nclusters)
+
+ggplot(data=ch.df, aes(x=n_cluster, y=ch_index)) +
+  geom_line(linetype="dashed", color="gray", size=.8)+
+  geom_point(color=c("gray", "orange", rep("gray", 18)), size=2) +
+  scale_x_continuous(breaks=seq(2, 20, 3)) +
+  xlab("Number of clusters") + ylab("Calinski-Harabasz index ") +
+  theme_bw()
+```
+
+### Extended Data Figure 9b: silhouette width
+```{r}
+sw.df <- data.frame(n_cluster=c(1:length(silhouette)),
+                    avg_sw=silhouette)
+
+ggplot(data=sw.df, aes(x=n_cluster, y=avg_sw)) +
+  geom_line(linetype="dashed", color="gray", size=.8)+
+  geom_point(color=c("gray","orange", rep("gray", 18)), size=2) +
+  scale_x_continuous(breaks=seq(2, 20, 3)) +
+  xlab("Number of clusters") + ylab("Average silhouette width") +
+  theme_bw()
+
+```
+
+### Sample size
+```{r}
+data.cluster=pam.clustering(data.dist.snv, k=2)
+data.cluster = ifelse(data.cluster==1, 2, 1) # rename the clusters for easier interpretation (consistent trends with that of BioNTech vaccinees)
+table(data.cluster)
+
+temp = cbind(rownames(species.data.d0.snv.all), data.cluster)
+rownames(temp) <- temp[,1]
+phenotype.data[temp[, 1], "SNV_jsd_cluster2"] <- temp[, 2]
+```
+
+## BioNTech
+
+```{r}
+# calculate distance matrix
+data.dist.bnt=dist.JSD(t(species.data.d0.bnt.all))
+
+# select an optimal number of clusters
+nclusters=NULL
+silhouette=NULL
+
+for (k in 1:20) { 
+  if (k==1) {
+    nclusters[k]=NA
+    silhouette[k]=NA
+  } else {
+    data.cluster_temp=pam.clustering(data.dist.bnt, k)
+    nclusters[k]=index.G1(species.data.d0.bnt.all, data.cluster_temp,  d = data.dist.bnt,
+                          centrotypes = "medoids")
+    silhouette[k]=mean(silhouette(data.cluster_temp, data.dist.bnt)[,3])
+  }
+}
+```
+
+### Extended Data Figure 9e: CH index
+```{r}
+ch.df <- data.frame(n_cluster=c(1:length(nclusters)),
+                    ch_index=nclusters)
+
+ggplot(data=ch.df, aes(x=n_cluster, y=ch_index)) +
+  geom_line(linetype="dashed", color="gray", size=.8)+
+  geom_point(color=c("gray", "orange", rep("gray", 18)), size=2) +
+  scale_x_continuous(breaks=seq(2, 20, 3)) +
+  xlab("Number of clusters") + ylab("Calinski-Harabasz index ") +
+  theme_bw()
+```
+
+### Extended Data Figure 9f: silhouette width
+```{r}
+sw.df <- data.frame(n_cluster=c(1:length(silhouette)),
+                    avg_sw=silhouette)
+
+ggplot(data=sw.df, aes(x=n_cluster, y=avg_sw)) +
+  geom_line(linetype="dashed", color="gray", size=.8)+
+  geom_point(color=c("gray","orange", rep("gray", 18)), size=2) +
+  scale_x_continuous(breaks=seq(2, 20, 3)) +
+  xlab("Number of clusters") + ylab("Average silhouette width") +
+  theme_bw()
+```
+
+### Sample size
+```{r}
+data.cluster=pam.clustering(data.dist.bnt, k=2)
+table(data.cluster)
+
+temp = cbind(colnames(species.data.d0.bnt.all), data.cluster)
+phenotype.data[temp[, 1], "BNT_jsd_cluster2"] <- temp[, 2]
+```
+
+## Extended Data Figure 9c: NMDS for SinoVac samples
+```{r}
+set.seed(1); bac.mds <- metaMDS(data.dist.snv)
+bac.sample.scores <- as.data.frame(scores(bac.mds))  #Using the scores function from vegan to extract the site scores and convert to a data.frame
+bac.sample.scores$site <- rownames(bac.sample.scores)  # create a column of site names, from the rownames of data.scores
+bac.sample.scores$cluster <- phenotype.data[bac.sample.scores$site, "SNV_jsd_cluster2"]  #  add the group variable created earlier
+
+group.1 <- bac.sample.scores[bac.sample.scores$cluster == "1", ][chull(bac.sample.scores[bac.sample.scores$cluster == "1", c("NMDS1", "NMDS2")]), ]  # hull values for group 1
+group.2 <- bac.sample.scores[bac.sample.scores$cluster == "2", ][chull(bac.sample.scores[bac.sample.scores$cluster == "2", c("NMDS1", "NMDS2")]), ]  # hull values for group 2
+
+hull.data <- rbind(group.1, group.2)  #combine group.1 and group.2
+
+ggplot() + 
+  geom_polygon(data=hull.data,aes(x=NMDS1,y=NMDS2,
+                                  fill=as.factor(cluster),
+                                  group=cluster),alpha=0.20,show.legend=FALSE) + # add the convex hulls
+  scale_fill_manual(values=c("2" = "#009E73", "1" = "#E69F00")) +
+  
+  geom_point(data=bac.sample.scores,aes(x=NMDS1,y=NMDS2,
+                                        colour=as.factor(cluster)),
+             size=1, alpha=0.7
+  ) + # add the point markers
+  scale_colour_manual(values=c("2" = "#009E73", "1" = "#E69F00")) +
+  coord_equal() +
+  theme_bw() + 
+  theme(
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),  #remove major-grid labels
+    panel.grid.minor = element_blank(),  #remove minor-grid labels
+    plot.background = element_blank(),
+    aspect.ratio=1) +
+  labs(colour="Cluster")
+```
+
+## Extended Data Figure 9g: NMDS for BioNTech samples
+```{r}
+set.seed(1); bac.mds <- metaMDS(data.dist.bnt)
+bac.sample.scores <- as.data.frame(scores(bac.mds))  #Using the scores function from vegan to extract the site scores and convert to a data.frame
+bac.sample.scores$site <- rownames(bac.sample.scores)  # create a column of site names, from the rownames of data.scores
+bac.sample.scores$cluster <- phenotype.data[bac.sample.scores$site, "BNT_jsd_cluster2"]  #  add the group variable created earlier
+
+group.1 <- bac.sample.scores[bac.sample.scores$cluster == "1", ][chull(bac.sample.scores[bac.sample.scores$cluster == "1", c("NMDS1", "NMDS2")]), ]  # hull values for group 1
+group.2 <- bac.sample.scores[bac.sample.scores$cluster == "2", ][chull(bac.sample.scores[bac.sample.scores$cluster == "2", c("NMDS1", "NMDS2")]), ]  # hull values for group 2
+
+hull.data <- rbind(group.1, group.2)  #combine group.1 and group.2
+
+ggplot() + 
+  geom_polygon(data=hull.data,aes(x=NMDS1,y=NMDS2,
+                                  fill=cluster,
+                                  group=cluster),alpha=0.20,show.legend=FALSE) + # add the convex hulls
+  scale_fill_manual(values=c("1" = "#009E73", "2" = "#E69F00")) +
+  
+  geom_point(data=bac.sample.scores,aes(x=NMDS1,y=NMDS2,
+                                        colour=as.factor(cluster)),
+             size=1, alpha=0.7
+  ) + # add the point markers
+  scale_colour_manual(values=c("1" = "#009E73", "2" = "#E69F00"#, "3"="#56B4E9"  "1" = "#E69F00","2" = "#009E73"
+  )) +
+  coord_equal() +
+  theme_bw() + 
+  theme(
+    panel.background = element_blank(), 
+    panel.grid.major = element_blank(),  #remove major-grid labels
+    panel.grid.minor = element_blank(),  #remove minor-grid labels
+    plot.background = element_blank(),
+    aspect.ratio=1) +
+  labs(colour="Cluster")
+```
+
