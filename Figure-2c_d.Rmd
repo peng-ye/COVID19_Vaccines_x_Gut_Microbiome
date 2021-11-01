@@ -1,0 +1,62 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Enviroment
+
+```{r}
+library(ggplot2)
+warning = FALSE
+```
+
+# Get data
+
+```{r}
+data <- read.table("tables/species_markers_binary_sVNT_AUC.txt", sep="\t", header = T, check.names = F)
+data$L <- as.numeric(sapply(data$`95CI`, function(x){unlist(strsplit(x, "-"))[1]}))
+data$U <- as.numeric(sapply(data$`95CI`, function(x){unlist(strsplit(x, "-"))[2]}))
+```
+
+# Drawing
+
+## SinoVac
+```{r}
+data.snv <- data[data$vaccine=="SinoVAC+sVNT",]
+data.snv$color <- sapply(data.snv$AUC, function(x){if(x>0.7){return("Orange")}else{return("grey28")}})
+data.snv$species <- factor(data.snv$species, levels=data.snv[order(data.snv$AUC), "species"])
+
+p <- ggplot(data.snv, aes(y = species, x = AUC, xmin = L, xmax = U, color=color)) +
+  geom_errorbarh(height = .3, size=.9, color = "gray50") +
+  geom_point(size = 4.5) +
+  scale_color_manual(values=c("grey", "orange"))+
+  theme_bw() +
+  theme(strip.text.y = element_text(angle = 180),
+        panel.grid.minor = element_blank(),
+        legend.position = "none") +
+  ylab("") +
+  xlab("AUC")
+p
+# ggsave("forestplot-SNV_sVNT10_60perc_AUC.pdf", width = 4, height = 4.5, useDingbats=FALSE)
+```
+
+## BioNTech
+```{r}
+data.bnt <- data[data$vaccine=="BioNTech+sVNT ",]
+data.bnt$color <- sapply(data.bnt$AUC, function(x){if(x>0.7){return("Orange")}else{return("grey28")}})
+data.bnt$species <- factor(data.bnt$species, levels=data.bnt[order(data.bnt$AUC), "species"])
+
+p <- ggplot(data.bnt, aes(y = species, x = AUC, xmin = L, xmax = U, color=color)) +
+  geom_errorbarh(height = .3, size=.9, color = "gray50") +
+  geom_point(size = 4.5) +
+  scale_color_manual(values=c("grey", "orange"))+
+  theme_bw() +
+  theme(strip.text.y = element_text(angle = 180),
+        panel.grid.minor = element_blank(),
+        legend.position = "none") +
+  ylab("") +
+  xlab("AUC")
+p
+# ggsave("forestplot-BNT_sVNT200_Q1_AUC.pdf", width = 4, height = 4.5, useDingbats=FALSE)
+```
+

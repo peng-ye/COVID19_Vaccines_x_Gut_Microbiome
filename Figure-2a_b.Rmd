@@ -1,0 +1,240 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Enviroment
+
+```{r}
+library(ggplot2)
+library(circlize)
+warning = FALSE
+```
+
+# Get data
+
+```{r}
+source("R/get_data.R")
+```
+
+# Pairwise correlation using HALLA
+https://github.com/biobakery/halla
+```{r}
+# species data
+profile.species.lefse.result.snv <- species.data.d0.snv.all[, species.lefse.result.snv[, 1]]
+profile.species.lefse.result.bnt <- species.data.d0.bnt.all[, species.lefse.result.bnt[, 1]]
+# pathway data
+profile.pathway.lefse.result.snv <- pathway.data.d0.snv.all[, pathway.lefse.result.snv[, 1]]
+profile.pathway.lefse.result.bnt <- pathway.data.d0.bnt.all[, pathway.lefse.result.bnt[, 1]]
+
+# Write tables
+write.table(profile.species.lefse.result.snv, "data/species.baseline.data.snv.lefse_species.txt", sep="\t", col.names = NA, quote = F)
+write.table(profile.species.lefse.result.bnt, "data/species.baseline.data.bnt.lefse_species.txt", sep="\t", col.names = NA, quote = F)
+write.table(profile.pathway.lefse.result.snv, "data/pathway.baseline.data.snv.lefse_pathway.txt", sep="\t", col.names = NA, quote = F)
+write.table(profile.pathway.lefse.result.bnt, "data/pathway.baseline.data.bnt.lefse_pathway.txt", sep="\t", col.names = NA, quote = F)
+# manually add "#" to the head of the first line in each file.
+
+# Execute HALLA analysis
+system("halla -x data/species.baseline.data.bnt.lefse_species.txt -y data/pathway.baseline.data.bnt.lefse_pathway.txt -m spearman -o bnt_species_pathways.halla 1>bnt_species_pathways.out 2>bnt_species_pathways.err")
+system("halla -x data/species.baseline.data.snv.lefse_species.txt -y data/pathway.baseline.data.snv.lefse_pathway.txt -m spearman -o snv_species_pathways.halla 1>snv_species_pathways.out 2>snv_species_pathways.err")
+system("mv *_species_pathways.halla tables")
+```
+
+# Drawing
+
+## SinoVac
+```{r}
+#### SinoVac ####
+rownames(species.lefse.result.snv) <- species.lefse.result.snv[, 1]
+species.lefse.result.snv$LDA_score[species.lefse.result.snv$group==0] = species.lefse.result.snv$LDA_score[species.lefse.result.snv$group==0]*-1
+
+rownames(pathway_map) <- pathway_map$pathway_rename
+rownames(pathway.lefse.result.snv) <- pathway_map[pathway.lefse.result.snv$pathway_rename, "pathway_shortname"]
+
+snv_species_abun_lda <- 
+  data.frame(
+    sector = "species",
+    sVNT_high = log10(1e-8+apply(profile.species.lefse.result.snv[phenotype.data[subjects.snv, "M1_BNT_sVNT200_Q1"]==1, ], 2, median)),
+    sVNT_low = log10(1e-8+apply(profile.species.lefse.result.snv[phenotype.data[subjects.snv, "M1_BNT_sVNT200_Q1"]==0, ], 2, median)),
+    LDA_score = species.lefse.result.snv[colnames(profile.species.lefse.result.snv), "LDA_score"],
+    Group = species.lefse.result.snv[colnames(profile.species.lefse.result.snv), "group"]
+  )
+snv_species_abun_lda <- snv_species_abun_lda[order(snv_species_abun_lda$LDA_score, decreasing = T),]
+snv_species_abun_lda$x <- 1:nrow(snv_species_abun_lda)
+snv_species_abun_lda$bg <- "#edf8ff"
+
+snv_pathway_abun_lda <- 
+  data.frame(
+    sector = "pathway",
+    sVNT_high = log10(1e-8+apply(profile.pathway.lefse.result.snv[phenotype.data[subjects.snv, "M1_SNV_sVNT10_60perc"]==1, ], 2, median)),
+    sVNT_low = log10(1e-8+apply(profile.pathway.lefse.result.snv[phenotype.data[subjects.snv, "M1_SNV_sVNT10_60perc"]==0, ], 2, median)),
+    LDA_score = pathway.lefse.result.snv[pathway_map[colnames(profile.pathway.lefse.result.snv),"pathway_shortname"], "LDA_score"],
+    Group = pathway.lefse.result.snv[pathway_map[colnames(profile.pathway.lefse.result.snv), "pathway_shortname"], "group"]
+  )
+snv_pathway_abun_lda <- snv_pathway_abun_lda[order(snv_pathway_abun_lda$LDA_score, decreasing = T),]
+snv_pathway_abun_lda$x <- 1:nrow(snv_pathway_abun_lda)
+snv_pathway_abun_lda$bg <- "#fff7e6"
+
+snv_species_pathway_abun_lda <- rbind(snv_species_abun_lda, snv_pathway_abun_lda)
+snv_species_pathway_abun_lda$x2 <- 1:nrow(snv_species_pathway_abun_lda)
+snv_species_pathway_abun_lda$name <- rownames(snv_species_pathway_abun_lda)
+snv_species_pathway_abun_lda$short_name = c(rownames(snv_species_abun_lda), pathway_map[rownames(snv_pathway_abun_lda), "pathway_shortname"])
+
+## correlation
+cor_species_pathway.snv <- read.table("tables/snv_species_pathways.halla/all_associations.txt", sep="\t", header = T)
+cor_species_pathway.snv <- cor_species_pathway.snv[cor_species_pathway.snv$q.values<0.05,]
+
+
+df = snv_species_pathway_abun_lda
+circos.clear(); circos.par("start.degree"=180, "clock.wise"=T,
+                           "circle.margin"=c(0.5, 0.5, 0.5, 0.5),
+                           "gap.degree"=10)
+circos.initialize(unique(df$sector), xlim = cbind(c(0,0), c(15,40))) 
+
+circos.track(df$sector,
+             df$x2, df$LDA_score,
+             ylim = range(df$LDA_score),
+             bg.lwd=0.5,
+             track.height  = 0.3,
+             panel.fun = function(x, y) {
+               circos.barplot(y, df[x, "x"]-0.5, # bar_width = 0.3,
+                              col = ifelse(y > 0, "#0072B2", "#E69F00"))
+               circos.text(df[x, "x"]-0.5, max(df$LDA_score)+2, df$short_name[x], 
+                           cex=.65, niceFacing=T, adj = c(0, 0),
+                           facing = "clockwise")
+             })
+
+circos.yaxis(sector.index="species", side="right", 
+             labels.cex=0.6, tick.length=0.25)
+
+circos.track(ylim = c(0, 1), bg.col = unique(df$bg), track.height=0.1, bg.border = 0,
+             track.margin=c(0, 0))
+circos.text(sector.index = "species", 7, 0.5, "species", 
+            cex=0.8, niceFacing=T, adj = c(0.5, 0.5),
+            facing = "inside")
+circos.text(sector.index = "pathway", 10, 0.5, "pathway", 
+            cex=0.8, niceFacing=T, adj = c(0.5, 0.5),
+            facing = "inside")
+
+df2 = cor_species_pathway.snv
+df2 = df2[order(abs(df2$association)), ]
+range(df2$association) # -0.6257882  0.8297771
+col_fun = colorRamp2(c(-0.62, -0.3, 0.3, 0.83), c("#009E73", "white", "white", "#D55E00"))
+
+for (i in 1:nrow(df2)) {
+  species = df2[i, 1]
+  pathway = df2[i, 2]
+  species.ind = which(df$name==species)
+  pathway.ind = which(pathway_map[df$name, "pathway"]==pathway)
+  pathway.ind = df[pathway.ind, "x"] # update the index as within-pathway order
+  
+  circos.link("species", species.ind-0.5, 
+              "pathway", pathway.ind-0.5,
+              lwd = 3,
+              col = col_fun(df2[i, "association"]))
+}
+
+lgd_links = Legend(at = c(-0.6, -0.3, 0.3, 0.8), col_fun = col_fun, 
+                   title_position = "topleft", title = "Spearman's Rho")
+draw(lgd_links, x = unit(20, "mm"), y = unit(30, "mm"), just = c("left", "bottom"))
+circos.clear()
+```
+
+## BioNTech
+```{r}
+#### BioNTech ####
+rownames(species.lefse.result.bnt) <- species.lefse.result.bnt[, 1]
+species.lefse.result.bnt$LDA_score[species.lefse.result.bnt$group==0] = species.lefse.result.bnt$LDA_score[species.lefse.result.bnt$group==0]*-1
+
+rownames(pathway_map) <- pathway_map$pathway_rename
+rownames(pathway.lefse.result.bnt) <- pathway_map[pathway.lefse.result.bnt$pathway_rename, "pathway_shortname"]
+
+bnt_species_abun_lda <- 
+  data.frame(
+    sector = "species",
+    sVNT_high = log10(1e-8+apply(profile.species.lefse.result.bnt[phenotype.data[subjects.bnt, "M1_BNT_sVNT200_Q1"]==1, ], 2, median)),
+    sVNT_low = log10(1e-8+apply(profile.species.lefse.result.bnt[phenotype.data[subjects.bnt, "M1_BNT_sVNT200_Q1"]==0, ], 2, median)),
+    LDA_score = species.lefse.result.bnt[colnames(profile.species.lefse.result.bnt), "LDA_score"],
+    Group = species.lefse.result.bnt[colnames(profile.species.lefse.result.bnt), "group"]
+  )
+bnt_species_abun_lda <- bnt_species_abun_lda[order(bnt_species_abun_lda$LDA_score, decreasing = T),]
+bnt_species_abun_lda$x <- 1:nrow(bnt_species_abun_lda)
+bnt_species_abun_lda$bg <- "#edf8ff"
+
+bnt_pathway_abun_lda <- 
+  data.frame(
+    sector = "pathway",
+    sVNT_high = log10(1e-8+apply(profile.pathway.lefse.result.bnt[phenotype.data[subjects.bnt, "M1_BNT_sVNT200_Q1"]==1, ], 2, median)),
+    sVNT_low = log10(1e-8+apply(profile.pathway.lefse.result.bnt[phenotype.data[subjects.bnt, "M1_BNT_sVNT200_Q1"]==0, ], 2, median)),
+    LDA_score = pathway.lefse.result.bnt[pathway_map[colnames(profile.pathway.lefse.result.bnt),"pathway_shortname"], "LDA_score"],
+    Group = pathway.lefse.result.bnt[pathway_map[colnames(profile.pathway.lefse.result.bnt), "pathway_shortname"], "group"]
+  )
+bnt_pathway_abun_lda <- bnt_pathway_abun_lda[order(bnt_pathway_abun_lda$LDA_score, decreasing = T),]
+bnt_pathway_abun_lda$x <- 1:nrow(bnt_pathway_abun_lda)
+bnt_pathway_abun_lda$bg <- "#fff7e6"
+
+bnt_species_pathway_abun_lda <- rbind(bnt_species_abun_lda, bnt_pathway_abun_lda)
+bnt_species_pathway_abun_lda$x2 <- 1:nrow(bnt_species_pathway_abun_lda)
+bnt_species_pathway_abun_lda$name <- rownames(bnt_species_pathway_abun_lda)
+bnt_species_pathway_abun_lda$short_name = c(rownames(bnt_species_abun_lda), pathway_map[rownames(bnt_pathway_abun_lda), "pathway_shortname"])
+
+## correlation
+cor_species_pathway.bnt <- read.table("tables/bnt_species_pathways.halla/all_associations.txt", sep="\t", header = T)
+cor_species_pathway.bnt <- cor_species_pathway.bnt[cor_species_pathway.bnt$q.values<0.05,]
+
+
+df = bnt_species_pathway_abun_lda
+circos.clear(); circos.par("start.degree"=180, "clock.wise"=T,
+                           "circle.margin"=c(0.5, 0.5, 0.5, 0.5),
+                           "gap.degree"=10)
+circos.initialize(unique(df$sector), xlim = cbind(c(0,0), c(7,58))) 
+
+circos.track(df$sector,
+             df$x2, df$LDA_score,
+             ylim = range(df$LDA_score),
+             bg.lwd=0.5,
+             track.height  = 0.3,
+             panel.fun = function(x, y) {
+               circos.barplot(y, df[x, "x"]-0.5, # bar_width = 0.3,
+                              col = ifelse(y > 0, "#0072B2", "#E69F00"))
+               circos.text(df[x, "x"]-0.5, max(df$LDA_score)+2, df$short_name[x], 
+                           cex=.65, niceFacing=T, adj = c(0, 0),
+                           facing = "clockwise")
+             })
+
+circos.yaxis(sector.index="species", side="right", 
+             labels.cex=0.6, tick.length=0.25)
+
+circos.track(ylim = c(0, 1), bg.col = unique(df$bg), track.height=0.1, bg.border = 0,
+             track.margin=c(0, 0))
+circos.text(sector.index = "species", 3.5, 0.5, "species", 
+            cex=0.8, niceFacing=T, adj = c(0.5, 0.5),
+            facing = "inside")
+circos.text(sector.index = "pathway", 8, 0.5, "pathway", 
+            cex=0.8, niceFacing=T, adj = c(0.5, 0.5),
+            facing = "inside")
+
+df2 = cor_species_pathway.bnt
+df2 = df2[order(abs(df2$association)), ]
+range(df2$association) # -0.4176481  0.6253946
+col_fun = colorRamp2(c(-0.62, -0.3, 0.3, 0.83), c("#009E73", "white", "white", "#D55E00"))
+
+for (i in 1:nrow(df2)) {
+  species = df2[i, 1]
+  pathway = df2[i, 2]
+  species.ind = which(df$name==species)
+  pathway.ind = which(pathway_map[df$name, "pathway"]==pathway)
+  pathway.ind = df[pathway.ind, "x"] # update the index as within-pathway order
+  
+  circos.link("species", species.ind-0.5, 
+              "pathway", pathway.ind-0.5,
+              lwd = 3,
+              col = col_fun(df2[i, "association"]))
+}
+
+lgd_links = Legend(at = c(-0.6, -0.3, 0.3, 0.8), col_fun = col_fun, 
+                   title_position = "topleft", title = "Spearman's Rho")
+draw(lgd_links, x = unit(20, "mm"), y = unit(30, "mm"), just = c("left", "bottom"))
+circos.clear()
+
+```
