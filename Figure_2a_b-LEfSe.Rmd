@@ -1,0 +1,249 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+# metadata
+```{r}
+sampels_metadata <- read_tsv("metadata/samples_metadata_imm_272S_long.tsv")
+
+paired_ID <- count(samples_metadata, ID) %>% filter(n==2) %>% select(ID) %>% as.list()
+
+samples_metadata_paired <-
+    samples_metadata %>% filter(ID %in% paired_ID$ID)
+```
+
+
+# Species profile
+## read species profile
+```{r}
+tax_file <- "data/metaphlan3.merged.abundance.profile.species.272S.tsv"
+tax_s <- read_tsv(tax_file)
+tax_s_l <-
+    tax_s %>%
+    rowwise() %>%
+    mutate(Species=str_split(clade_name, "\\|s__")[[1]][2]) %>%
+    ungroup() %>%
+    pivot_longer(
+        names_to="sample_id",
+        values_to="Abundance",
+        -c(clade_name, Species))
+
+tax_s_l_272S <- tax_s_l %>% inner_join(samples_metadata)
+```
+
+## SinoVac
+### LEfSe analysis with SinoVac group
+```{r}
+tax_s_l_d0_sinovac_sVNT_60percent_binary_group <-
+    tax_s_l_272S %>%
+    filter(TimePoint=="D0") %>%
+    filter(Vac_Group=="SinoVac") %>%
+    select(sample_id, Species, Abundance, sVNT_60percent_binary_group) %>%
+    group_by(Species) %>%
+    mutate(Species_abun_sum=sum(Abundance)) %>%
+    filter(!Species_abun_sum<=0.0) %>%
+    select(-Species_abun_sum) %>%
+    ungroup()
+
+tax_s_l_d0_sinovac_sVNT_60percent_binary_group_2 <-
+    tax_s_l_d0_sinovac_sVNT_60percent_binary_group %>%
+    select(sample_id, sVNT_60percent_binary_group) %>%
+    distinct() %>%
+    mutate(Species="sVNT_60percent_binary_group") %>%
+    rename(Abundance=sVNT_60percent_binary_group) %>%
+    mutate(Abundance=as.numeric(Abundance))
+
+tax_s_l_d0_sinovac_sVNT_60percent_binary_group_w <-
+    tax_s_l_d0_sinovac_sVNT_60percent_binary_group_2 %>%
+    bind_rows(tax_s_l_d0_sinovac_sVNT_60percent_binary_group %>%
+    select(sample_id, Species, Abundance)) %>%
+    pivot_wider(names_from=sample_id, values_from=Abundance)
+    
+print(dim(tax_s_l_d0_sinovac_sVNT_60percent_binary_group_w))
+write_tsv(tax_s_l_d0_sinovac_sVNT_60percent_binary_group_w,
+          "tables/lefse/tax_s_lefse_D0_sinovac_sVNT_60percent_binary_group_w.tsv")
+```
+
+### run LEfSe
+```{bash}
+lefse_format_input.py \
+tables/lefse/tax_s_lefse_D0_sinovac_sVNT_60percent_binary_group_w.tsv \
+tables/lefse/tax_s_lefse_D0_sinovac_sVNT_60percent_binary_group_w.lefse.in  \
+-c 2 -u 1 -o 1000000
+
+lefse_run.py \
+tables/lefse/tax_s_lefse_D0_sinovac_sVNT_60percent_binary_group_w.lefse.in \
+data/species.baseline.data.snv.lefse_species.txt
+```
+
+
+## BioNTech
+### LEfSe analysis with BioNTech group
+```{r}
+tax_s_l_d0_biontech_sVNT_binary_group <-
+    tax_s_l_272S %>%
+    filter(TimePoint=="D0") %>%
+    filter(Vac_Group=="BioNTech") %>%
+    select(sample_id, Species, Abundance, sVNT_binary_group) %>%
+    group_by(Species) %>%
+    mutate(Species_abun_sum=sum(Abundance)) %>%
+    filter(!Species_abun_sum<=0.0) %>%
+    select(-Species_abun_sum) %>%
+    ungroup()
+
+tax_s_l_d0_biontech_sVNT_binary_group_2 <-
+    tax_s_l_d0_biontech_sVNT_binary_group %>%
+    select(sample_id, sVNT_binary_group) %>%
+    distinct() %>%
+    mutate(Species="sVNT_binary_group") %>%
+    rename(Abundance=sVNT_binary_group) %>%
+    mutate(Abundance=as.numeric(Abundance))
+
+tax_s_l_d0_biontech_sVNT_binary_group_w <-
+    tax_s_l_d0_biontech_sVNT_binary_group_2 %>%
+    bind_rows(tax_s_l_d0_biontech_sVNT_binary_group %>%
+    select(sample_id, Species, Abundance)) %>%
+    pivot_wider(names_from=sample_id, values_from=Abundance)
+    
+print(dim(tax_s_l_d0_biontech_sVNT_binary_group_w))
+write_tsv(tax_s_l_d0_biontech_sVNT_binary_group_w,
+          "tables/lefse/tax_s_lefse_D0_biontech_sVNT_binary_group_w.tsv")
+```
+
+### run LEfSe
+```{bash}
+lefse_format_input.py \
+tables/lefse/tax_s_lefse_D0_biontech_sVNT_binary_group_w.tsv \
+tables/lefse/tax_s_lefse_D0_biontech_sVNT_binary_group_w.lefse.in  \
+-c 2 -u 1 -o 1000000
+
+lefse_run.py \
+tables/lefse/tax_s_lefse_D0_biontech_sVNT_binary_group_w.lefse.in \
+data/species.baseline.data.bnt.lefse_species.txt
+```
+
+
+# Pathway profile
+## read pathway profile
+```{r}
+pathabun_profile_unstratified <-
+    read_tsv("data/humann3_pathabundance_relab_joined_unstratified.272S.tsv")
+colnames(pathabun_profile_unstratified)[1] <- "pathway"
+
+pathabun_profile_unstratified <-
+    pathabun_profile_unstratified %>%
+    rename_with(str_replace, pattern="_Abundance-RELAB", replacement="", matches("_Abundance-RELAB")) %>%
+    filter(!pathway=="UNMAPPED") %>%
+    filter(!pathway=="UNINTEGRATED") %>%
+    summarise(pathway=pathway, across(where(is.numeric), function(x) x/sum(x)))
+    
+pathabun_profile_unstratified <-
+    pathabun_profile_unstratified %>%
+    mutate(pathway_rename=str_c("pathway_", seq(nrow(pathabun_profile_unstratified))))
+```
+
+```{r}
+pathway_name_df <- pathabun_profile_unstratified %>% select(pathway, pathway_rename)
+
+pathabun_profile_unstratified_lm <-
+    pathabun_profile_unstratified %>%
+    pivot_longer(names_to="sample_id", values_to="relab_abun", -c(pathway, pathway_rename)) %>%
+    left_join(samples_metadata)
+    
+#dim(pathabun_profile_unstratified_lm)
+```
+
+## SinoVac
+### LEfSe analysis of SinoVac group
+```{r}
+pathabun_lefse_d0_snv_svnt_60percent <-
+    pathabun_profile_unstratified_lm %>%
+    filter(TimePoint=="D0") %>%
+    filter(Vac_Group=="SinoVac") %>%
+    select(pathway_rename, sample_id, relab_abun, sVNT_60percent_binary_group) %>%
+    group_by(pathway_rename) %>%
+    mutate(pathway_abun_sum=sum(relab_abun)) %>%
+    filter(!pathway_abun_sum<=0.0) %>%
+    select(-pathway_abun_sum) %>%
+    ungroup()
+
+pathabun_lefse_d0_snv_svnt_60percent_2 <-
+    pathabun_lefse_d0_snv_svnt_60percent %>%
+    select(sample_id, sVNT_60percent_binary_group) %>%
+    distinct() %>%
+    mutate(pathway_rename="sVNT_60percent_binary_group") %>%
+    rename(relab_abun=sVNT_60percent_binary_group)
+    
+pathabun_lefse_d0_snv_svnt_60percent_w <-
+    pathabun_lefse_d0_snv_svnt_60percent_2 %>%
+    bind_rows(
+        pathabun_lefse_d0_snv_svnt_60percent %>%
+        select(sample_id, pathway_rename, relab_abun)) %>%
+    pivot_wider(names_from=sample_id, values_from=relab_abun)
+    
+print(dim(pathabun_lefse_d0_snv_svnt_60percent_w))
+
+write_tsv(pathabun_lefse_d0_snv_svnt_60percent_w,
+          "tables/lefse/pathabun_lefse_d0_snv_svnt_60percent_w.tsv")
+```
+
+### run LEfSe
+```{bash}
+lefse_format_input.py \
+tables/lefse/pathabun_lefse_d0_snv_svnt_60percent_w.tsv \
+tables/lefse/pathabun_lefse_d0_snv_svnt_60percent_w.lefse.in \
+-c 2 -u 1 -o 1000000
+
+lefse_run.py \
+tables/lefse/pathabun_lefse_d0_snv_svnt_60percent_w.lefse.in \
+data/pathway.baseline.data.snv.lefse_pathway.txt
+```
+
+
+## BioNTech
+### LEfSe analysis of BioNTech group
+```{r}
+pathabun_lefse_d0_bnt_svnt <-
+    pathabun_profile_unstratified_lm %>%
+    filter(TimePoint=="D0") %>%
+    filter(Vac_Group=="BioNTech") %>%
+    select(pathway_rename, sample_id, relab_abun, sVNT_binary_group) %>%
+    group_by(pathway_rename) %>%
+    mutate(pathway_abun_sum=sum(relab_abun)) %>%
+    filter(!pathway_abun_sum<=0.0) %>%
+    select(-pathway_abun_sum) %>%
+    ungroup()
+
+pathabun_lefse_d0_bnt_svnt_2 <-
+    pathabun_lefse_d0_bnt_svnt %>%
+    select(sample_id, sVNT_binary_group) %>%
+    distinct() %>%
+    mutate(pathway_rename="sVNT_binary_group") %>%
+    rename(relab_abun=sVNT_binary_group)
+    
+pathabun_lefse_d0_bnt_svnt_w <-
+    pathabun_lefse_d0_bnt_svnt_2 %>%
+    bind_rows(
+        pathabun_lefse_d0_bnt_svnt %>%
+        select(sample_id, pathway_rename, relab_abun)) %>%
+    pivot_wider(names_from=sample_id, values_from=relab_abun)
+    
+print(dim(pathabun_lefse_d0_bnt_svnt_w))
+
+write_tsv(pathabun_lefse_d0_bnt_svnt_w,
+          "tables/lefse/pathabun_lefse_d0_bnt_svnt_w.tsv")
+```
+
+### run LEfSe
+```{bash}
+lefse_format_input.py \
+tables/lefse/pathabun_lefse_d0_bnt_svnt_w.tsv \
+tables/lefse/pathabun_lefse_d0_bnt_svnt_w.lefse.in \
+-c 2 -u 1 -o 1000000
+
+lefse_run.py \
+tables/lefse/pathabun_lefse_d0_bnt_svnt_w.lefse.in \
+data/pathway.baseline.data.bnt.lefse_pathway.txt
+```
