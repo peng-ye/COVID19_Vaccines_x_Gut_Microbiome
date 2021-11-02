@@ -1,0 +1,17 @@
+cluster_rank	cluster_X	cluster_Y	best_adjusted_pvalue
+1	Bacteroides_thetaiotaomicron	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside);POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	1.1048783641804425e-09
+2	Eubacterium_rectale	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	5.354822850456456e-07
+3	Parabacteroides_merdae	HISTSYN-PWY: L-histidine biosynthesis;PWY-6700: queuosine biosynthesis I (de novo);NONMEVIPP-PWY: methylerythritol phosphate pathway I;PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing);PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing);PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing);PWY-6385: peptidoglycan biosynthesis III (mycobacteria);COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals);PWY-5686: UMP biosynthesis I;PWY-7219: adenosine ribonucleotides de novo biosynthesis;PWY-5097: L-lysine biosynthesis VI;PWY-7221: guanosine ribonucleotides de novo biosynthesis	0.0009823888583263825
+4	Bacteroides_thetaiotaomicron	PWY-5097: L-lysine biosynthesis VI;PWY-7221: guanosine ribonucleotides de novo biosynthesis	0.0014111751030056272
+5	Bacteroides_thetaiotaomicron	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	0.0017378968276864956
+6	Bacteroides_thetaiotaomicron	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals);PWY-5686: UMP biosynthesis I;PWY-7219: adenosine ribonucleotides de novo biosynthesis	0.0017378968276864956
+7	Bacteroides_thetaiotaomicron	NONMEVIPP-PWY: methylerythritol phosphate pathway I;PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing);PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing);PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing);PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	0.003478635648219073
+8	Bacteroides_thetaiotaomicron	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I;PWY-6519: 8-amino-7-oxononanoate biosynthesis I	0.0049648252028469085
+9	Parabacteroides_merdae	PWY-6608: guanosine nucleotides degradation III	0.008060854732274947
+10	Bacteroides_thetaiotaomicron	COA-PWY: coenzyme A biosynthesis I (prokaryotic);PWY-4242	0.008060854732274947
+11	Bacteroides_thetaiotaomicron	PWY-2942: L-lysine biosynthesis III;PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	0.01247251414709267
+12	Parabacteroides_merdae	FUCCAT-PWY: fucose degradation	0.013921261655489391
+13	Bacteroides_thetaiotaomicron	HISTSYN-PWY: L-histidine biosynthesis	0.013921261655489391
+14	Bacteroides_thetaiotaomicron	PWY-5989: stearate biosynthesis II (bacteria and plants);PWY0-862: (5Z)-dodecenoate biosynthesis I;FASYN-ELONG-PWY: fatty acid elongation -- saturated;PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate);PWY-7664: oleate biosynthesis IV (anaerobic)	0.02441125433382671
+15	Bacteroides_thetaiotaomicron	GALACTARDEG-PWY: D-galactarate degradation I;GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	0.03297680098289816
+16	Bacteroides_thetaiotaomicron	PWY-5845: superpathway of menaquinol-9 biosynthesis;PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	0.0379070728082867

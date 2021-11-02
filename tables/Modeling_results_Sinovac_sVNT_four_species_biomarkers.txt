@@ -1,0 +1,25 @@
+species	model	category	OR	lower	upper	pvalue
+Bifidobacterium_adolescentis	Model 1	NW-Low B. adolescentis	0.08	0.01	0.54	0.016
+Bifidobacterium_adolescentis	Model 1	OWOB-High B. adolescentis	0.17	0.02	1.30	0.101
+Bifidobacterium_adolescentis	Model 1	OWOB-Low B. adolescentis	0.03	0.00	0.31	0.009
+Bifidobacterium_adolescentis	Model 2	NW-Low B. adolescentis	0.04	1.50E-03	0.42	0.019
+Bifidobacterium_adolescentis	Model 2	OWOB-High B. adolescentis	0.27	0.02	2.51	0.265
+Bifidobacterium_adolescentis	Model 2	OWOB-Low B. adolescentis	0.07	2.40E-03	0.74	0.048
+Adlercreutzia_equolifaciens	Model 1	NW-Low A. equolifaciens	0.09	0.01	0.56	0.018
+Adlercreutzia_equolifaciens	Model 1	OWOB-High A. equolifaciens	0.20	0.02	1.73	0.153
+Adlercreutzia_equolifaciens	Model 1	OWOB-Low A. equolifaciens	0.08	0.01	0.48	0.012
+Adlercreutzia_equolifaciens	Model 2	NW-Low A. equolifaciens	0.06	0	0.61	0.033
+Adlercreutzia_equolifaciens	Model 2	OWOB-High A. equolifaciens	0.43	0.04	4.18	0.468
+Adlercreutzia_equolifaciens	Model 2	OWOB-Low A. equolifaciens	0.14	0.01	1.1	0.075
+Asaccharobacter_celatus	Model 1	NW-Low A. celatus	0.05	0.00	0.36	0.007
+Asaccharobacter_celatus	Model 1	OWOB-High A. celatus	0.10	0.01	0.85	0.048
+Asaccharobacter_celatus	Model 1	OWOB-Low A. celatus	0.06	0.00	0.42	0.010
+Asaccharobacter_celatus	Model 2	NW-Low A. celatus	0.03	9.50E-04	0.34	0.014
+Asaccharobacter_celatus	Model 2	OWOB-High A. celatus	0.23	0.02	2.32	0.233
+Asaccharobacter_celatus	Model 2	OWOB-Low A. celatus	0.09	0.01	0.85	0.049
+Butyricimonas_virosa	Model 1	NW-Low B. virosa	0.09	0.01	0.56	0.018
+Butyricimonas_virosa	Model 1	OWOB-High B. virosa	0.20	0.02	1.73	0.153
+Butyricimonas_virosa	Model 1	OWOB-Low B. virosa	0.08	0.01	0.48	0.012
+Butyricimonas_virosa	Model 2	NW-Low B. virosa	0.07	4.20E-03	0.66	0.035
+Butyricimonas_virosa	Model 2	OWOB-High B. virosa	0.43	0.04	4.23	0.472
+Butyricimonas_virosa	Model 2	OWOB-Low B. virosa	0.14	0.01	1.07	0.072

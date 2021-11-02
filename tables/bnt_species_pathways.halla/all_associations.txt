@@ -1,0 +1,407 @@
+X_features	Y_features	association	p-values	q-values
+Bacteroides_sp_OM05_12	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	-0.12312573916846208	0.21994676935454782	0.5874893970917527
+Bacteroides_sp_OM05_12	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	0.027223391778349728	0.7869784591161862	0.9425169746347245
+Bacteroides_sp_OM05_12	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	0.04861042962131251	0.629285004778223	0.8995037153350233
+Bacteroides_sp_OM05_12	FASYN-ELONG-PWY: fatty acid elongation -- saturated	-0.13400346195169155	0.18155275984345595	0.5154574859891127
+Bacteroides_sp_OM05_12	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	0.050181009916217295	0.6182375584118859	0.8909572301823262
+Bacteroides_sp_OM05_12	FUCCAT-PWY: fucose degradation	0.1766999781168811	0.07712013330850287	0.3426100945605902
+Bacteroides_sp_OM05_12	GALACTARDEG-PWY: D-galactarate degradation I	-0.07255714293932926	0.47086952079991873	0.8066372381635738
+Bacteroides_sp_OM05_12	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	-0.07255714293932926	0.47086952079991873	0.8066372381635738
+Bacteroides_sp_OM05_12	HISTSYN-PWY: L-histidine biosynthesis	0.004750520645082396	0.9623951589005741	0.9990481376524966
+Bacteroides_sp_OM05_12	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	0.000368408796324761	0.9970826400784947	0.9990481376524966
+Bacteroides_sp_OM05_12	NONMEVIPP-PWY: methylerythritol phosphate pathway I	0.08161200569449716	0.4171727385830938	0.7733887299759639
+Bacteroides_sp_OM05_12	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	-0.06747479989738056	0.5025790357050721	0.8294597093343873
+Bacteroides_sp_OM05_12	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	0.08481133592485876	0.39908598355264946	0.7626983469776544
+Bacteroides_sp_OM05_12	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.027824478064054026	0.7823903439585584	0.9425169746347245
+Bacteroides_sp_OM05_12	PWY-2942: L-lysine biosynthesis III	0.018265267133337208	0.856136891385743	0.9775478646502141
+Bacteroides_sp_OM05_12	PWY-4242	0.04512025118819075	0.654126528135939	0.9037266512364129
+Bacteroides_sp_OM05_12	PWY-5097: L-lysine biosynthesis VI	0.024722097234612463	0.806147562028366	0.9529882038964606
+Bacteroides_sp_OM05_12	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	-0.004944477041632326	0.9608610010059995	0.9990481376524966
+Bacteroides_sp_OM05_12	PWY-5686: UMP biosynthesis I	0.006456830101275256	0.9489039069089993	0.9990481376524966
+Bacteroides_sp_OM05_12	PWY-5690: TCA cycle II (plants and fungi)	0.18098514163754725	0.07010577132780191	0.3294331464715098
+Bacteroides_sp_OM05_12	PWY-5723: Rubisco shunt	-0.12156343880158657	0.22590016371863045	0.5971261099938674
+Bacteroides_sp_OM05_12	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	-0.053516225150333704	0.5950598739570979	0.8796438520901284
+Bacteroides_sp_OM05_12	PWY-5838: superpathway of menaquinol-8 biosynthesis I	-0.04017594873604762	0.6899678818068218	0.9206594621901171
+Bacteroides_sp_OM05_12	PWY-5840: superpathway of menaquinol-7 biosynthesis	-0.0559026525107009	0.578719480898255	0.872696580668382
+Bacteroides_sp_OM05_12	PWY-5845: superpathway of menaquinol-9 biosynthesis	-0.07769615492478717	0.4399451462953139	0.779990084698242
+Bacteroides_sp_OM05_12	PWY-5850: superpathway of menaquinol-6 biosynthesis	-0.0853472070842961	0.3961026589255602	0.7626983469776544
+Bacteroides_sp_OM05_12	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	-0.08645611768466192	0.3899713584447748	0.7626983469776544
+Bacteroides_sp_OM05_12	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	-0.043549797712916484	0.6654307301572276	0.9127191771751163
+Bacteroides_sp_OM05_12	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	-0.07564080368395178	0.4521734802426365	0.7852183609831941
+Bacteroides_sp_OM05_12	PWY-5896: superpathway of menaquinol-10 biosynthesis	-0.082370657578051	0.4128413666102727	0.7688697011182143
+Bacteroides_sp_OM05_12	PWY-5897: superpathway of menaquinol-11 biosynthesis	-0.0407382568988591	0.6858551466113223	0.9190006254923988
+Bacteroides_sp_OM05_12	PWY-5898: superpathway of menaquinol-12 biosynthesis	-0.0407382568988591	0.6858551466113223	0.9190006254923988
+Bacteroides_sp_OM05_12	PWY-5899: superpathway of menaquinol-13 biosynthesis	-0.0407382568988591	0.6858551466113223	0.9190006254923988
+Bacteroides_sp_OM05_12	PWY-5989: stearate biosynthesis II (bacteria and plants)	-0.13097864064298603	0.1916999571304683	0.5330834424313022
+Bacteroides_sp_OM05_12	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	-0.1372027921820532	0.17125333425822745	0.49311243765134993
+Bacteroides_sp_OM05_12	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	0.10900990639450295	0.27786094075815665	0.6527663310146511
+Bacteroides_sp_OM05_12	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	0.052779253860874606	0.6001476686358741	0.8819495530715463
+Bacteroides_sp_OM05_12	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	0.06084544401742267	0.5455523508875988	0.8429533413179698
+Bacteroides_sp_OM05_12	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	-0.12915599190568913	0.1980092529050543	0.5468826984996737
+Bacteroides_sp_OM05_12	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	-0.04978194129099863	0.6210366900039367	0.8909572301823262
+Bacteroides_sp_OM05_12	PWY-6608: guanosine nucleotides degradation III	0.0014348511336167234	0.9886380371603288	0.9990481376524966
+Bacteroides_sp_OM05_12	PWY-6700: queuosine biosynthesis I (de novo)	0.09248972847772663	0.3576176112351631	0.7471098805044833
+Bacteroides_sp_OM05_12	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	0.13216180819734583	0.18768301644554167	0.5255124460475167
+Bacteroides_sp_OM05_12	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	-0.0371123387455575	0.7125311245258026	0.9272039633252431
+Bacteroides_sp_OM05_12	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	-0.05049948388070137	0.6160076362196603	0.8909572301823262
+Bacteroides_sp_OM05_12	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	-0.029002100516144335	0.7734232188213882	0.9425169746347245
+Bacteroides_sp_OM05_12	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	-0.04623301442841478	0.6461636400411781	0.9032074957343184
+Bacteroides_sp_OM05_12	PWY-7219: adenosine ribonucleotides de novo biosynthesis	-0.0024431249031852315	0.9806551779806765	0.9990481376524966
+Bacteroides_sp_OM05_12	PWY-7221: guanosine ribonucleotides de novo biosynthesis	0.08938734764828507	0.3740400927988464	0.7501465219896368
+Bacteroides_sp_OM05_12	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	0.038566471685995446	0.7017892166549917	0.9206594621901171
+Bacteroides_sp_OM05_12	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	0.15420771710342976	0.12363266892127212	0.3973555793691005
+Bacteroides_sp_OM05_12	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	-0.15102777675325216	0.1316621829907565	0.4080522617881461
+Bacteroides_sp_OM05_12	PWY-7664: oleate biosynthesis IV (anaerobic)	-0.13985920576726252	0.1630343821450905	0.47620114497055205
+Bacteroides_sp_OM05_12	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	-0.026609225005507147	0.7916739505815731	0.9436008914835826
+Bacteroides_sp_OM05_12	PWY0-862: (5Z)-dodecenoate biosynthesis I	-0.14222477114971172	0.15596513885147173	0.46487134552896786
+Bacteroides_sp_OM05_12	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.08265905922443369	0.41120170363299857	0.7688697011182143
+Bacteroides_sp_OM05_12	SO4ASSIM-PWY: assimilatory sulfate reduction I	-0.005138378102088495	0.9593274234584213	0.9990481376524966
+Bacteroides_sp_OM05_12	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	-0.0008337745599615294	0.9933975558966035	0.9990481376524966
+Bacteroides_thetaiotaomicron	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	0.3610460720201803	0.0002078867695773336	0.0049648252028469085
+Bacteroides_thetaiotaomicron	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	-0.3696429617779042	0.00014221415482926252	0.003849263124045372
+Bacteroides_thetaiotaomicron	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	-0.3449472893031419	0.000411491389060444	0.008060854732274947
+Bacteroides_thetaiotaomicron	FASYN-ELONG-PWY: fatty acid elongation -- saturated	0.30503815067175716	0.0019240397504493958	0.02441125433382671
+Bacteroides_thetaiotaomicron	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	0.4028656305977259	2.9566396118606403e-05	0.0017378968276864956
+Bacteroides_thetaiotaomicron	FUCCAT-PWY: fucose degradation	0.26186731944936614	0.008161687747072374	0.0690342755273205
+Bacteroides_thetaiotaomicron	GALACTARDEG-PWY: D-galactarate degradation I	0.29319789548610103	0.0029240513186806253	0.03297680098289816
+Bacteroides_thetaiotaomicron	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	0.29319789548610103	0.0029240513186806253	0.03297680098289816
+Bacteroides_thetaiotaomicron	HISTSYN-PWY: L-histidine biosynthesis	-0.32506261340011394	0.000910769080877964	0.013921261655489391
+Bacteroides_thetaiotaomicron	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	0.3768023093959422	0.00010281681718874107	0.003478635648219073
+Bacteroides_thetaiotaomicron	NONMEVIPP-PWY: methylerythritol phosphate pathway I	-0.32154464496267143	0.0010425295502114178	0.01459541370295985
+Bacteroides_thetaiotaomicron	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	0.08089889528636103	0.4212680511790531	0.7741538103805828
+Bacteroides_thetaiotaomicron	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	-0.3121439809593067	0.0014841993146459474	0.019606324634105606
+Bacteroides_thetaiotaomicron	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.6253946076191333	2.7213752812326173e-12	1.1048783641804425e-09
+Bacteroides_thetaiotaomicron	PWY-2942: L-lysine biosynthesis III	-0.31191100291709195	0.0014970346395499355	0.019606324634105606
+Bacteroides_thetaiotaomicron	PWY-4242	-0.3349292334879081	0.0006181135641863822	0.0104564211274863
+Bacteroides_thetaiotaomicron	PWY-5097: L-lysine biosynthesis VI	-0.41764808737625103	1.3903202985277115e-05	0.0014111751030056272
+Bacteroides_thetaiotaomicron	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	0.0838730721752985	0.4043414832525076	0.7638788248236558
+Bacteroides_thetaiotaomicron	PWY-5686: UMP biosynthesis I	-0.3478828126350476	0.00036429807434756526	0.007784474641321658
+Bacteroides_thetaiotaomicron	PWY-5690: TCA cycle II (plants and fungi)	0.017985904858977813	0.8583141368644842	0.9775478646502141
+Bacteroides_thetaiotaomicron	PWY-5723: Rubisco shunt	0.09659195035958458	0.33660081726075797	0.7230684222638505
+Bacteroides_thetaiotaomicron	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	0.16629438634108087	0.09650685503356762	0.3436998521370917
+Bacteroides_thetaiotaomicron	PWY-5838: superpathway of menaquinol-8 biosynthesis I	0.23227396003278222	0.019421952940357447	0.14602431284787265
+Bacteroides_thetaiotaomicron	PWY-5840: superpathway of menaquinol-7 biosynthesis	0.20872528185454073	0.03619914876208453	0.24494757329010527
+Bacteroides_thetaiotaomicron	PWY-5845: superpathway of menaquinol-9 biosynthesis	0.2875564981454505	0.003547952627376588	0.0379070728082867
+Bacteroides_thetaiotaomicron	PWY-5850: superpathway of menaquinol-6 biosynthesis	0.18253954689318475	0.06769252783341306	0.3294331464715098
+Bacteroides_thetaiotaomicron	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	0.18133570687973885	0.06955552855836482	0.3294331464715098
+Bacteroides_thetaiotaomicron	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	0.22453906650677766	0.023982540156945724	0.1770347509767266
+Bacteroides_thetaiotaomicron	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	0.2855761617190893	0.0037937440243782203	0.03949384804865532
+Bacteroides_thetaiotaomicron	PWY-5896: superpathway of menaquinol-10 biosynthesis	0.19049891630247268	0.05636880422820489	0.30112808574541033
+Bacteroides_thetaiotaomicron	PWY-5897: superpathway of menaquinol-11 biosynthesis	0.19810763064758447	0.04704395347836695	0.2652756265585692
+Bacteroides_thetaiotaomicron	PWY-5898: superpathway of menaquinol-12 biosynthesis	0.19810763064758447	0.04704395347836695	0.2652756265585692
+Bacteroides_thetaiotaomicron	PWY-5899: superpathway of menaquinol-13 biosynthesis	0.19810763064758447	0.04704395347836695	0.2652756265585692
+Bacteroides_thetaiotaomicron	PWY-5989: stearate biosynthesis II (bacteria and plants)	0.30407129179656606	0.0019922288763585734	0.024510452236411538
+Bacteroides_thetaiotaomicron	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	0.2964645587182548	0.002609651119961136	0.031162304550124153
+Bacteroides_thetaiotaomicron	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	-0.2721998956215898	0.005892138326425075	0.05687336116115796
+Bacteroides_thetaiotaomicron	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	-0.3773079393667691	0.00010045934136484101	0.003478635648219073
+Bacteroides_thetaiotaomicron	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	-0.367744190733854	0.00015479581399711133	0.0039279437801767
+Bacteroides_thetaiotaomicron	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	0.34282718911898774	0.000449003902776614	0.008060854732274947
+Bacteroides_thetaiotaomicron	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	0.18572543821737997	0.06295663518946493	0.3117121205722288
+Bacteroides_thetaiotaomicron	PWY-6608: guanosine nucleotides degradation III	0.11653561671581224	0.24582506518987868	0.6208661304686945
+Bacteroides_thetaiotaomicron	PWY-6700: queuosine biosynthesis I (de novo)	-0.16865280475924924	0.09180698472169586	0.3436998521370917
+Bacteroides_thetaiotaomicron	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	0.09108885531113321	0.36497702763888296	0.7482945586935074
+Bacteroides_thetaiotaomicron	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	-0.19167741795729154	0.05483247239347683	0.2968264505566879
+Bacteroides_thetaiotaomicron	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	0.19205182382380598	0.05435164395945306	0.2968264505566879
+Bacteroides_thetaiotaomicron	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	0.11899140241596311	0.23594636402023236	0.6107872114156113
+Bacteroides_thetaiotaomicron	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	0.20218802175675374	0.042594466814663896	0.254314022452258
+Bacteroides_thetaiotaomicron	PWY-7219: adenosine ribonucleotides de novo biosynthesis	-0.4025977058491789	2.9963738408387855e-05	0.0017378968276864956
+Bacteroides_thetaiotaomicron	PWY-7221: guanosine ribonucleotides de novo biosynthesis	-0.2815190173101793	0.004345412443751343	0.04410593630407613
+Bacteroides_thetaiotaomicron	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	-0.3294426005937511	0.0007680119548702383	0.01247251414709267
+Bacteroides_thetaiotaomicron	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	0.14976993443774467	0.13494594574777027	0.41506101495147524
+Bacteroides_thetaiotaomicron	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	0.23436426156591625	0.018325787857279115	0.14308211288567924
+Bacteroides_thetaiotaomicron	PWY-7664: oleate biosynthesis IV (anaerobic)	0.2920496248182855	0.003042402191170351	0.03338419701662601
+Bacteroides_thetaiotaomicron	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	0.15946323643674581	0.11119421885307275	0.3762071071195628
+Bacteroides_thetaiotaomicron	PWY0-862: (5Z)-dodecenoate biosynthesis I	0.2715126103970563	0.006023533324950227	0.05687336116115796
+Bacteroides_thetaiotaomicron	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.2530141538452061	0.010686385282023486	0.08854433519390888
+Bacteroides_thetaiotaomicron	SO4ASSIM-PWY: assimilatory sulfate reduction I	0.09799170599147375	0.32961230803997277	0.7156288613060371
+Bacteroides_thetaiotaomicron	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	0.09691999451367826	0.33495464253141294	0.7230684222638505
+Eubacterium_rectale	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	-0.05748039169707784	0.568031682827127	0.8669957264203518
+Eubacterium_rectale	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	0.045998459475389206	0.6478388272223181	0.9032074957343184
+Eubacterium_rectale	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	0.1518467853671164	0.12955706575292558	0.4046166822745214
+Eubacterium_rectale	FASYN-ELONG-PWY: fatty acid elongation -- saturated	-0.04507896182313898	0.6544227474470576	0.9037266512364129
+Eubacterium_rectale	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	-0.04812037713442817	0.6327489740990668	0.8995037153350233
+Eubacterium_rectale	FUCCAT-PWY: fucose degradation	-0.07849916495300274	0.4352188823303289	0.7798301622506025
+Eubacterium_rectale	GALACTARDEG-PWY: D-galactarate degradation I	-0.038978562061319284	0.6987555716207727	0.9206594621901171
+Eubacterium_rectale	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	-0.038978562061319284	0.6987555716207727	0.9206594621901171
+Eubacterium_rectale	HISTSYN-PWY: L-histidine biosynthesis	-0.043628984756129016	0.6648589144919032	0.9127191771751163
+Eubacterium_rectale	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	-0.04299253465526431	0.6694601734715937	0.9139556758821767
+Eubacterium_rectale	NONMEVIPP-PWY: methylerythritol phosphate pathway I	0.05690275855656168	0.5719338364317185	0.8696821632632123
+Eubacterium_rectale	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	0.09548695040643512	0.34218349651812485	0.7297671582220725
+Eubacterium_rectale	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	0.010833568492537846	0.9143733280488385	0.9990481376524966
+Eubacterium_rectale	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.008240113575934661	0.9348195067052413	0.9990481376524966
+Eubacterium_rectale	PWY-2942: L-lysine biosynthesis III	-0.1699656044890214	0.0892703948719732	0.3436998521370917
+Eubacterium_rectale	PWY-4242	0.17594233922864783	0.07841698577675421	0.3426100945605902
+Eubacterium_rectale	PWY-5097: L-lysine biosynthesis VI	-0.029199944674664028	0.7719195966055385	0.9425169746347245
+Eubacterium_rectale	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	0.07278262349825035	0.469488367299535	0.8066372381635738
+Eubacterium_rectale	PWY-5686: UMP biosynthesis I	0.03966807179258961	0.69369027585035	0.9206594621901171
+Eubacterium_rectale	PWY-5690: TCA cycle II (plants and fungi)	0.16264498856533693	0.10415059532413487	0.35958476692934815
+Eubacterium_rectale	PWY-5723: Rubisco shunt	0.02729126656532265	0.7864600001235413	0.9425169746347245
+Eubacterium_rectale	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	-0.061435589349029325	0.5416553182628152	0.8429533413179698
+Eubacterium_rectale	PWY-5838: superpathway of menaquinol-8 biosynthesis I	-0.08067436548212265	0.42256229261124745	0.7741538103805828
+Eubacterium_rectale	PWY-5840: superpathway of menaquinol-7 biosynthesis	-0.09040221909227678	0.3686180092086243	0.7482945586935074
+Eubacterium_rectale	PWY-5845: superpathway of menaquinol-9 biosynthesis	-0.08608012905478198	0.3920438485498222	0.7626983469776544
+Eubacterium_rectale	PWY-5850: superpathway of menaquinol-6 biosynthesis	-0.05866569937228758	0.5600639480434659	0.8613104655516939
+Eubacterium_rectale	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	-0.06088931862268881	0.545262153679786	0.8429533413179698
+Eubacterium_rectale	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	-0.08462350151434463	0.40013484705970537	0.7626983469776544
+Eubacterium_rectale	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	-0.08550248918574826	0.3952406505409055	0.7626983469776544
+Eubacterium_rectale	PWY-5896: superpathway of menaquinol-10 biosynthesis	-0.049936811038265756	0.6199497641586946	0.8909572301823262
+Eubacterium_rectale	PWY-5897: superpathway of menaquinol-11 biosynthesis	-0.0783638261916286	0.4360134158396226	0.7798301622506025
+Eubacterium_rectale	PWY-5898: superpathway of menaquinol-12 biosynthesis	-0.0783638261916286	0.4360134158396226	0.7798301622506025
+Eubacterium_rectale	PWY-5899: superpathway of menaquinol-13 biosynthesis	-0.0783638261916286	0.4360134158396226	0.7798301622506025
+Eubacterium_rectale	PWY-5989: stearate biosynthesis II (bacteria and plants)	-0.03228851371170964	0.7485589723544268	0.9425169746347245
+Eubacterium_rectale	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	-0.03840670962860533	0.7029665844308776	0.9206594621901171
+Eubacterium_rectale	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	-0.0024048400135774977	0.980958263096446	0.9990481376524966
+Eubacterium_rectale	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	0.06430589350031986	0.5228985766619425	0.8338887138342457
+Eubacterium_rectale	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	0.054615802857375224	0.58750504902058	0.8737254575177856
+Eubacterium_rectale	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	-0.050560582442322984	0.6155802282335539	0.8909572301823262
+Eubacterium_rectale	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	0.10581842992756857	0.29225614119304083	0.6688734011110764
+Eubacterium_rectale	PWY-6608: guanosine nucleotides degradation III	-0.021926482476736012	0.8277082823071092	0.9618485848675915
+Eubacterium_rectale	PWY-6700: queuosine biosynthesis I (de novo)	0.07848737652156362	0.43528805596605336	0.7798301622506025
+Eubacterium_rectale	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	0.037723090457045735	0.7080124189890333	0.9242863090339148
+Eubacterium_rectale	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	0.5496372164249241	2.6378437686977614e-09	5.354822850456456e-07
+Eubacterium_rectale	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	0.10158569273046583	0.31209604242739547	0.6923419012207371
+Eubacterium_rectale	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	0.18073757560738576	0.07049646288742935	0.3294331464715098
+Eubacterium_rectale	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	0.13313668086263	0.18441950759326647	0.5199605561310152
+Eubacterium_rectale	PWY-7219: adenosine ribonucleotides de novo biosynthesis	0.0928928397401504	0.3555170511818696	0.7471098805044833
+Eubacterium_rectale	PWY-7221: guanosine ribonucleotides de novo biosynthesis	-0.0755756339561046	0.45256427701987045	0.7852183609831941
+Eubacterium_rectale	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	0.15299026321670964	0.12666113273544474	0.398638913880547
+Eubacterium_rectale	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	0.06452987369766286	0.5214488599351117	0.8338887138342457
+Eubacterium_rectale	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	0.0029353194283372403	0.9767589442716726	0.9990481376524966
+Eubacterium_rectale	PWY-7664: oleate biosynthesis IV (anaerobic)	-0.03860711296307013	0.7014898227383273	0.9206594621901171
+Eubacterium_rectale	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	0.12140865214821665	0.226496110687329	0.5971261099938674
+Eubacterium_rectale	PWY0-862: (5Z)-dodecenoate biosynthesis I	-0.022869556991864444	0.8204198185197871	0.9571564549397517
+Eubacterium_rectale	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.027785332901971382	0.7826889155456822	0.9425169746347245
+Eubacterium_rectale	SO4ASSIM-PWY: assimilatory sulfate reduction I	0.057492849821990114	0.5679476613502863	0.8669957264203518
+Eubacterium_rectale	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	0.06077007193609986	0.5460510560754337	0.8429533413179698
+Roseburia_faecis	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	0.006860314270612618	0.9457156501075258	0.9990481376524966
+Roseburia_faecis	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	0.09526455209798564	0.3433141064542262	0.7297671582220725
+Roseburia_faecis	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	0.10892654547450478	0.2782307857491658	0.6527663310146511
+Roseburia_faecis	FASYN-ELONG-PWY: fatty acid elongation -- saturated	-0.008930135584737622	0.9293748490927181	0.9990481376524966
+Roseburia_faecis	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	0.03328131948717711	0.741096690419611	0.9425169746347245
+Roseburia_faecis	FUCCAT-PWY: fucose degradation	-0.07782059059792364	0.4392108640955963	0.779990084698242
+Roseburia_faecis	GALACTARDEG-PWY: D-galactarate degradation I	-0.00012020243768421495	0.9990481376524966	0.9990481376524966
+Roseburia_faecis	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	-0.00012020243768421495	0.9990481376524966	0.9990481376524966
+Roseburia_faecis	HISTSYN-PWY: L-histidine biosynthesis	-0.03209688916011408	0.7500019891756275	0.9425169746347245
+Roseburia_faecis	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	-0.008138584561253187	0.9356208866360072	0.9990481376524966
+Roseburia_faecis	NONMEVIPP-PWY: methylerythritol phosphate pathway I	0.1145613848027601	0.2539710082310386	0.6211580080831426
+Roseburia_faecis	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	0.05582578929000859	0.5792425297241438	0.872696580668382
+Roseburia_faecis	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	0.05049660384488535	0.6160277863466228	0.8909572301823262
+Roseburia_faecis	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.21485097051605773	0.030957918048827086	0.22050727592673328
+Roseburia_faecis	PWY-2942: L-lysine biosynthesis III	-0.23263501597141503	0.01922867808354666	0.14602431284787265
+Roseburia_faecis	PWY-4242	0.10524425713096228	0.2948973862041445	0.6688734011110764
+Roseburia_faecis	PWY-5097: L-lysine biosynthesis VI	-0.08476299409912479	0.39935576747678747	0.7626983469776544
+Roseburia_faecis	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	-0.007909975856556076	0.9374255548000591	0.9990481376524966
+Roseburia_faecis	PWY-5686: UMP biosynthesis I	0.11140681294157243	0.2673675634778461	0.6385366516000325
+Roseburia_faecis	PWY-5690: TCA cycle II (plants and fungi)	0.13921747156167127	0.16499254772141378	0.47847838839209994
+Roseburia_faecis	PWY-5723: Rubisco shunt	-0.002117995899710387	0.9832291685546505	0.9990481376524966
+Roseburia_faecis	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	-0.02834138939251965	0.7784506865793797	0.9425169746347245
+Roseburia_faecis	PWY-5838: superpathway of menaquinol-8 biosynthesis I	-0.03483818456101283	0.7294431157275196	0.9425169746347245
+Roseburia_faecis	PWY-5840: superpathway of menaquinol-7 biosynthesis	-0.015588612492835658	0.8770397235395619	0.9836412368979617
+Roseburia_faecis	PWY-5845: superpathway of menaquinol-9 biosynthesis	-0.02303216098187714	0.8191646723902215	0.9571564549397517
+Roseburia_faecis	PWY-5850: superpathway of menaquinol-6 biosynthesis	-0.0021943885834548836	0.982624364346167	0.9990481376524966
+Roseburia_faecis	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	-0.004706463449769188	0.962743662177206	0.9990481376524966
+Roseburia_faecis	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	-0.04268945597853302	0.6716556165927596	0.9139556758821767
+Roseburia_faecis	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	-0.027259805602023127	0.7867003019243426	0.9425169746347245
+Roseburia_faecis	PWY-5896: superpathway of menaquinol-10 biosynthesis	-0.0045593864669639	0.96390712776165	0.9990481376524966
+Roseburia_faecis	PWY-5897: superpathway of menaquinol-11 biosynthesis	-0.03054021447210895	0.7617559674202998	0.9425169746347245
+Roseburia_faecis	PWY-5898: superpathway of menaquinol-12 biosynthesis	-0.03054021447210895	0.7617559674202998	0.9425169746347245
+Roseburia_faecis	PWY-5899: superpathway of menaquinol-13 biosynthesis	-0.03054021447210895	0.7617559674202998	0.9425169746347245
+Roseburia_faecis	PWY-5989: stearate biosynthesis II (bacteria and plants)	-0.030988684547168962	0.7583640184501719	0.9425169746347245
+Roseburia_faecis	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	-0.018223809190653008	0.8564599314291244	0.9775478646502141
+Roseburia_faecis	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	0.06503812469199585	0.5181667659293419	0.8338887138342457
+Roseburia_faecis	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	0.05534573196607905	0.5825142201013092	0.872696580668382
+Roseburia_faecis	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	0.0619656420613967	0.538166812078372	0.8429533413179698
+Roseburia_faecis	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	0.004503180649427769	0.9643517690122262	0.9990481376524966
+Roseburia_faecis	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	0.033011117944455284	0.7431252806382214	0.9425169746347245
+Roseburia_faecis	PWY-6608: guanosine nucleotides degradation III	-0.155330414822905	0.12088953333331229	0.39581573010745796
+Roseburia_faecis	PWY-6700: queuosine biosynthesis I (de novo)	0.11892970457336388	0.2361911137740172	0.6107872114156113
+Roseburia_faecis	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	0.1086424812991208	0.27949356212491727	0.6527663310146511
+Roseburia_faecis	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	0.20271408173749653	0.04204720100127116	0.254314022452258
+Roseburia_faecis	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	0.030301731465446874	0.7635615467945007	0.9425169746347245
+Roseburia_faecis	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	0.16524690827698504	0.09865414407801329	0.3482920217015078
+Roseburia_faecis	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	0.05485041501767459	0.5858987841296042	0.8737254575177856
+Roseburia_faecis	PWY-7219: adenosine ribonucleotides de novo biosynthesis	0.06394751062846257	0.5252224494634059	0.8338887138342457
+Roseburia_faecis	PWY-7221: guanosine ribonucleotides de novo biosynthesis	-0.024814401703617605	0.8054380526965579	0.9529882038964606
+Roseburia_faecis	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	-0.042182137489561684	0.6753367063168794	0.9139556758821767
+Roseburia_faecis	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	0.16651800424882712	0.09605325188210366	0.3436998521370917
+Roseburia_faecis	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	-0.017825090070651587	0.8595679499510503	0.9775478646502141
+Roseburia_faecis	PWY-7664: oleate biosynthesis IV (anaerobic)	-0.010636418877684862	0.9159258200286087	0.9990481376524966
+Roseburia_faecis	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	0.047994426976627466	0.6336405482409277	0.8995037153350233
+Roseburia_faecis	PWY0-862: (5Z)-dodecenoate biosynthesis I	-0.01115827184356907	0.9118170938488694	0.9990481376524966
+Roseburia_faecis	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.016810701721236217	0.8674846728714849	0.9813123496878654
+Roseburia_faecis	SO4ASSIM-PWY: assimilatory sulfate reduction I	-0.015931359823767872	0.8743580706274856	0.9833500738912996
+Roseburia_faecis	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	-0.01678157961561415	0.8677121515712898	0.9813123496878654
+Parabacteroides_merdae	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	-0.17052295891009503	0.0882104278137343	0.3436998521370917
+Parabacteroides_merdae	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	0.4122638787508001	1.8376333388153962e-05	0.0014921582711181016
+Parabacteroides_merdae	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	0.27290873716684677	0.005759293060756441	0.05687336116115796
+Parabacteroides_merdae	FASYN-ELONG-PWY: fatty acid elongation -- saturated	-0.16247869929723174	0.10450985836862828	0.35958476692934815
+Parabacteroides_merdae	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	-0.17154988566918397	0.08628362251131333	0.3436998521370917
+Parabacteroides_merdae	FUCCAT-PWY: fucose degradation	-0.32463869718647037	0.000925798188911856	0.013921261655489391
+Parabacteroides_merdae	GALACTARDEG-PWY: D-galactarate degradation I	-0.26315369927490334	0.007842457050717216	0.0690342755273205
+Parabacteroides_merdae	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	-0.26315369927490334	0.007842457050717216	0.0690342755273205
+Parabacteroides_merdae	HISTSYN-PWY: L-histidine biosynthesis	0.32345832160131066	0.0009688460042666806	0.014048267061866869
+Parabacteroides_merdae	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	-0.006371095773913566	0.9495814691062505	0.9990481376524966
+Parabacteroides_merdae	NONMEVIPP-PWY: methylerythritol phosphate pathway I	0.39084006188015175	5.323292302171653e-05	0.0025474517187728217
+Parabacteroides_merdae	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	-0.15786058562389416	0.11487957736794584	0.3791960033446017
+Parabacteroides_merdae	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	0.37335279758601086	0.0001203236715693892	0.003489386475512287
+Parabacteroides_merdae	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.15894347441967843	0.11237922417535846	0.3770740910346738
+Parabacteroides_merdae	PWY-2942: L-lysine biosynthesis III	0.18703641334647914	0.061087851963502665	0.3117121205722288
+Parabacteroides_merdae	PWY-4242	0.2459253512900962	0.013176899093954605	0.10699642064291139
+Parabacteroides_merdae	PWY-5097: L-lysine biosynthesis VI	0.26966270430765765	0.006390201496483104	0.058964131990275906
+Parabacteroides_merdae	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	-0.18920460645565387	0.0580965844080455	0.30632744506060355
+Parabacteroides_merdae	PWY-5686: UMP biosynthesis I	0.34353060842695127	0.00043622295157371327	0.008060854732274947
+Parabacteroides_merdae	PWY-5690: TCA cycle II (plants and fungi)	0.046996653923133166	0.6407220046898562	0.9032074957343184
+Parabacteroides_merdae	PWY-5723: Rubisco shunt	-0.1732152470924529	0.08323025071281567	0.3436998521370917
+Parabacteroides_merdae	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	-0.17422394372017463	0.08142316867321016	0.3436998521370917
+Parabacteroides_merdae	PWY-5838: superpathway of menaquinol-8 biosynthesis I	-0.15393913021860822	0.12429595709329005	0.3973555793691005
+Parabacteroides_merdae	PWY-5840: superpathway of menaquinol-7 biosynthesis	-0.16799889651192165	0.09309156961835222	0.3436998521370917
+Parabacteroides_merdae	PWY-5845: superpathway of menaquinol-9 biosynthesis	-0.11571356647855606	0.24919475945894476	0.6208661304686945
+Parabacteroides_merdae	PWY-5850: superpathway of menaquinol-6 biosynthesis	-0.16777580754351357	0.09353305723866814	0.3436998521370917
+Parabacteroides_merdae	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	-0.16683427811142312	0.0954145693681528	0.3436998521370917
+Parabacteroides_merdae	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	-0.15846588376987428	0.11347670577280479	0.3776355946209733
+Parabacteroides_merdae	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	-0.1140138058366187	0.25626279381116035	0.6230101454331204
+Parabacteroides_merdae	PWY-5896: superpathway of menaquinol-10 biosynthesis	-0.16782318009355587	0.09343917006372975	0.3436998521370917
+Parabacteroides_merdae	PWY-5897: superpathway of menaquinol-11 biosynthesis	-0.17590598382722916	0.07847965220230269	0.3426100945605902
+Parabacteroides_merdae	PWY-5898: superpathway of menaquinol-12 biosynthesis	-0.17590598382722916	0.07847965220230269	0.3426100945605902
+Parabacteroides_merdae	PWY-5899: superpathway of menaquinol-13 biosynthesis	-0.17590598382722916	0.07847965220230269	0.3426100945605902
+Parabacteroides_merdae	PWY-5989: stearate biosynthesis II (bacteria and plants)	-0.18617473916931257	0.06231098796516982	0.3117121205722288
+Parabacteroides_merdae	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	-0.16847500726984296	0.0921548665817236	0.3436998521370917
+Parabacteroides_merdae	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	0.3736242839705976	0.00011885141646934799	0.003489386475512287
+Parabacteroides_merdae	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	0.38960656939365984	5.647060460333841e-05	0.0025474517187728217
+Parabacteroides_merdae	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	0.3810901595467327	8.435498621628717e-05	0.003424812440381259
+Parabacteroides_merdae	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	-0.16937799459249012	0.09039881511912229	0.3436998521370917
+Parabacteroides_merdae	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	-0.2061330969699559	0.038631380031401076	0.24895778242458472
+Parabacteroides_merdae	PWY-6608: guanosine nucleotides degradation III	-0.34241515349897533	0.00045664940601557576	0.008060854732274947
+Parabacteroides_merdae	PWY-6700: queuosine biosynthesis I (de novo)	0.4298455730917538	7.259030972855042e-06	0.0009823888583263825
+Parabacteroides_merdae	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	-0.1642438390849844	0.100745433938797	0.3526090187857895
+Parabacteroides_merdae	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	-0.053406248872759486	0.5958178801103087	0.8796438520901284
+Parabacteroides_merdae	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	-0.21125676262013549	0.033949250509963703	0.2336168763905977
+Parabacteroides_merdae	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	-0.12617946751404438	0.20863206294905828	0.5680705681065493
+Parabacteroides_merdae	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	-0.20298098008378548	0.04177179200228642	0.254314022452258
+Parabacteroides_merdae	PWY-7219: adenosine ribonucleotides de novo biosynthesis	0.34853540090802837	0.0003545079219569374	0.007784474641321658
+Parabacteroides_merdae	PWY-7221: guanosine ribonucleotides de novo biosynthesis	0.23553214426276511	0.017736887982938352	0.14119953962888177
+Parabacteroides_merdae	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	0.13651633830164428	0.17342605902051622	0.49585197156570127
+Parabacteroides_merdae	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	-0.26224994563285475	0.008065558695722567	0.0690342755273205
+Parabacteroides_merdae	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	-0.19379406357151838	0.052159534515671166	0.29009275360770537
+Parabacteroides_merdae	PWY-7664: oleate biosynthesis IV (anaerobic)	-0.16094421103652412	0.10787097505845963	0.3680303854935682
+Parabacteroides_merdae	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	-0.2070682732636846	0.03773859684336093	0.24895778242458472
+Parabacteroides_merdae	PWY0-862: (5Z)-dodecenoate biosynthesis I	-0.16694051900913537	0.09520077983939411	0.3436998521370917
+Parabacteroides_merdae	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.20472434149009713	0.040009593476649834	0.24990607617722818
+Parabacteroides_merdae	SO4ASSIM-PWY: assimilatory sulfate reduction I	-0.19958022870747996	0.04539569286229352	0.2652756265585692
+Parabacteroides_merdae	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	-0.20666256471555233	0.03812376819153418	0.24895778242458472
+Clostridium_saccharolyticum	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	0.10076666409184364	0.31603364662984385	0.6935657326038736
+Clostridium_saccharolyticum	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	-0.15307499107453804	0.1264485447760867	0.398638913880547
+Clostridium_saccharolyticum	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	-0.17141549401544218	0.08653385877864828	0.3436998521370917
+Clostridium_saccharolyticum	FASYN-ELONG-PWY: fatty acid elongation -- saturated	0.06872383498682597	0.4946845190178043	0.8241959825865892
+Clostridium_saccharolyticum	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	0.20477702043935128	0.03995732718566908	0.24990607617722818
+Clostridium_saccharolyticum	FUCCAT-PWY: fucose degradation	0.1806766901285764	0.0705928171010378	0.3294331464715098
+Clostridium_saccharolyticum	GALACTARDEG-PWY: D-galactarate degradation I	0.07593899777854078	0.4503877275026107	0.7852183609831941
+Clostridium_saccharolyticum	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	0.07593899777854078	0.4503877275026107	0.7852183609831941
+Clostridium_saccharolyticum	HISTSYN-PWY: L-histidine biosynthesis	-0.14191911490552525	0.15686545403317387	0.46487134552896786
+Clostridium_saccharolyticum	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	-0.030087606904272146	0.7651837858481108	0.9425169746347245
+Clostridium_saccharolyticum	NONMEVIPP-PWY: methylerythritol phosphate pathway I	-0.14661792144410402	0.14344819988971605	0.4378945049265016
+Clostridium_saccharolyticum	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	0.06588356859850739	0.5127306045041016	0.832674501714661
+Clostridium_saccharolyticum	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	-0.12721639767190787	0.20488619174202885	0.5620526611301603
+Clostridium_saccharolyticum	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.17972177138041365	0.0721179861299088	0.3327261632811701
+Clostridium_saccharolyticum	PWY-2942: L-lysine biosynthesis III	-0.14419273097257948	0.15026072089113127	0.4518952050503652
+Clostridium_saccharolyticum	PWY-4242	-0.1548180967259463	0.12213542706573949	0.3966958671095218
+Clostridium_saccharolyticum	PWY-5097: L-lysine biosynthesis VI	-0.22295079153533814	0.02502444985532798	0.18142726145112786
+Clostridium_saccharolyticum	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	0.052551458164549626	0.6017242024650697	0.8819495530715463
+Clostridium_saccharolyticum	PWY-5686: UMP biosynthesis I	-0.13991833276651752	0.16285483610147927	0.47620114497055205
+Clostridium_saccharolyticum	PWY-5690: TCA cycle II (plants and fungi)	0.027874532982084903	0.7820086064713146	0.9425169746347245
+Clostridium_saccharolyticum	PWY-5723: Rubisco shunt	0.04575247819340791	0.6495975092473423	0.9032074957343184
+Clostridium_saccharolyticum	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	0.10717857351138961	0.2860619783580402	0.6636637897906533
+Clostridium_saccharolyticum	PWY-5838: superpathway of menaquinol-8 biosynthesis I	0.123336452080636	0.2191523796480489	0.5874893970917527
+Clostridium_saccharolyticum	PWY-5840: superpathway of menaquinol-7 biosynthesis	0.11495737602206993	0.2523224421855532	0.6208661304686945
+Clostridium_saccharolyticum	PWY-5845: superpathway of menaquinol-9 biosynthesis	0.10416314407464236	0.2999132208444873	0.669668369536039
+Clostridium_saccharolyticum	PWY-5850: superpathway of menaquinol-6 biosynthesis	0.09060933089581799	0.3675174340279953	0.7482945586935074
+Clostridium_saccharolyticum	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	0.08919498585162343	0.3750732609948184	0.7501465219896368
+Clostridium_saccharolyticum	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	0.12583743703741426	0.20987828870931627	0.5680705681065493
+Clostridium_saccharolyticum	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	0.10410251360661289	0.30019616565408647	0.669668369536039
+Clostridium_saccharolyticum	PWY-5896: superpathway of menaquinol-10 biosynthesis	0.09296657263614223	0.3551336696111862	0.7471098805044833
+Clostridium_saccharolyticum	PWY-5897: superpathway of menaquinol-11 biosynthesis	0.11540908764187813	0.25045089093266115	0.6208661304686945
+Clostridium_saccharolyticum	PWY-5898: superpathway of menaquinol-12 biosynthesis	0.11540908764187813	0.25045089093266115	0.6208661304686945
+Clostridium_saccharolyticum	PWY-5899: superpathway of menaquinol-13 biosynthesis	0.11540908764187813	0.25045089093266115	0.6208661304686945
+Clostridium_saccharolyticum	PWY-5989: stearate biosynthesis II (bacteria and plants)	0.045987674316283624	0.6479158969573466	0.9032074957343184
+Clostridium_saccharolyticum	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	0.06385829660332991	0.5258017505949923	0.8338887138342457
+Clostridium_saccharolyticum	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	-0.10123654474570151	0.31377071385373306	0.6923419012207371
+Clostridium_saccharolyticum	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	-0.16847495056871872	0.09215497769027534	0.3436998521370917
+Clostridium_saccharolyticum	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	-0.16721688301161539	0.09464641959937999	0.3436998521370917
+Clostridium_saccharolyticum	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	0.10460149652494179	0.29787276851212985	0.669668369536039
+Clostridium_saccharolyticum	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	0.16930590674692558	0.09053802425643313	0.3436998521370917
+Clostridium_saccharolyticum	PWY-6608: guanosine nucleotides degradation III	0.08710981024907119	0.3863837883267347	0.7622542595100512
+Clostridium_saccharolyticum	PWY-6700: queuosine biosynthesis I (de novo)	-0.14525375180387146	0.14725094080998463	0.44614837290189374
+Clostridium_saccharolyticum	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	0.07628761992403109	0.44830498078392	0.7852183609831941
+Clostridium_saccharolyticum	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	-0.06855730278489819	0.49573329904935637	0.8241959825865892
+Clostridium_saccharolyticum	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	0.1738235607772429	0.08213666633514345	0.3436998521370917
+Clostridium_saccharolyticum	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	0.11500299713803822	0.25213298815817614	0.6208661304686945
+Clostridium_saccharolyticum	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	0.21225393986064695	0.03309590568950297	0.2316713398265208
+Clostridium_saccharolyticum	PWY-7219: adenosine ribonucleotides de novo biosynthesis	-0.18651230470068228	0.06182946198216276	0.3117121205722288
+Clostridium_saccharolyticum	PWY-7221: guanosine ribonucleotides de novo biosynthesis	-0.1692782949124112	0.09059139054543114	0.3436998521370917
+Clostridium_saccharolyticum	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	-0.18804320618583212	0.05968360462837746	0.31066081383488786
+Clostridium_saccharolyticum	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	0.10551094295176346	0.29366865568153117	0.6688734011110764
+Clostridium_saccharolyticum	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	0.06904214123621356	0.49268315665251283	0.8241959825865892
+Clostridium_saccharolyticum	PWY-7664: oleate biosynthesis IV (anaerobic)	0.06490415999417486	0.5190308375963408	0.8338887138342457
+Clostridium_saccharolyticum	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	0.06085834776610127	0.5454669945535477	0.8429533413179698
+Clostridium_saccharolyticum	PWY0-862: (5Z)-dodecenoate biosynthesis I	0.06829942665430917	0.49735964466432103	0.8241959825865892
+Clostridium_saccharolyticum	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.11240757835516131	0.26306677692234837	0.6357447108956752
+Clostridium_saccharolyticum	SO4ASSIM-PWY: assimilatory sulfate reduction I	0.06614784062015996	0.5110373737292077	0.832674501714661
+Clostridium_saccharolyticum	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	0.06698150955556527	0.5057148434555665	0.8312559775018624
+Fusobacterium_mortiferum	BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I	-0.09136511542705406	0.363518383519573	0.7482945586935074
+Fusobacterium_mortiferum	COA-PWY-1: superpathway of coenzyme A biosynthesis III (mammals)	0.009171413327036625	0.9274717884321254	0.9990481376524966
+Fusobacterium_mortiferum	COA-PWY: coenzyme A biosynthesis I (prokaryotic)	0.11164693009952828	0.26633134585147317	0.6385366516000325
+Fusobacterium_mortiferum	FASYN-ELONG-PWY: fatty acid elongation -- saturated	-0.09225704991551852	0.3588335632964883	0.7471098805044833
+Fusobacterium_mortiferum	FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation	-0.011653317990589874	0.9079215698169752	0.9990481376524966
+Fusobacterium_mortiferum	FUCCAT-PWY: fucose degradation	-0.03509568313305769	0.7275215017513232	0.9425169746347245
+Fusobacterium_mortiferum	GALACTARDEG-PWY: D-galactarate degradation I	0.033854829388580664	0.736796837894743	0.9425169746347245
+Fusobacterium_mortiferum	GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation	0.033854829388580664	0.736796837894743	0.9425169746347245
+Fusobacterium_mortiferum	HISTSYN-PWY: L-histidine biosynthesis	0.08958124645012516	0.3730004258910842	0.7501465219896368
+Fusobacterium_mortiferum	NAD-BIOSYNTHESIS-II: NAD salvage pathway III (to nicotinamide riboside)	-0.05559094837174157	0.5808419580062724	0.872696580668382
+Fusobacterium_mortiferum	NONMEVIPP-PWY: methylerythritol phosphate pathway I	0.016054820792360095	0.8733924592043637	0.9833500738912996
+Fusobacterium_mortiferum	P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)	-0.009043915736317493	0.9284773661968199	0.9990481376524966
+Fusobacterium_mortiferum	PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)	0.007290594949187676	0.9423165966258473	0.9990481376524966
+Fusobacterium_mortiferum	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.020184865271554178	0.8412062468432442	0.9675063348961959
+Fusobacterium_mortiferum	PWY-2942: L-lysine biosynthesis III	0.12004274821920452	0.23180290723551755	0.6071740666943234
+Fusobacterium_mortiferum	PWY-4242	0.10858332903045474	0.27975699900627904	0.6527663310146511
+Fusobacterium_mortiferum	PWY-5097: L-lysine biosynthesis VI	0.061155682100366836	0.5435019826539673	0.8429533413179698
+Fusobacterium_mortiferum	PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)	-0.0015512084836493572	0.9877167228448782	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5686: UMP biosynthesis I	0.07032709542740347	0.4846476040291855	0.8232925825767754
+Fusobacterium_mortiferum	PWY-5690: TCA cycle II (plants and fungi)	-0.0335057129579689	0.7394133584487113	0.9425169746347245
+Fusobacterium_mortiferum	PWY-5723: Rubisco shunt	-0.023624922739768142	0.8145930077130502	0.9571564549397517
+Fusobacterium_mortiferum	PWY-5837: 2-carboxy-1,4-naphthoquinol biosynthesis	0.008454012378820831	0.933131393195429	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5838: superpathway of menaquinol-8 biosynthesis I	0.00725183630660319	0.9426227336617345	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5840: superpathway of menaquinol-7 biosynthesis	-0.008134291615761022	0.9356547727586811	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5845: superpathway of menaquinol-9 biosynthesis	0.020592292620445218	0.8380443101638472	0.9675063348961959
+Fusobacterium_mortiferum	PWY-5850: superpathway of menaquinol-6 biosynthesis	-0.026497126977162368	0.7925317832411372	0.9436008914835826
+Fusobacterium_mortiferum	PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I	-0.023384395467363556	0.8164473298291985	0.9571564549397517
+Fusobacterium_mortiferum	PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis I	0.012448339328447187	0.9016701368186604	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis	0.021736308877136616	0.8291798145410271	0.9618485848675915
+Fusobacterium_mortiferum	PWY-5896: superpathway of menaquinol-10 biosynthesis	-0.02455166978353811	0.8074579855674444	0.9529882038964606
+Fusobacterium_mortiferum	PWY-5897: superpathway of menaquinol-11 biosynthesis	0.0024431320177326255	0.9806551216580983	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5898: superpathway of menaquinol-12 biosynthesis	0.0024431320177326255	0.9806551216580983	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5899: superpathway of menaquinol-13 biosynthesis	0.0024431320177326255	0.9806551216580983	0.9990481376524966
+Fusobacterium_mortiferum	PWY-5989: stearate biosynthesis II (bacteria and plants)	-0.0805455622843766	0.42330577808987535	0.7741538103805828
+Fusobacterium_mortiferum	PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate)	-0.08384184191565827	0.40451711166769944	0.7638788248236558
+Fusobacterium_mortiferum	PWY-6385: peptidoglycan biosynthesis III (mycobacteria)	0.009384702009060731	0.9257898292557685	0.9990481376524966
+Fusobacterium_mortiferum	PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)	0.011653317990589874	0.9079215698169752	0.9990481376524966
+Fusobacterium_mortiferum	PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)	0.020436933713946306	0.8392497089635734	0.9675063348961959
+Fusobacterium_mortiferum	PWY-6519: 8-amino-7-oxononanoate biosynthesis I	-0.08262027946406565	0.4114219581716506	0.7688697011182143
+Fusobacterium_mortiferum	PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III	-0.06626602781119685	0.5102810625600045	0.832674501714661
+Fusobacterium_mortiferum	PWY-6608: guanosine nucleotides degradation III	0.08704117214601988	0.38675955039179943	0.7622542595100512
+Fusobacterium_mortiferum	PWY-6700: queuosine biosynthesis I (de novo)	-0.030015534524847134	0.7657300454029171	0.9425169746347245
+Fusobacterium_mortiferum	PWY-6969: TCA cycle V (2-oxoglutarate synthase)	-0.047621684409137534	0.6362821796582978	0.9001064980532019
+Fusobacterium_mortiferum	PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type	-0.06982316187186655	0.4877906264655747	0.8241959825865892
+Fusobacterium_mortiferum	PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I	-0.07126943289615113	0.4787993846310372	0.8167754208411812
+Fusobacterium_mortiferum	PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP	-0.02837839942977564	0.7781688269833416	0.9425169746347245
+Fusobacterium_mortiferum	PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis	-0.0689228746973935	0.493432548368677	0.8241959825865892
+Fusobacterium_mortiferum	PWY-7219: adenosine ribonucleotides de novo biosynthesis	0.04248322748316542	0.6731510759288779	0.9139556758821767
+Fusobacterium_mortiferum	PWY-7221: guanosine ribonucleotides de novo biosynthesis	-0.027902037584790068	0.7817988681096543	0.9425169746347245
+Fusobacterium_mortiferum	PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II	0.0061853717786991185	0.9510493765743768	0.9990481376524966
+Fusobacterium_mortiferum	PWY-7315: dTDP-N-acetylthomosamine biosynthesis	-0.10018751091077852	0.31883731273927357	0.6959567149040058
+Fusobacterium_mortiferum	PWY-7388: octanoyl-[acyl-carrier protein] biosynthesis (mitochondria, yeast)	-0.10592691544524542	0.2917588614843821	0.6688734011110764
+Fusobacterium_mortiferum	PWY-7664: oleate biosynthesis IV (anaerobic)	-0.08731263046859601	0.3852747238091607	0.7622542595100512
+Fusobacterium_mortiferum	PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli)	-0.011718181019250406	0.9074113214062546	0.9990481376524966
+Fusobacterium_mortiferum	PWY0-862: (5Z)-dodecenoate biosynthesis I	-0.09140389518742208	0.36331391553045356	0.7482945586935074
+Fusobacterium_mortiferum	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.11585453409945841	0.24861466690058076	0.6208661304686945
+Fusobacterium_mortiferum	SO4ASSIM-PWY: assimilatory sulfate reduction I	0.0006010932874141259	0.9952400727455465	0.9990481376524966
+Fusobacterium_mortiferum	SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis	-0.0004653625450948071	0.9963148864051744	0.9990481376524966

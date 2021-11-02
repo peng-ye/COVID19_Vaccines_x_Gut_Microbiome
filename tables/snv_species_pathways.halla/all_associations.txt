@@ -1,0 +1,601 @@
+X_features	Y_features	association	p-values	q-values
+Bifidobacterium_adolescentis	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.4246246826955272	0.008805756539467179	0.05982891426226562
+Bifidobacterium_adolescentis	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.7089196329248958	9.080280138522352e-07	5.4481680831134114e-05
+Bifidobacterium_adolescentis	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.6042176563698343	7.493374650909697e-05	0.0017292403040560839
+Bifidobacterium_adolescentis	FERMENTATION-PWY: mixed acid fermentation	0.43528877290020945	0.007089409062313049	0.05063863615937892
+Bifidobacterium_adolescentis	GLUCONEO-PWY: gluconeogenesis I	0.5533208622111238	0.00038219176090633185	0.00619770423091349
+Bifidobacterium_adolescentis	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.4030541365996928	0.01338103896006022	0.07574172996260502
+Bifidobacterium_adolescentis	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.26539042668470453	0.1123957596228509	0.2763830154660268
+Bifidobacterium_adolescentis	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.3589435816621438	0.029130525361669858	0.11921549759572195
+Bifidobacterium_adolescentis	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.7317020074530803	2.6722617386865847e-07	2.2905100617313582e-05
+Bifidobacterium_adolescentis	P441-PWY: superpathway of N-acetylneuraminate degradation	0.15293274816260144	0.3661774336329914	0.5629110671650336
+Bifidobacterium_adolescentis	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.5210862259106072	0.0009435086787850956	0.012439584343579932
+Bifidobacterium_adolescentis	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.6856525270237709	2.8276393270590804e-06	0.00013050643047964985
+Bifidobacterium_adolescentis	PWY-5104: L-isoleucine biosynthesis IV	-0.5014546053065331	0.001568257250510913	0.01692070694320849
+Bifidobacterium_adolescentis	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.09016003536685852	0.5956393505913558	0.7263894519406778
+Bifidobacterium_adolescentis	PWY-5367: petroselinate biosynthesis	0.08832587313475666	0.603173063428371	0.7296448347923842
+Bifidobacterium_adolescentis	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.68104757898084	3.4977660084099603e-06	0.00014990425750328402
+Bifidobacterium_adolescentis	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.2577711860593294	0.12348570542953223	0.2876676688448064
+Bifidobacterium_adolescentis	PWY-5675: nitrate reduction V (assimilatory)	0.07818963911158379	0.6455232151078012	0.753892696670331
+Bifidobacterium_adolescentis	PWY-5913: partial TCA cycle (obligate autotrophs)	0.6771697279973191	4.171667205480838e-06	0.00016686668821923353
+Bifidobacterium_adolescentis	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.20067444253418615	0.23368492470197774	0.4314183225267282
+Bifidobacterium_adolescentis	PWY-6168: flavin biosynthesis III (fungi)	-0.6257882024656686	3.442283095560929e-05	0.0008822510055932817
+Bifidobacterium_adolescentis	PWY-622: starch biosynthesis	0.7061216780828073	1.0468965307042249e-06	5.710344712932136e-05
+Bifidobacterium_adolescentis	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.09414955707770764	0.5793962023534199	0.7197468352216396
+Bifidobacterium_adolescentis	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.15122257424792726	0.3716254254287319	0.5659270438000994
+Bifidobacterium_adolescentis	PWY-6737: starch degradation V	-0.2120699756612936	0.20763791401285955	0.40058761545889304
+Bifidobacterium_adolescentis	PWY-6749: CMP-legionaminate biosynthesis I	-0.2026759167492567	0.2289569612193179	0.42798403460805345
+Bifidobacterium_adolescentis	PWY-7003: glycerol degradation to butanol	-0.03974797258108817	0.815317849543516	0.8846124949839234
+Bifidobacterium_adolescentis	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.6963166172284532	1.702217627329183e-06	8.511088136645915e-05
+Bifidobacterium_adolescentis	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.7663603006182975	3.220454854417115e-08	4.8306822816256725e-06
+Bifidobacterium_adolescentis	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.07890640484070624	0.6424900184090443	0.753892696670331
+Bifidobacterium_adolescentis	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.8002388735117923	2.7824863295361303e-09	8.34745898860839e-07
+Bifidobacterium_adolescentis	PWY-7234: inosine-5_-phosphate biosynthesis III	0.7903545035788324	5.951285502997497e-09	1.1902571005994995e-06
+Bifidobacterium_adolescentis	PWY-7242: D-fructuronate degradation	-0.2748426884570365	0.09970192126883329	0.2556459519713674
+Bifidobacterium_adolescentis	PWY0-781: aspartate superpathway	0.7491523368789239	9.608036017260182e-08	9.608036017260182e-06
+Bifidobacterium_adolescentis	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.09815810302037019	0.5632789189998693	0.7099784529856309
+Bifidobacterium_adolescentis	PWY66-399: gluconeogenesis III	0.379302299325628	0.020597081175945265	0.09580037756253612
+Bifidobacterium_adolescentis	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.5198743974782568	0.0009744341069137614	0.012439584343579932
+Bifidobacterium_adolescentis	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.25642289628531273	0.1255303684979007	0.29080394246617924
+Bifidobacterium_adolescentis	TRPSYN-PWY: L-tryptophan biosynthesis	-0.22855084234125697	0.1736424999431226	0.35802577307860334
+Bifidobacterium_adolescentis	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.394328971886771	0.015732979389948713	0.0835379436634445
+Adlercreutzia_equolifaciens	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.6251224006544621	3.529004022373127e-05	0.0008822510055932817
+Adlercreutzia_equolifaciens	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.34039199213719007	0.03925809043164125	0.14691043661060016
+Adlercreutzia_equolifaciens	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.46765245041349796	0.003516815204328552	0.03103072239113428
+Adlercreutzia_equolifaciens	FERMENTATION-PWY: mixed acid fermentation	0.6365401613970094	2.2846940814748465e-05	0.0006230983858567763
+Adlercreutzia_equolifaciens	GLUCONEO-PWY: gluconeogenesis I	0.4940560221306385	0.00188470255936498	0.018638531293747086
+Adlercreutzia_equolifaciens	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.37821332459687784	0.020993588269075648	0.09615383940034648
+Adlercreutzia_equolifaciens	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.26189488703217767	0.1173864405250118	0.27729080438979165
+Adlercreutzia_equolifaciens	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.036631982382339105	0.8295740597616649	0.8952238054981996
+Adlercreutzia_equolifaciens	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.4300689879692799	0.007889762429753287	0.054412154687953705
+Adlercreutzia_equolifaciens	P441-PWY: superpathway of N-acetylneuraminate degradation	0.42221927745877863	0.009238518251802507	0.061590121678683385
+Adlercreutzia_equolifaciens	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.43910804855712976	0.006548890964544496	0.04851030344107034
+Adlercreutzia_equolifaciens	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.4031896762211999	0.013346988265196627	0.07574172996260502
+Adlercreutzia_equolifaciens	PWY-5104: L-isoleucine biosynthesis IV	-0.5406785451627064	0.0005506828652146287	0.00805877363728725
+Adlercreutzia_equolifaciens	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.056613063681796805	0.739276598019083	0.8244720424004643
+Adlercreutzia_equolifaciens	PWY-5367: petroselinate biosynthesis	0.0011907624398904107	0.9944192297691961	0.9960793620392615
+Adlercreutzia_equolifaciens	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.33206654159574933	0.044650124764878917	0.15466544120043432
+Adlercreutzia_equolifaciens	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.3624164495538188	0.027497787389629234	0.11457411412345515
+Adlercreutzia_equolifaciens	PWY-5675: nitrate reduction V (assimilatory)	0.32978769581190787	0.04622575465590197	0.15466544120043432
+Adlercreutzia_equolifaciens	PWY-5913: partial TCA cycle (obligate autotrophs)	0.4010488460819723	0.013893453972791639	0.07790721853901854
+Adlercreutzia_equolifaciens	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.2488693499370958	0.13745421057655924	0.3133444822303144
+Adlercreutzia_equolifaciens	PWY-6168: flavin biosynthesis III (fungi)	-0.15413977002438795	0.3623611479913831	0.5603522907083244
+Adlercreutzia_equolifaciens	PWY-622: starch biosynthesis	0.365564069046356	0.026083889036578108	0.11178809587104903
+Adlercreutzia_equolifaciens	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.05525137721091505	0.7453369188209356	0.82739466222537
+Adlercreutzia_equolifaciens	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.22049889078039564	0.18971692245788238	0.37615843500081336
+Adlercreutzia_equolifaciens	PWY-6737: starch degradation V	-0.38534942506096986	0.01850713990431199	0.09101872084087863
+Adlercreutzia_equolifaciens	PWY-6749: CMP-legionaminate biosynthesis I	-0.034287555405275755	0.8403359849249996	0.9019706457155631
+Adlercreutzia_equolifaciens	PWY-7003: glycerol degradation to butanol	0.2554723966144948	0.1269868771359679	0.2930466395445413
+Adlercreutzia_equolifaciens	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.3905825654013039	0.016844613654710645	0.08788494080718597
+Adlercreutzia_equolifaciens	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.344911522431115	0.03656016107924227	0.141523204177712
+Adlercreutzia_equolifaciens	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.21031612656164397	0.21150962658052072	0.40279356929892984
+Adlercreutzia_equolifaciens	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.33476248639332573	0.04284234940680679	0.15405454697381196
+Adlercreutzia_equolifaciens	PWY-7234: inosine-5_-phosphate biosynthesis III	0.34181921223000844	0.0383891947105478	0.14689591318039016
+Adlercreutzia_equolifaciens	PWY-7242: D-fructuronate degradation	-0.18220843184981658	0.28042854146324386	0.47263237325265817
+Adlercreutzia_equolifaciens	PWY0-781: aspartate superpathway	0.520459593847779	0.000959389864130947	0.012439584343579932
+Adlercreutzia_equolifaciens	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.3361103318587348	0.041960991974316596	0.15258542536115124
+Adlercreutzia_equolifaciens	PWY66-399: gluconeogenesis III	0.5925342085351085	0.00011159746881608264	0.0024799437514685034
+Adlercreutzia_equolifaciens	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.3625139035758753	0.027453082397981998	0.11457411412345515
+Adlercreutzia_equolifaciens	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.2792593981614682	0.09415945105307919	0.24998084350375005
+Adlercreutzia_equolifaciens	TRPSYN-PWY: L-tryptophan biosynthesis	-0.2269279947581267	0.17680119282904286	0.35998014502738906
+Adlercreutzia_equolifaciens	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.3953399657106987	0.015443796613314591	0.0827346247141853
+Asaccharobacter_celatus	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.6236675640115426	3.7254329751459434e-05	0.0008941039140350264
+Asaccharobacter_celatus	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.322615427572733	0.051478952537189926	0.1642945293740104
+Asaccharobacter_celatus	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.4326954331403864	0.007477876924133617	0.05278501358211965
+Asaccharobacter_celatus	FERMENTATION-PWY: mixed acid fermentation	0.6435629762732288	1.7332268310860698e-05	0.000519968049325821
+Asaccharobacter_celatus	GLUCONEO-PWY: gluconeogenesis I	0.4838040071539397	0.00241528615955669	0.023002725329111334
+Asaccharobacter_celatus	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.3400090215260635	0.03949394110325354	0.14691043661060016
+Asaccharobacter_celatus	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.26245265396703504	0.11657914248148399	0.276686937561252
+Asaccharobacter_celatus	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.012270823131459194	0.9425372324018917	0.9716878684555584
+Asaccharobacter_celatus	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.41196608144258157	0.011292585925601333	0.06843991470061413
+Asaccharobacter_celatus	P441-PWY: superpathway of N-acetylneuraminate degradation	0.37979984604943606	0.020418008199475954	0.09570941343504354
+Asaccharobacter_celatus	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.4499698928885571	0.005200936167462547	0.04106002237470432
+Asaccharobacter_celatus	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.3828973353835908	0.019332147135961323	0.09292327797424522
+Asaccharobacter_celatus	PWY-5104: L-isoleucine biosynthesis IV	-0.5694615006638345	0.00023461462857943765	0.004265720519626139
+Asaccharobacter_celatus	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.04014822713885193	0.8134907432170403	0.8842290687141742
+Asaccharobacter_celatus	PWY-5367: petroselinate biosynthesis	-0.005248129830348931	0.9754070183282769	0.9871168128993391
+Asaccharobacter_celatus	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.319637072443738	0.05379615565198749	0.16899315911619106
+Asaccharobacter_celatus	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.3164392047474147	0.05637605561279736	0.1752623490553286
+Asaccharobacter_celatus	PWY-5675: nitrate reduction V (assimilatory)	0.30352011494252873	0.06781651935526622	0.1984106152034555
+Asaccharobacter_celatus	PWY-5913: partial TCA cycle (obligate autotrophs)	0.38230166435779184	0.019537133793367092	0.09303397044460521
+Asaccharobacter_celatus	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.20622764719712053	0.2207281339627153	0.41646817728814206
+Asaccharobacter_celatus	PWY-6168: flavin biosynthesis III (fungi)	-0.13938702003696368	0.41063007618936354	0.5944526843143325
+Asaccharobacter_celatus	PWY-622: starch biosynthesis	0.3300358009221703	0.04605206943716783	0.15466544120043432
+Asaccharobacter_celatus	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.039122422371692035	0.8181753203506175	0.8861104552533763
+Asaccharobacter_celatus	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.16621522260691055	0.3255052930921405	0.5250085372453879
+Asaccharobacter_celatus	PWY-6737: starch degradation V	-0.3395324847054243	0.03978901852975725	0.14691043661060016
+Asaccharobacter_celatus	PWY-6749: CMP-legionaminate biosynthesis I	-0.0358064702473608	0.8333601319979999	0.897694935724955
+Asaccharobacter_celatus	PWY-7003: glycerol degradation to butanol	0.28830477648671116	0.08354879235409345	0.22996126656801208
+Asaccharobacter_celatus	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.3718178543037296	0.02345269822732658	0.10346778629702903
+Asaccharobacter_celatus	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.30248174690072716	0.06880996583346399	0.19944917632888115
+Asaccharobacter_celatus	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.15173735332828617	0.3699804921464779	0.5651334835297054
+Asaccharobacter_celatus	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.3260284890501376	0.04892249886887035	0.1595298876158816
+Asaccharobacter_celatus	PWY-7234: inosine-5_-phosphate biosynthesis III	0.30974893341547477	0.06209179708808025	0.18815696087297043
+Asaccharobacter_celatus	PWY-7242: D-fructuronate degradation	-0.18870858097312007	0.2633287289533115	0.4626842031946233
+Asaccharobacter_celatus	PWY0-781: aspartate superpathway	0.503103748389827	0.0015044598701158482	0.01671622077906498
+Asaccharobacter_celatus	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.33393317706291376	0.043392030730957036	0.15405454697381196
+Asaccharobacter_celatus	PWY66-399: gluconeogenesis III	0.5776817608198604	0.0001811952025210122	0.0035070039197615268
+Asaccharobacter_celatus	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.35239897886268245	0.032424186876010536	0.12715367402357072
+Asaccharobacter_celatus	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.24827568355301907	0.13842556798799155	0.3133444822303144
+Asaccharobacter_celatus	TRPSYN-PWY: L-tryptophan biosynthesis	-0.18966165461439843	0.2608806615858991	0.46173568422283034
+Asaccharobacter_celatus	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.4106556051858238	0.011581123189319741	0.06879875161972124
+Butyricimonas_virosa	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.24732578062948618	0.13999030576454174	0.31458495677425113
+Butyricimonas_virosa	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.19457276194363343	0.24850508818147277	0.4481697387491472
+Butyricimonas_virosa	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.30694895988838017	0.06461593702562146	0.19384781107686438
+Butyricimonas_virosa	FERMENTATION-PWY: mixed acid fermentation	0.24192779732209657	0.14913004657129572	0.3326320741367191
+Butyricimonas_virosa	GLUCONEO-PWY: gluconeogenesis I	0.32510581283141776	0.049603331943771964	0.16087567116899015
+Butyricimonas_virosa	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.18426752108407154	0.27493548866180223	0.4697947241251643
+Butyricimonas_virosa	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.1641477651201649	0.33164392806051046	0.5278152701228284
+Butyricimonas_virosa	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.4588285811281142	0.004286031223377794	0.036219982169389806
+Butyricimonas_virosa	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.25763102148904804	0.12369709760326673	0.2876676688448064
+Butyricimonas_virosa	P441-PWY: superpathway of N-acetylneuraminate degradation	0.15384252426060296	0.36329874218937475	0.560357957104434
+Butyricimonas_virosa	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.22990501631927432	0.1710377795472446	0.356328707390093
+Butyricimonas_virosa	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.18132316655276812	0.2828119315067204	0.47398647738556493
+Butyricimonas_virosa	PWY-5104: L-isoleucine biosynthesis IV	-0.15899514469038395	0.3472518678992076	0.545179227843326
+Butyricimonas_virosa	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.10648748888213988	0.5304667071355325	0.6964551953639375
+Butyricimonas_virosa	PWY-5367: petroselinate biosynthesis	0.08622464103027494	0.6118537351311519	0.7347050708020181
+Butyricimonas_virosa	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.15016208109647375	0.37502778685962057	0.5675442568662123
+Butyricimonas_virosa	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.28009832665295764	0.09313392627879642	0.24835713674345714
+Butyricimonas_virosa	PWY-5675: nitrate reduction V (assimilatory)	0.12526957712974934	0.46005919213736024	0.6363989154969393
+Butyricimonas_virosa	PWY-5913: partial TCA cycle (obligate autotrophs)	0.1854943354721146	0.2716963357081153	0.4670997175497684
+Butyricimonas_virosa	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.11570315078421507	0.495280301007771	0.660373734677028
+Butyricimonas_virosa	PWY-6168: flavin biosynthesis III (fungi)	-0.10845039190300881	0.5228717469772926	0.6910199299259373
+Butyricimonas_virosa	PWY-622: starch biosynthesis	0.21052569049272257	0.21104439639936148	0.40279356929892984
+Butyricimonas_virosa	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.07688977960819389	0.6510383214732158	0.7584912483183097
+Butyricimonas_virosa	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.05240777165540561	0.7580409996970365	0.8354121241072394
+Butyricimonas_virosa	PWY-6737: starch degradation V	-0.2735796085336082	0.1013318091949272	0.2576232437159166
+Butyricimonas_virosa	PWY-6749: CMP-legionaminate biosynthesis I	0.01755838652942353	0.9178474526507874	0.9577538636356042
+Butyricimonas_virosa	PWY-7003: glycerol degradation to butanol	0.23849271703557592	0.15516856374084154	0.3373229646540033
+Butyricimonas_virosa	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.17641590900059576	0.29626115234521416	0.4910405839975925
+Butyricimonas_virosa	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.19457276194363343	0.24850508818147277	0.4481697387491472
+Butyricimonas_virosa	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.41633690792408207	0.010373933114622107	0.06502301478671156
+Butyricimonas_virosa	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.26750896492028803	0.10944993349703797	0.2713634714802594
+Butyricimonas_virosa	PWY-7234: inosine-5_-phosphate biosynthesis III	0.3393368597327176	0.03991066861254638	0.14691043661060016
+Butyricimonas_virosa	PWY-7242: D-fructuronate degradation	-0.1933459475555904	0.2515590841307019	0.450553583517675
+Butyricimonas_virosa	PWY0-781: aspartate superpathway	0.2637650934292635	0.11469600950578497	0.276686937561252
+Butyricimonas_virosa	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.17641590900059576	0.29626115234521416	0.4910405839975925
+Butyricimonas_virosa	PWY66-399: gluconeogenesis III	0.5137898657124444	0.001143671747568554	0.013454961736100633
+Butyricimonas_virosa	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.1724901029588579	0.3073103009410197	0.5024146609389968
+Butyricimonas_virosa	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.2883013811901252	0.08355259351971106	0.22996126656801208
+Butyricimonas_virosa	TRPSYN-PWY: L-tryptophan biosynthesis	-0.2728435199007823	0.10229097714167727	0.2585445361760426
+Butyricimonas_virosa	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.27014452824708757	0.10586710983142832	0.2635695680450498
+Alistipes_putredinis	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.08470441986861639	0.618166872607739	0.734777659904968
+Alistipes_putredinis	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.2100336036967239	0.21213794649743636	0.40279356929892984
+Alistipes_putredinis	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.10602944259222023	0.5322466773557788	0.6972663895490552
+Alistipes_putredinis	FERMENTATION-PWY: mixed acid fermentation	0.2008602698994194	0.23324319001126936	0.4314183225267282
+Alistipes_putredinis	GLUCONEO-PWY: gluconeogenesis I	0.4160166444180146	0.010439015136716993	0.06502301478671156
+Alistipes_putredinis	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.1499899642961857	0.3755817170861204	0.5675442568662123
+Alistipes_putredinis	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.5225226238308741	0.000907980115752673	0.012381547032990995
+Alistipes_putredinis	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.3977891110285655	0.014761736534004118	0.08051856291274974
+Alistipes_putredinis	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.23326477370288448	0.16469645783406275	0.3504179953916229
+Alistipes_putredinis	P441-PWY: superpathway of N-acetylneuraminate degradation	0.2871134344351132	0.08489078662718354	0.232577497608722
+Alistipes_putredinis	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.21051014051736308	0.21107889288590784	0.40279356929892984
+Alistipes_putredinis	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.2268315266242554	0.1769902379717996	0.35998014502738906
+Alistipes_putredinis	PWY-5104: L-isoleucine biosynthesis IV	-0.17893957615001663	0.2892943261855658	0.48350026660540235
+Alistipes_putredinis	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.09125680115240527	0.5911541585453817	0.7235217409848719
+Alistipes_putredinis	PWY-5367: petroselinate biosynthesis	0.14468139736848304	0.39290284058903124	0.5763855852161828
+Alistipes_putredinis	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.1748890131745835	0.30052798186346796	0.494018600323509
+Alistipes_putredinis	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.19425983559512786	0.2492817107634651	0.4481697387491472
+Alistipes_putredinis	PWY-5675: nitrate reduction V (assimilatory)	0.18312978927203066	0.27796187844072223	0.4697947241251643
+Alistipes_putredinis	PWY-5913: partial TCA cycle (obligate autotrophs)	0.2206365479559459	0.18943359694100517	0.37615843500081336
+Alistipes_putredinis	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.3270539089731084	0.04817467323977047	0.15839737808226115
+Alistipes_putredinis	PWY-6168: flavin biosynthesis III (fungi)	-0.2345752499596423	0.16226950693697859	0.34772037200781125
+Alistipes_putredinis	PWY-622: starch biosynthesis	0.07132685542156048	0.6748448719554725	0.780167482029448
+Alistipes_putredinis	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.24248745329771312	0.1481627120420679	0.33170756427328635
+Alistipes_putredinis	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.1291113720098928	0.44630201989464735	0.6256570372354869
+Alistipes_putredinis	PWY-6737: starch degradation V	-0.3837312748197094	0.01904818706524598	0.09291798568412674
+Alistipes_putredinis	PWY-6749: CMP-legionaminate biosynthesis I	-0.2894965298570633	0.08222283085088501	0.22846693026399795
+Alistipes_putredinis	PWY-7003: glycerol degradation to butanol	0.14570113291043296	0.38954016565013194	0.5742606864621109
+Alistipes_putredinis	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.2192069374940283	0.1923905760117039	0.37734818889481153
+Alistipes_putredinis	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.13664693331828834	0.41998021095057647	0.6014036433659806
+Alistipes_putredinis	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.3181072387476752	0.055018342307421246	0.1719323197106914
+Alistipes_putredinis	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.24797707811159952	0.13891605378877273	0.3133444822303144
+Alistipes_putredinis	PWY-7234: inosine-5_-phosphate biosynthesis III	0.4773707600753106	0.002811279166244414	0.025557083329494672
+Alistipes_putredinis	PWY-7242: D-fructuronate degradation	-0.5445624517854367	0.0004929883974915901	0.007616847156690972
+Alistipes_putredinis	PWY0-781: aspartate superpathway	0.27722529540685	0.09668191785250665	0.25331506860918773
+Alistipes_putredinis	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.225878452982977	0.17886568633841776	0.3625655804157117
+Alistipes_putredinis	PWY66-399: gluconeogenesis III	0.40017179513176154	0.01412271938442021	0.07845955213566784
+Alistipes_putredinis	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.263048324992834	0.11572159572765603	0.276686937561252
+Alistipes_putredinis	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.277820966432649	0.0959379415314549	0.25331506860918773
+Alistipes_putredinis	TRPSYN-PWY: L-tryptophan biosynthesis	-0.4156592418025352	0.010512054057185034	0.06502301478671156
+Alistipes_putredinis	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.08530009089441537	0.6156899372242471	0.734777659904968
+Lactococcus_petauri	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.21582075916581367	0.1995235478362455	0.3877504833603254
+Lactococcus_petauri	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.06509674870430573	0.7018800043909004	0.7991043693255033
+Lactococcus_petauri	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.2413587144267336	0.15011839372074234	0.33332692456787083
+Lactococcus_petauri	FERMENTATION-PWY: mixed acid fermentation	0.22007708504263368	0.19058694040041213	0.37615843500081336
+Lactococcus_petauri	GLUCONEO-PWY: gluconeogenesis I	0.14421433559107735	0.39444862104058376	0.5772418844496348
+Lactococcus_petauri	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.009514140195244686	0.9554317306053413	0.9799299801080423
+Lactococcus_petauri	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.18352275692406197	0.2769141343540905	0.4697947241251643
+Lactococcus_petauri	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.10690889114130214	0.5288316929798961	0.6964551953639375
+Lactococcus_petauri	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.07385977256834692	0.6639649006685298	0.7690713135156716
+Lactococcus_petauri	P441-PWY: superpathway of N-acetylneuraminate degradation	-0.004506697987221167	0.978880562581786	0.9871168128993391
+Lactococcus_petauri	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.29869392770860287	0.07253117050377235	0.20922453029934332
+Lactococcus_petauri	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.1299431252982103	0.4433533716524196	0.6237059884163515
+Lactococcus_petauri	PWY-5104: L-isoleucine biosynthesis IV	-0.2966909508253935	0.0745616054707941	0.21303315848798315
+Lactococcus_petauri	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.10465554214769154	0.537602948889107	0.6978180973544236
+Lactococcus_petauri	PWY-5367: petroselinate biosynthesis	0.17697261704716424	0.2947151550388149	0.4910405839975925
+Lactococcus_petauri	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.10515628636849389	0.5356477586775312	0.6978180973544236
+Lactococcus_petauri	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.05233087280592959	0.7583854388757427	0.8354121241072394
+Lactococcus_petauri	PWY-5675: nitrate reduction V (assimilatory)	0.1653196062797756	0.3281557994800923	0.5257184083378397
+Lactococcus_petauri	PWY-5913: partial TCA cycle (obligate autotrophs)	0.12844089263580327	0.44868668723805494	0.627533828304972
+Lactococcus_petauri	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.06567539046226209	0.6993531521233078	0.7991043693255033
+Lactococcus_petauri	PWY-6168: flavin biosynthesis III (fungi)	-0.06084042282748576	0.7205622181283227	0.8126641557838226
+Lactococcus_petauri	PWY-622: starch biosynthesis	-0.11656128459905293	0.4920657093993034	0.6597092212532732
+Lactococcus_petauri	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.15942575699999495	0.3459306419333994	0.5447726644620463
+Lactococcus_petauri	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	-0.004741865758561823	0.9777787773774005	0.9871168128993391
+Lactococcus_petauri	PWY-6737: starch degradation V	-0.08687912230920805	0.6091442531355703	0.7347050708020181
+Lactococcus_petauri	PWY-6749: CMP-legionaminate biosynthesis I	-0.01382157131083908	0.9352896610986239	0.9675410287227143
+Lactococcus_petauri	PWY-7003: glycerol degradation to butanol	0.23960610965392537	0.1531922072136931	0.33545738805918196
+Lactococcus_petauri	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.0841250290947951	0.6205800998155326	0.7358657310065604
+Lactococcus_petauri	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	-0.03254837435215287	0.8483381670720113	0.905699110753037
+Lactococcus_petauri	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.15417969738711496	0.3622353167282377	0.5603522907083244
+Lactococcus_petauri	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.05509492769749925	0.7460341871065419	0.82739466222537
+Lactococcus_petauri	PWY-7234: inosine-5_-phosphate biosynthesis III	0.09288805295883629	0.5845108272126442	0.7221660875566445
+Lactococcus_petauri	PWY-7242: D-fructuronate degradation	-0.147969917247095	0.38211896819437907	0.5704029709587857
+Lactococcus_petauri	PWY0-781: aspartate superpathway	0.10215182104367979	0.5474300088178667	0.6988468197674894
+Lactococcus_petauri	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.14596694036388558	0.38866639949247506	0.5742606864621109
+Lactococcus_petauri	PWY66-399: gluconeogenesis III	0.13144535796061738	0.43805488764297884	0.6196737056700123
+Lactococcus_petauri	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.025788327371321123	0.879577105709616	0.9291307454679042
+Lactococcus_petauri	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.25162397095318184	0.13301278607358766	0.3046094337563076
+Lactococcus_petauri	TRPSYN-PWY: L-tryptophan biosynthesis	-0.0027540932144129353	0.987092773847205	0.992053039042417
+Lactococcus_petauri	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.2613884832588277	0.11812302462740423	0.2779365285350688
+Oscillibacter_sp_57_20	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.35567665078477384	0.030738455822059457	0.12295382328823783
+Oscillibacter_sp_57_20	DAPLYSINESYN-PWY: L-lysine biosynthesis I	-0.030407899461236135	0.8582072297695424	0.9097603142433311
+Oscillibacter_sp_57_20	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	0.006943536097447621	0.9674659635996508	0.9871168128993391
+Oscillibacter_sp_57_20	FERMENTATION-PWY: mixed acid fermentation	0.030767047880069627	0.8565497859514484	0.9097603142433311
+Oscillibacter_sp_57_20	GLUCONEO-PWY: gluconeogenesis I	0.19417957844931105	0.24948115457035858	0.4481697387491472
+Oscillibacter_sp_57_20	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	-0.08463931070509428	0.6184378637533481	0.734777659904968
+Oscillibacter_sp_57_20	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.034478248208015774	0.8394595285420989	0.9019706457155631
+Oscillibacter_sp_57_20	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.15168034888734716	0.37016243171195706	0.5651334835297054
+Oscillibacter_sp_57_20	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	-0.124145636776779	0.46412639893164165	0.637843931646703
+Oscillibacter_sp_57_20	P441-PWY: superpathway of N-acetylneuraminate degradation	0.28504412841418597	0.08726132380896238	0.2369085714270472
+Oscillibacter_sp_57_20	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.09828695062076717	0.562764307752109	0.7099784529856309
+Oscillibacter_sp_57_20	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	-0.11420919718905224	0.500902175988148	0.6649143929046213
+Oscillibacter_sp_57_20	PWY-5104: L-isoleucine biosynthesis IV	-0.08847022717265157	0.6025786537976425	0.7296448347923842
+Oscillibacter_sp_57_20	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.020232027594287032	0.9053904829891616	0.9480528617687556
+Oscillibacter_sp_57_20	PWY-5367: petroselinate biosynthesis	0.2246144606944728	0.18137470228377192	0.366413539967216
+Oscillibacter_sp_57_20	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.2269818007027705	0.17669581377781904	0.35998014502738906
+Oscillibacter_sp_57_20	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	-0.09949000894418418	0.5579698537292567	0.7082498188246089
+Oscillibacter_sp_57_20	PWY-5675: nitrate reduction V (assimilatory)	0.1324084780471366	0.43467630331253737	0.6165621323582091
+Oscillibacter_sp_57_20	PWY-5913: partial TCA cycle (obligate autotrophs)	-0.13384264408528346	0.4296720862123017	0.6109081794487702
+Oscillibacter_sp_57_20	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.11818028721704919	0.48603016255764486	0.6582801298749141
+Oscillibacter_sp_57_20	PWY-6168: flavin biosynthesis III (fungi)	0.1915458233778654	0.2560854059401107	0.45729536775019763
+Oscillibacter_sp_57_20	PWY-622: starch biosynthesis	-0.23144638399201015	0.16810718653232098	0.35257362043384155
+Oscillibacter_sp_57_20	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.19740662580778906	0.2415456857872862	0.44320309318768103
+Oscillibacter_sp_57_20	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.11576013252539945	0.4950665139609376	0.660373734677028
+Oscillibacter_sp_57_20	PWY-6737: starch degradation V	-0.11887812663388772	0.4834405222145526	0.6562541025536912
+Oscillibacter_sp_57_20	PWY-6749: CMP-legionaminate biosynthesis I	-0.19630654382129556	0.24423151699482207	0.44540702187505543
+Oscillibacter_sp_57_20	PWY-7003: glycerol degradation to butanol	0.15958161410168412	0.3454531894931149	0.5447726644620463
+Oscillibacter_sp_57_20	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	-0.13922987036778592	0.4111631066507466	0.5944526843143325
+Oscillibacter_sp_57_20	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	-0.08643505279926177	0.6109820966737469	0.7347050708020181
+Oscillibacter_sp_57_20	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.2981086466532024	0.07311994599064921	0.2099137205473183
+Oscillibacter_sp_57_20	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	-0.14752526331699448	0.3835668591437845	0.5704029709587857
+Oscillibacter_sp_57_20	PWY-7234: inosine-5_-phosphate biosynthesis III	-0.1473705678613452	0.38407133377891567	0.5704029709587857
+Oscillibacter_sp_57_20	PWY-7242: D-fructuronate degradation	0.004788645584446635	0.9775596138509506	0.9871168128993391
+Oscillibacter_sp_57_20	PWY0-781: aspartate superpathway	-0.033759951370348776	0.8427619259172522	0.902959206339913
+Oscillibacter_sp_57_20	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.18855291988758624	0.26372999582093526	0.4626842031946233
+Oscillibacter_sp_57_20	PWY66-399: gluconeogenesis III	0.4319358317170865	0.007595059832692208	0.05298878953041075
+Oscillibacter_sp_57_20	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.1221104624033892	0.4715395468645801	0.6430084729971547
+Oscillibacter_sp_57_20	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.26600926221601057	0.11152915759493112	0.27538063603686697
+Oscillibacter_sp_57_20	TRPSYN-PWY: L-tryptophan biosynthesis	-0.10666708039354879	0.5297696033764143	0.6964551953639375
+Oscillibacter_sp_57_20	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.06380870241275141	0.7075160295671271	0.8009615429061817
+Intestinibacter_bartlettii	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.157994178708311	0.35033492557595103	0.5473983212124235
+Intestinibacter_bartlettii	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.5155885763011319	0.0010911271928116793	0.013093526313740151
+Intestinibacter_bartlettii	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.23386401667667372	0.1635834602067741	0.349288527131902
+Intestinibacter_bartlettii	FERMENTATION-PWY: mixed acid fermentation	0.3268657535411184	0.04831120031508965	0.15839737808226115
+Intestinibacter_bartlettii	GLUCONEO-PWY: gluconeogenesis I	0.3233305998006571	0.05093460800703705	0.1634265497551991
+Intestinibacter_bartlettii	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.5041673103704106	0.0014645382889074791	0.016579678742348822
+Intestinibacter_bartlettii	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.30375128677656343	0.06759689137958251	0.1984106152034555
+Intestinibacter_bartlettii	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.11666007343522446	0.4916963322889759	0.6597092212532732
+Intestinibacter_bartlettii	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.5881951954321456	0.00012888706761918578	0.0026666289852245333
+Intestinibacter_bartlettii	P441-PWY: superpathway of N-acetylneuraminate degradation	0.26459266072837617	0.11352041057842234	0.276686937561252
+Intestinibacter_bartlettii	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.187091213341339	0.26751769302764117	0.463865766806565
+Intestinibacter_bartlettii	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.5590981607991177	0.00032186237369807754	0.005517640691967043
+Intestinibacter_bartlettii	PWY-5104: L-isoleucine biosynthesis IV	-0.21917953190860354	0.1924475763363539	0.37734818889481153
+Intestinibacter_bartlettii	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.2762858615622099	0.0978642013713347	0.25487707600492887
+Intestinibacter_bartlettii	PWY-5367: petroselinate biosynthesis	0.29621651680080274	0.07504898617426302	0.2134094393580939
+Intestinibacter_bartlettii	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.7211713630541148	4.773468346698796e-07	3.580101260024097e-05
+Intestinibacter_bartlettii	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.4054789739089641	0.012782831873842103	0.07374710696447366
+Intestinibacter_bartlettii	PWY-5675: nitrate reduction V (assimilatory)	0.37387299186613876	0.022637688242990037	0.10061194774662238
+Intestinibacter_bartlettii	PWY-5913: partial TCA cycle (obligate autotrophs)	0.5653526635707031	0.0002662815058964222	0.004699085398172156
+Intestinibacter_bartlettii	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.4435080017173785	0.005970467165196788	0.04477850373897591
+Intestinibacter_bartlettii	PWY-6168: flavin biosynthesis III (fungi)	-0.5444136760310475	0.0004950950651849132	0.007616847156690972
+Intestinibacter_bartlettii	PWY-622: starch biosynthesis	0.5292692175190814	0.0007564700537347741	0.010806715053353915
+Intestinibacter_bartlettii	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.4113815780202325	0.011420517436742033	0.0685231046204522
+Intestinibacter_bartlettii	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.4623779440737294	0.003960672415390995	0.03394862070335139
+Intestinibacter_bartlettii	PWY-6737: starch degradation V	-0.3739104917795656	0.02262303833944147	0.10061194774662238
+Intestinibacter_bartlettii	PWY-6749: CMP-legionaminate biosynthesis I	-0.1025814960109623	0.5457375207303483	0.6988468197674894
+Intestinibacter_bartlettii	PWY-7003: glycerol degradation to butanol	0.27057522859684924	0.10529016650483482	0.263225416262087
+Intestinibacter_bartlettii	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.5900987397539326	0.00012102528666306395	0.002593398999922799
+Intestinibacter_bartlettii	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.4544032231008393	0.004723940568449899	0.037791524547599195
+Intestinibacter_bartlettii	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.1834718666045762	0.2770496746228371	0.4697947241251643
+Intestinibacter_bartlettii	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.48198292998365977	0.0025220949782988906	0.023644640421552097
+Intestinibacter_bartlettii	PWY-7234: inosine-5_-phosphate biosynthesis III	0.49872861230816234	0.00167894201151021	0.017368365636312517
+Intestinibacter_bartlettii	PWY-7242: D-fructuronate degradation	-0.31054965935437373	0.06138448738542556	0.1869578296002809
+Intestinibacter_bartlettii	PWY0-781: aspartate superpathway	0.5253782328131786	0.000840849137416934	0.011732778661631638
+Intestinibacter_bartlettii	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.3314886468940294	0.0450455295506756	0.15466544120043432
+Intestinibacter_bartlettii	PWY66-399: gluconeogenesis III	0.01903544321786879	0.9109630080640654	0.9522261408335179
+Intestinibacter_bartlettii	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.5011760264361741	0.001579265981366126	0.01692070694320849
+Intestinibacter_bartlettii	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.09816850002358049	0.5632373858105186	0.7099784529856309
+Intestinibacter_bartlettii	TRPSYN-PWY: L-tryptophan biosynthesis	-0.15500289477407445	0.35964684344541764	0.5590365442156751
+Intestinibacter_bartlettii	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.09680882550801842	0.5686808612926668	0.7099784529856309
+Ruminococcus_sp_CAG_330	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.229090481017076	0.1726011425808709	0.3578876773971671
+Ruminococcus_sp_CAG_330	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.1447150798118797	0.39279150159933296	0.5763855852161828
+Ruminococcus_sp_CAG_330	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.2759100656620959	0.09834022390556443	0.25487707600492887
+Ruminococcus_sp_CAG_330	FERMENTATION-PWY: mixed acid fermentation	0.09939772782926684	0.5583369405067333	0.7082498188246089
+Ruminococcus_sp_CAG_330	GLUCONEO-PWY: gluconeogenesis I	0.1832723848136608	0.2775813872705191	0.4697947241251643
+Ruminococcus_sp_CAG_330	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.08612800597800452	0.6122542256683484	0.7347050708020181
+Ruminococcus_sp_CAG_330	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	0.07385977256834692	0.6639649006685298	0.7690713135156716
+Ruminococcus_sp_CAG_330	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.2406075980955301	0.1514301869706318	0.33403717714109954
+Ruminococcus_sp_CAG_330	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.11642303133654681	0.4925828852024441	0.6597092212532732
+Ruminococcus_sp_CAG_330	P441-PWY: superpathway of N-acetylneuraminate degradation	0.33249416261276166	0.044359345694039765	0.15466544120043432
+Ruminococcus_sp_CAG_330	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.13745428861024558	0.41721287782681815	0.6014036433659806
+Ruminococcus_sp_CAG_330	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.18752871069048077	0.26638028278947834	0.46327005702517976
+Ruminococcus_sp_CAG_330	PWY-5104: L-isoleucine biosynthesis IV	-0.20129917676254547	0.23220210327423524	0.4313351763608085
+Ruminococcus_sp_CAG_330	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.00025037211040117595	0.9988265672576999	0.9988265672576999
+Ruminococcus_sp_CAG_330	PWY-5367: petroselinate biosynthesis	0.11781463174527931	0.48738994742365693	0.6586350640860229
+Ruminococcus_sp_CAG_330	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.09639326250445274	0.5703493572317901	0.7099784529856309
+Ruminococcus_sp_CAG_330	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.236365281955969	0.1589962880467325	0.34315745621596944
+Ruminococcus_sp_CAG_330	PWY-5675: nitrate reduction V (assimilatory)	-0.09297655178139586	0.5841513645524387	0.7221660875566445
+Ruminococcus_sp_CAG_330	PWY-5913: partial TCA cycle (obligate autotrophs)	0.19679247877532433	0.2430426530349981	0.44459021896646
+Ruminococcus_sp_CAG_330	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	-0.04862986927358337	0.7750157554516742	0.8470117545919936
+Ruminococcus_sp_CAG_330	PWY-6168: flavin biosynthesis III (fungi)	-0.0968940067252551	0.5683391322949278	0.7099784529856309
+Ruminococcus_sp_CAG_330	PWY-622: starch biosynthesis	0.23663194120753975	0.1585127994287898	0.34315745621596944
+Ruminococcus_sp_CAG_330	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.003258702580188577	0.984728146061906	0.9913370597938651
+Ruminococcus_sp_CAG_330	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.04478428771975056	0.79240082421146	0.8644372627761382
+Ruminococcus_sp_CAG_330	PWY-6737: starch degradation V	-0.0781160984451669	0.6458347434809169	0.753892696670331
+Ruminococcus_sp_CAG_330	PWY-6749: CMP-legionaminate biosynthesis I	-0.16125166529312257	0.34036240060285705	0.538832296468903
+Ruminococcus_sp_CAG_330	PWY-7003: glycerol degradation to butanol	-0.08187168010118454	0.630002553435923	0.7429596470070499
+Ruminococcus_sp_CAG_330	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.16950191874159612	0.3158930813035233	0.5108782986040808
+Ruminococcus_sp_CAG_330	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.24811876140756534	0.1386831671391484	0.3133444822303144
+Ruminococcus_sp_CAG_330	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	-0.11689854105170601	0.49080527507425176	0.6597092212532732
+Ruminococcus_sp_CAG_330	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.1818132614017475	0.28149083729795044	0.473093844198236
+Ruminococcus_sp_CAG_330	PWY-7234: inosine-5_-phosphate biosynthesis III	0.18802945491128314	0.2650823542797994	0.46327005702517976
+Ruminococcus_sp_CAG_330	PWY-7242: D-fructuronate degradation	0.12543642731098917	0.4594570414224082	0.6363989154969393
+Ruminococcus_sp_CAG_330	PWY0-781: aspartate superpathway	0.16274187176076435	0.3358588634823494	0.5331093071148403
+Ruminococcus_sp_CAG_330	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.14045875393505972	0.40700538204754766	0.5912911119334833
+Ruminococcus_sp_CAG_330	PWY66-399: gluconeogenesis III	-0.009514140195244686	0.9554317306053413	0.9799299801080423
+Ruminococcus_sp_CAG_330	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.012768977630459973	0.9402085353687071	0.9709554582120898
+Ruminococcus_sp_CAG_330	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.14771954513669383	0.3829338400861251	0.5704029709587857
+Ruminococcus_sp_CAG_330	TRPSYN-PWY: L-tryptophan biosynthesis	-0.31596960332628404	0.056763064737947795	0.17555587032354988
+Ruminococcus_sp_CAG_330	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	-0.022032745715303483	0.897012964433328	0.941932229199541
+Mitsuokella_multacida	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	-0.2931857412797771	0.07822142078647892	0.2203420303844477
+Mitsuokella_multacida	DAPLYSINESYN-PWY: L-lysine biosynthesis I	0.3365001163791804	0.04170886496539147	0.15258542536115124
+Mitsuokella_multacida	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.3412571864768028	0.0387294729306545	0.14689591318039016
+Mitsuokella_multacida	FERMENTATION-PWY: mixed acid fermentation	0.38807677112182265	0.017624332505378443	0.08961525002734802
+Mitsuokella_multacida	GLUCONEO-PWY: gluconeogenesis I	0.30520360257903345	0.06622987079889331	0.19663736785465874
+Mitsuokella_multacida	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.38557305001781095	0.018433389698864072	0.09101872084087863
+Mitsuokella_multacida	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.11492079867413978	0.4982203321143176	0.6628208409503116
+Mitsuokella_multacida	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.13119498585021622	0.4389355415162588	0.6196737056700123
+Mitsuokella_multacida	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	0.36379067641290863	0.026872906498662773	0.11435279361133095
+Mitsuokella_multacida	P441-PWY: superpathway of N-acetylneuraminate degradation	0.3079576957934464	0.06369740803653905	0.1920524865423288
+Mitsuokella_multacida	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.15272698734471732	0.36683037876921354	0.5629110671650336
+Mitsuokella_multacida	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.4559276130405414	0.004568915507893178	0.03704526087480955
+Mitsuokella_multacida	PWY-5104: L-isoleucine biosynthesis IV	-0.22107857348423834	0.18852583811632548	0.37615843500081336
+Mitsuokella_multacida	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.08487614542599864	0.6174523712326452	0.734777659904968
+Mitsuokella_multacida	PWY-5367: petroselinate biosynthesis	0.18775140250471106	0.26580255038030715	0.46327005702517976
+Mitsuokella_multacida	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	0.27565969355169473	0.09865835165360838	0.25487707600492887
+Mitsuokella_multacida	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.3886005483004914	0.017458897939827887	0.08961525002734802
+Mitsuokella_multacida	PWY-5675: nitrate reduction V (assimilatory)	0.37769365148545386	0.02118503626456916	0.09629561938440527
+Mitsuokella_multacida	PWY-5913: partial TCA cycle (obligate autotrophs)	0.4379008210916567	0.006715776124994793	0.048547779216829824
+Mitsuokella_multacida	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.4065858142358362	0.012517389478079564	0.07291683191114309
+Mitsuokella_multacida	PWY-6168: flavin biosynthesis III (fungi)	-0.30320062569582407	0.06812097788651972	0.1984106152034555
+Mitsuokella_multacida	PWY-622: starch biosynthesis	0.3208568694339522	0.05283726972936029	0.16685453598745353
+Mitsuokella_multacida	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	0.32787561345281985	0.047582065870733804	0.15773060509635514
+Mitsuokella_multacida	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.44520850733163786	0.005759012951748697	0.043739338874040745
+Mitsuokella_multacida	PWY-6737: starch degradation V	-0.35878323420488506	0.029207796910951878	0.11921549759572195
+Mitsuokella_multacida	PWY-6749: CMP-legionaminate biosynthesis I	-0.3409320923340306	0.038927416992803394	0.14689591318039016
+Mitsuokella_multacida	PWY-7003: glycerol degradation to butanol	0.10265256526448213	0.5454578186331169	0.6988468197674894
+Mitsuokella_multacida	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.41937328492196974	0.009773860494614582	0.06444303622822802
+Mitsuokella_multacida	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.26238997170043243	0.11666965867166128	0.276686937561252
+Mitsuokella_multacida	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.4467419920192224	0.005573894796746195	0.04343294646815218
+Mitsuokella_multacida	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.22889438143415594	0.17297904407529743	0.3578876773971671
+Mitsuokella_multacida	PWY-7234: inosine-5_-phosphate biosynthesis III	0.38281895680339806	0.019359016244634424	0.09292327797424522
+Mitsuokella_multacida	PWY-7242: D-fructuronate degradation	-0.051576654742642246	0.7617660936816744	0.8355752398702095
+Mitsuokella_multacida	PWY0-781: aspartate superpathway	0.3910812364466368	0.01669294983707948	0.08785763072147094
+Mitsuokella_multacida	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	0.26364183225243826	0.11487188876501093	0.276686937561252
+Mitsuokella_multacida	PWY66-399: gluconeogenesis III	0.12343345042777973	0.4667134636423501	0.637877171265171
+Mitsuokella_multacida	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	-0.38807677112182265	0.017624332505378443	0.08961525002734802
+Mitsuokella_multacida	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.27540932144129354	0.09897726451524738	0.25487707600492887
+Mitsuokella_multacida	TRPSYN-PWY: L-tryptophan biosynthesis	-0.32222890608631344	0.051775080840204796	0.16436533600065015
+Mitsuokella_multacida	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	0.2819189963117241	0.0909378036902537	0.2446757049961983
+Bacteroides_thetaiotaomicron	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	0.7155049786628733	6.453244633260247e-07	4.302163088840165e-05
+Bacteroides_thetaiotaomicron	DAPLYSINESYN-PWY: L-lysine biosynthesis I	-0.41251778093883346	0.011172952306085903	0.06840583044542389
+Bacteroides_thetaiotaomicron	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	0.6375059269796112	2.2004243698181597e-05	0.0006230983858567763
+Bacteroides_thetaiotaomicron	FERMENTATION-PWY: mixed acid fermentation	-0.3812233285917496	0.019912836422843142	0.09407639254886524
+Bacteroides_thetaiotaomicron	GLUCONEO-PWY: gluconeogenesis I	-0.4383594120436225	0.006651955830018519	0.048547779216829824
+Bacteroides_thetaiotaomicron	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	-0.3295400663821716	0.0463996323601303	0.15466544120043432
+Bacteroides_thetaiotaomicron	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	0.27145566619250827	0.10411820659176643	0.26138461905882787
+Bacteroides_thetaiotaomicron	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.05452821242294926	0.7485616005595856	0.8286659784792462
+Bacteroides_thetaiotaomicron	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	-0.5170697012802276	0.001049473968117962	0.013093526313740151
+Bacteroides_thetaiotaomicron	P441-PWY: superpathway of N-acetylneuraminate degradation	-0.30488383119962065	0.06652897612415953	0.19663736785465874
+Bacteroides_thetaiotaomicron	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.6559981033665243	1.0443830921302367e-05	0.0003686057972224365
+Bacteroides_thetaiotaomicron	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	-0.49217638691322896	0.0019735212202833066	0.01909859245435458
+Bacteroides_thetaiotaomicron	PWY-5104: L-isoleucine biosynthesis IV	0.6695116168800379	5.863222489595571e-06	0.0002198708433598339
+Bacteroides_thetaiotaomicron	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.06140350877192982	0.7180812230961904	0.8113912125380682
+Bacteroides_thetaiotaomicron	PWY-5367: petroselinate biosynthesis	-0.3346786121514587	0.04289768563414303	0.15405454697381196
+Bacteroides_thetaiotaomicron	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.39592223802750115	0.01527928370014921	0.08259072270350924
+Bacteroides_thetaiotaomicron	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	-0.22215636337999947	0.1863253240497831	0.3738969713373574
+Bacteroides_thetaiotaomicron	PWY-5675: nitrate reduction V (assimilatory)	-0.10507636895094184	0.5359595718127064	0.6978180973544236
+Bacteroides_thetaiotaomicron	PWY-5913: partial TCA cycle (obligate autotrophs)	-0.49431009957325744	0.001872970009589261	0.018638531293747086
+Bacteroides_thetaiotaomicron	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	-0.17540957048221842	0.29906893426381503	0.49388110080559416
+Bacteroides_thetaiotaomicron	PWY-6168: flavin biosynthesis III (fungi)	0.2773826458036984	0.09648496415929131	0.25331506860918773
+Bacteroides_thetaiotaomicron	PWY-622: starch biosynthesis	-0.37835298423363495	0.020942383992267236	0.09615383940034648
+Bacteroides_thetaiotaomicron	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	-0.35580371603903305	0.030674582689402586	0.12295382328823783
+Bacteroides_thetaiotaomicron	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	-0.2634196343990325	0.11518945149776688	0.276686937561252
+Bacteroides_thetaiotaomicron	PWY-6737: starch degradation V	0.2811759127548601	0.09182926299731053	0.24597124017136748
+Bacteroides_thetaiotaomicron	PWY-6749: CMP-legionaminate biosynthesis I	0.23170159626536763	0.167625453629376	0.35257362043384155
+Bacteroides_thetaiotaomicron	PWY-7003: glycerol degradation to butanol	0.05192034139402559	0.7602250329375879	0.8354121241072394
+Bacteroides_thetaiotaomicron	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	-0.44570886676149835	0.0056980369465607856	0.043739338874040745
+Bacteroides_thetaiotaomicron	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	-0.33285917496443806	0.04411235054217151	0.15466544120043432
+Bacteroides_thetaiotaomicron	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	-0.0061828011105682324	0.971028807293018	0.9871168128993391
+Bacteroides_thetaiotaomicron	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	-0.4785392593643114	0.002735403867702726	0.02524988185571747
+Bacteroides_thetaiotaomicron	PWY-7234: inosine-5_-phosphate biosynthesis III	-0.3297771455666192	0.04623315199617963	0.15466544120043432
+Bacteroides_thetaiotaomicron	PWY-7242: D-fructuronate degradation	0.20222854433380746	0.2300080671977646	0.4285864606169527
+Bacteroides_thetaiotaomicron	PWY0-781: aspartate superpathway	-0.5862968231389284	0.0001371825235833339	0.0027436504716666778
+Bacteroides_thetaiotaomicron	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.14959696538643907	0.37684833099785664	0.5675442568662123
+Bacteroides_thetaiotaomicron	PWY66-399: gluconeogenesis III	-0.22024656235182546	0.19023703896181404	0.37615843500081336
+Bacteroides_thetaiotaomicron	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.2411095305832148	0.15055266092982167	0.33332692456787083
+Bacteroides_thetaiotaomicron	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	0.20910384068278803	0.21421480482879884	0.40545388926586534
+Bacteroides_thetaiotaomicron	TRPSYN-PWY: L-tryptophan biosynthesis	0.007112375533428163	0.9666752989327565	0.9871168128993391
+Bacteroides_thetaiotaomicron	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	-0.4160739687055476	0.010427340588918204	0.06502301478671156
+Bacteroides_vulgatus	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	0.6541014698909435	1.1299494683624999e-05	0.0003766498227875
+Bacteroides_vulgatus	DAPLYSINESYN-PWY: L-lysine biosynthesis I	-0.40872451398767184	0.012017690135251037	0.07069229491324139
+Bacteroides_vulgatus	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	0.570886676149834	0.0002244467027564326	0.004208375676683111
+Bacteroides_vulgatus	FERMENTATION-PWY: mixed acid fermentation	-0.4938359412043622	0.0018949173481976206	0.018638531293747086
+Bacteroides_vulgatus	GLUCONEO-PWY: gluconeogenesis I	-0.45637743006164055	0.00452402080065162	0.03704526087480955
+Bacteroides_vulgatus	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	-0.2726410621147463	0.10255599934983023	0.2585445361760426
+Bacteroides_vulgatus	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	0.4163110478899953	0.01037917539313239	0.06502301478671156
+Bacteroides_vulgatus	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	-0.001896633475580844	0.9911111163596107	0.9944258692571344
+Bacteroides_vulgatus	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	-0.4988146040777619	0.0016753482203411818	0.017368365636312517
+Bacteroides_vulgatus	P441-PWY: superpathway of N-acetylneuraminate degradation	-0.3243243243243243	0.0501859090454566	0.16189002917889225
+Bacteroides_vulgatus	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.7546230440967282	6.85329226976936e-08	8.223950723723232e-06
+Bacteroides_vulgatus	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	-0.47581792318634425	0.0029149500905155164	0.026104030661332985
+Bacteroides_vulgatus	PWY-5104: L-isoleucine biosynthesis IV	0.8297771455666192	2.1749985571131778e-10	1.3049991342679067e-07
+Bacteroides_vulgatus	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.0045045045045045045	0.9788908394585113	0.9871168128993391
+Bacteroides_vulgatus	PWY-5367: petroselinate biosynthesis	-0.1868028849384383	0.26826903513646344	0.463865766806565
+Bacteroides_vulgatus	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.3582266477003319	0.02947732604052443	0.11950267313726119
+Bacteroides_vulgatus	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	-0.3326418119766695	0.04425930083528462	0.15466544120043432
+Bacteroides_vulgatus	PWY-5675: nitrate reduction V (assimilatory)	-0.06468987340177032	0.7036586666030546	0.7996121211398348
+Bacteroides_vulgatus	PWY-5913: partial TCA cycle (obligate autotrophs)	-0.5161213845424372	0.0010759779041748451	0.013093526313740151
+Bacteroides_vulgatus	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	-0.09209595852111062	0.5877325122995575	0.7221660875566445
+Bacteroides_vulgatus	PWY-6168: flavin biosynthesis III (fungi)	0.3340445708866761	0.04331786736174978	0.15405454697381196
+Bacteroides_vulgatus	PWY-622: starch biosynthesis	-0.35081914096443684	0.03326334382525918	0.12959744347503577
+Bacteroides_vulgatus	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	-0.11986716250814655	0.4797825758555333	0.6527654093272562
+Bacteroides_vulgatus	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	-0.1494207964062694	0.3774169308160312	0.5675442568662123
+Bacteroides_vulgatus	PWY-6737: starch degradation V	0.33025130393551444	0.045901634034372175	0.15466544120043432
+Bacteroides_vulgatus	PWY-6749: CMP-legionaminate biosynthesis I	0.06543873534691345	0.7003862107868959	0.7991043693255033
+Bacteroides_vulgatus	PWY-7003: glycerol degradation to butanol	-0.09269796111901375	0.5852832707626163	0.7221660875566445
+Bacteroides_vulgatus	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	-0.45685158843053575	0.004477110730266912	0.03704526087480955
+Bacteroides_vulgatus	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	-0.31318160265528683	0.05910444661623406	0.18185983574225864
+Bacteroides_vulgatus	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	-0.030515115158610953	0.8577123742051569	0.9097603142433311
+Bacteroides_vulgatus	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	-0.42423525024913433	0.008874622282236068	0.05982891426226562
+Bacteroides_vulgatus	PWY-7234: inosine-5_-phosphate biosynthesis III	-0.3413940256045519	0.038646398921363616	0.14689591318039016
+Bacteroides_vulgatus	PWY-7242: D-fructuronate degradation	0.3672356567093409	0.02535779212439162	0.10945809550097102
+Bacteroides_vulgatus	PWY0-781: aspartate superpathway	-0.5109056424845898	0.0012326000723952972	0.014222308527638044
+Bacteroides_vulgatus	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.12422949265054528	0.46382229013787935	0.637843931646703
+Bacteroides_vulgatus	PWY66-399: gluconeogenesis III	-0.35443338074917025	0.031369202391178685	0.12464583731594181
+Bacteroides_vulgatus	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.21574205784732098	0.1996914989305676	0.3877504833603254
+Bacteroides_vulgatus	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	0.28947368421052627	0.08224809489503926	0.22846693026399795
+Bacteroides_vulgatus	TRPSYN-PWY: L-tryptophan biosynthesis	0.09649122807017542	0.5699558220780221	0.7099784529856309
+Bacteroides_vulgatus	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	-0.39781887150308193	0.014753607279611737	0.08051856291274974
+Paraprevotella_xylaniphila	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	0.26394598199838054	0.11443826966426075	0.276686937561252
+Paraprevotella_xylaniphila	DAPLYSINESYN-PWY: L-lysine biosynthesis I	-0.09662817267543304	0.5694059128131372	0.7099784529856309
+Paraprevotella_xylaniphila	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	-0.23173659110656952	0.16755947554422715	0.35257362043384155
+Paraprevotella_xylaniphila	FERMENTATION-PWY: mixed acid fermentation	0.01539209830228137	0.9279548780102757	0.9649444138755032
+Paraprevotella_xylaniphila	GLUCONEO-PWY: gluconeogenesis I	-0.03762512918335446	0.8250241778902735	0.891918030151647
+Paraprevotella_xylaniphila	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	-0.09748328924778202	0.5659776317898768	0.7099784529856309
+Paraprevotella_xylaniphila	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	-0.1254170972778482	0.4595267805423492	0.6363989154969393
+Paraprevotella_xylaniphila	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	0.18385006305502746	0.2760434266190706	0.4697947241251643
+Paraprevotella_xylaniphila	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	-0.07553529722415857	0.6568046806359531	0.7637263728325037
+Paraprevotella_xylaniphila	P441-PWY: superpathway of N-acetylneuraminate degradation	-0.02251806973852274	0.8947569206941903	0.9418493902044109
+Paraprevotella_xylaniphila	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	-0.06413374292617238	0.7060923091755203	0.8008608421650514
+Paraprevotella_xylaniphila	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	0.04104559547275032	0.8093979215300846	0.8813770470382046
+Paraprevotella_xylaniphila	PWY-5104: L-isoleucine biosynthesis IV	-0.08836204580939305	0.603024090766737	0.7296448347923842
+Paraprevotella_xylaniphila	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	0.17045323675489368	0.3131444937653575	0.5091780386428578
+Paraprevotella_xylaniphila	PWY-5367: petroselinate biosynthesis	-0.0918915045515106	0.5885653613586652	0.7221660875566445
+Paraprevotella_xylaniphila	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.05045187776858893	0.7668157868038242	0.8395793286173258
+Paraprevotella_xylaniphila	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	0.06527776747060385	0.7010891789063637	0.7991043693255033
+Paraprevotella_xylaniphila	PWY-5675: nitrate reduction V (assimilatory)	-0.2105544624996661	0.2109805780819262	0.40279356929892984
+Paraprevotella_xylaniphila	PWY-5913: partial TCA cycle (obligate autotrophs)	0.08180615208805098	0.6302774338776473	0.7429596470070499
+Paraprevotella_xylaniphila	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.031676885109371666	0.852353676003636	0.9083698145687061
+Paraprevotella_xylaniphila	PWY-6168: flavin biosynthesis III (fungi)	-0.07924080237100409	0.6410768652059438	0.753892696670331
+Paraprevotella_xylaniphila	PWY-622: starch biosynthesis	-0.17208253802658663	0.30847214382016735	0.5029437127502729
+Paraprevotella_xylaniphila	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	-0.08932310846156155	0.5990718887326434	0.7290935765508845
+Paraprevotella_xylaniphila	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	-0.078277216817794	0.6451523014905782	0.753892696670331
+Paraprevotella_xylaniphila	PWY-6737: starch degradation V	0.0171023314469793	0.9199743035826242	0.9583065662319002
+Paraprevotella_xylaniphila	PWY-6749: CMP-legionaminate biosynthesis I	0.013986949756195093	0.9345170413723318	0.9675410287227143
+Paraprevotella_xylaniphila	PWY-7003: glycerol degradation to butanol	-0.17273354761449092	0.306617638403184	0.5024146609389968
+Paraprevotella_xylaniphila	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	0.02251806973852274	0.8947569206941903	0.9418493902044109
+Paraprevotella_xylaniphila	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	-0.058147926919729614	0.7324640723838747	0.8196291411765113
+Paraprevotella_xylaniphila	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	-0.1237325399142764	0.4656260701020932	0.637843931646703
+Paraprevotella_xylaniphila	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	-0.2400596378638338	0.15239243069723246	0.3349284191147966
+Paraprevotella_xylaniphila	PWY-7234: inosine-5_-phosphate biosynthesis III	0.06669909264321927	0.6948905858092953	0.7971976127831303
+Paraprevotella_xylaniphila	PWY-7242: D-fructuronate degradation	-0.11259034869261371	0.5070303432687067	0.6715633685678234
+Paraprevotella_xylaniphila	PWY0-781: aspartate superpathway	-0.08494157951999717	0.6171802095407461	0.734777659904968
+Paraprevotella_xylaniphila	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.16503749846335022	0.32899344030379274	0.5257184083378397
+Paraprevotella_xylaniphila	PWY66-399: gluconeogenesis III	-0.19097603449126885	0.25752931299667003	0.45850916260534724
+Paraprevotella_xylaniphila	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.16503749846335022	0.32899344030379274	0.5257184083378397
+Paraprevotella_xylaniphila	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	0.14993043901851852	0.3757734020225997	0.5675442568662123
+Paraprevotella_xylaniphila	TRPSYN-PWY: L-tryptophan biosynthesis	-0.008266126866039995	0.9612732298582064	0.9842388019026004
+Paraprevotella_xylaniphila	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	-0.12399190299059991	0.4646842001359114	0.637843931646703
+Blautia_hydrogenotrophica	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	0.09245634027931442	0.586265757894291	0.7221660875566445
+Blautia_hydrogenotrophica	DAPLYSINESYN-PWY: L-lysine biosynthesis I	-0.13701726493852498	0.418709564534268	0.6014036433659806
+Blautia_hydrogenotrophica	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	0.06881176801116189	0.6857129648141222	0.789688635102636
+Blautia_hydrogenotrophica	FERMENTATION-PWY: mixed acid fermentation	-0.059111430670381354	0.7281977794011174	0.8196291411765113
+Blautia_hydrogenotrophica	GLUCONEO-PWY: gluconeogenesis I	-0.12519497880444871	0.4603285488761194	0.6363989154969393
+Blautia_hydrogenotrophica	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	-0.006062710837987832	0.9715912931201616	0.9871168128993391
+Blautia_hydrogenotrophica	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	0.3695222255753583	0.024391719263263893	0.10605095331853866
+Blautia_hydrogenotrophica	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	0.07063058126255822	0.677847211076299	0.7821313973957296
+Blautia_hydrogenotrophica	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	-0.13428904506143047	0.428121023678797	0.6101487273332024
+Blautia_hydrogenotrophica	P441-PWY: superpathway of N-acetylneuraminate degradation	-0.1042786264133907	0.5390768999609696	0.6978180973544236
+Blautia_hydrogenotrophica	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.21310428595527223	0.20537780855188975	0.39750543590688336
+Blautia_hydrogenotrophica	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	-0.12671065651394567	0.4548723874665419	0.6347056569300584
+Blautia_hydrogenotrophica	PWY-5104: L-isoleucine biosynthesis IV	0.3116233370725745	0.06044609863075969	0.1850390774411011
+Blautia_hydrogenotrophica	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.10306608424579314	0.5438317128734558	0.6988468197674894
+Blautia_hydrogenotrophica	PWY-5367: petroselinate biosynthesis	-0.19029168961801235	0.259270643733185	0.460243746271926
+Blautia_hydrogenotrophica	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.05789888850278378	0.7335680813529777	0.8196291411765113
+Blautia_hydrogenotrophica	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	-0.10413323078071396	0.5396459952874209	0.6978180973544236
+Blautia_hydrogenotrophica	PWY-5675: nitrate reduction V (assimilatory)	-0.013861853308991506	0.9351014651169771	0.9675410287227143
+Blautia_hydrogenotrophica	PWY-5913: partial TCA cycle (obligate autotrophs)	-0.1470207378212049	0.38521358938263806	0.5706867990853897
+Blautia_hydrogenotrophica	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	-0.06676901390105695	0.6945861486361895	0.7971976127831303
+Blautia_hydrogenotrophica	PWY-6168: flavin biosynthesis III (fungi)	0.222198352212254	0.18623996478920793	0.3738969713373574
+Blautia_hydrogenotrophica	PWY-622: starch biosynthesis	0.026707605560422783	0.8753173940500494	0.926261792645555
+Blautia_hydrogenotrophica	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	-0.10227798947570999	0.5469327744193302	0.6988468197674894
+Blautia_hydrogenotrophica	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	-0.0561358530952047	0.7413987301136851	0.8253047088464027
+Blautia_hydrogenotrophica	PWY-6737: starch degradation V	0.13671412939662558	0.41974949341253176	0.6014036433659806
+Blautia_hydrogenotrophica	PWY-6749: CMP-legionaminate biosynthesis I	0.3867489591657821	0.018049616207105674	0.09100646827112105
+Blautia_hydrogenotrophica	PWY-7003: glycerol degradation to butanol	0.03334490960893307	0.8446713063971101	0.9033917715477112
+Blautia_hydrogenotrophica	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	-0.13489531614522926	0.4260194768128497	0.6085992525897853
+Blautia_hydrogenotrophica	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	0.05213931320669535	0.7592436566352933	0.8354121241072394
+Blautia_hydrogenotrophica	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	-0.2358895760672467	0.1598614545017215	0.34378807419725055
+Blautia_hydrogenotrophica	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	-0.17009937080714685	0.3141651337932829	0.5094569737188371
+Blautia_hydrogenotrophica	PWY-7234: inosine-5_-phosphate biosynthesis III	-0.18582208718432705	0.2708352224920009	0.4669572801586223
+Blautia_hydrogenotrophica	PWY-7242: D-fructuronate degradation	0.3701284966591571	0.024140749562522747	0.10572591049280035
+Blautia_hydrogenotrophica	PWY0-781: aspartate superpathway	-0.17521234321784832	0.2996212011553938	0.49388110080559416
+Blautia_hydrogenotrophica	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.05789888850278378	0.7335680813529777	0.8196291411765113
+Blautia_hydrogenotrophica	PWY66-399: gluconeogenesis III	-0.021825759016756194	0.8979753918368958	0.941932229199541
+Blautia_hydrogenotrophica	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.1430799757765128	0.398217499583031	0.5812819036494735
+Blautia_hydrogenotrophica	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	-0.01151915059217688	0.9460519203824624	0.9736383400162564
+Blautia_hydrogenotrophica	TRPSYN-PWY: L-tryptophan biosynthesis	0.1042786264133907	0.5390768999609696	0.6978180973544236
+Blautia_hydrogenotrophica	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	-0.10094413545249739	0.552200331675066	0.7034399129618675
+Ruminococcus_gnavus	ARGININE-SYN4-PWY: L-ornithine biosynthesis II	0.6504569885404442	1.3125463928938005e-05	0.0004144883345980422
+Ruminococcus_gnavus	DAPLYSINESYN-PWY: L-lysine biosynthesis I	-0.23849271703557592	0.15516856374084154	0.3373229646540033
+Ruminococcus_gnavus	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli)	0.37393302547553264	0.02261423900279649	0.10061194774662238
+Ruminococcus_gnavus	FERMENTATION-PWY: mixed acid fermentation	-0.3854650807231376	0.01846896657930796	0.09101872084087863
+Ruminococcus_gnavus	GLUCONEO-PWY: gluconeogenesis I	-0.4163808033018234	0.010365039914950008	0.06502301478671156
+Ruminococcus_gnavus	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	-0.14893526670843066	0.3789866332271279	0.5684799498406918
+Ruminococcus_gnavus	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation	0.1428011947682152	0.39914690717263845	0.5812819036494735
+Ruminococcus_gnavus	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	0.18892941575863526	0.262760147401589	0.4626842031946233
+Ruminococcus_gnavus	P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I	-0.2941900902527321	0.077158771586029	0.2183738818472519
+Ruminococcus_gnavus	P441-PWY: superpathway of N-acetylneuraminate degradation	-0.35356790663401744	0.03181451913024712	0.1255836281457123
+Ruminococcus_gnavus	POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)	0.46275438716985207	0.003927456882234733	0.03394862070335139
+Ruminococcus_gnavus	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type	-0.2865838410468649	0.0854926761797568	0.23316184412660945
+Ruminococcus_gnavus	PWY-5104: L-isoleucine biosynthesis IV	0.5420065966374354	0.0005303124227611689	0.007954686341417534
+Ruminococcus_gnavus	PWY-5304: superpathway of sulfur oxidation (Acidianus ambivalens)	-0.15874978181277533	0.34800607377332304	0.545179227843326
+Ruminococcus_gnavus	PWY-5367: petroselinate biosynthesis	-0.22796714209713712	0.17477392990652718	0.35912451350656266
+Ruminococcus_gnavus	PWY-5384: sucrose degradation IV (sucrose phosphorylase)	-0.16488385375299075	0.32945020255837953	0.5257184083378397
+Ruminococcus_gnavus	PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle	-0.2843924315293718	0.08801836850026148	0.23788748243313915
+Ruminococcus_gnavus	PWY-5675: nitrate reduction V (assimilatory)	-0.27359566107373406	0.10131096835627003	0.2576232437159166
+Ruminococcus_gnavus	PWY-5913: partial TCA cycle (obligate autotrophs)	-0.29124573572142864	0.08030626128541708	0.22515774192173013
+Ruminococcus_gnavus	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	-0.19897994083909604	0.23773913242464095	0.43755668544412446
+Ruminococcus_gnavus	PWY-6168: flavin biosynthesis III (fungi)	0.10329777147322784	0.5429216444252022	0.6988468197674894
+Ruminococcus_gnavus	PWY-622: starch biosynthesis	-0.15525348470408476	0.358861096781366	0.5590365442156751
+Ruminococcus_gnavus	PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli)	-0.23116064732048064	0.16864771510752088	0.35257362043384155
+Ruminococcus_gnavus	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	-0.26100619282569	0.11868137350966108	0.27815946916326817
+Ruminococcus_gnavus	PWY-6737: starch degradation V	0.30523141974511986	0.06620390155785476	0.19663736785465874
+Ruminococcus_gnavus	PWY-6749: CMP-legionaminate biosynthesis I	0.19464725638332372	0.2483204461861308	0.4481697387491472
+Ruminococcus_gnavus	PWY-7003: glycerol degradation to butanol	-0.058641727748459514	0.7302765773967992	0.8196291411765113
+Ruminococcus_gnavus	PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type	-0.25468666695774467	0.12820036393068937	0.2947134803004353
+Ruminococcus_gnavus	PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	-0.20266973690471782	0.22897145851530862	0.42798403460805345
+Ruminococcus_gnavus	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	-0.23221567744897986	0.16665809750230529	0.35257362043384155
+Ruminococcus_gnavus	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	-0.26284596461433807	0.11601238659068348	0.276686937561252
+Ruminococcus_gnavus	PWY-7234: inosine-5_-phosphate biosynthesis III	-0.21616469517319178	0.19879073558408597	0.3877504833603254
+Ruminococcus_gnavus	PWY-7242: D-fructuronate degradation	0.08244192687649537	0.627612523034242	0.7427367136499905
+Ruminococcus_gnavus	PWY0-781: aspartate superpathway	-0.36264633310553623	0.027392429220189685	0.11457411412345515
+Ruminococcus_gnavus	PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)	-0.2058594543136298	0.22157162874905925	0.4167491449825566
+Ruminococcus_gnavus	PWY66-399: gluconeogenesis III	-0.5569737321715611	0.00034297675955799635	0.0057162793259666065
+Ruminococcus_gnavus	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.12979696225495851	0.44387076175630347	0.6237059884163515
+Ruminococcus_gnavus	THISYNARA-PWY: superpathway of thiamine diphosphate biosynthesis III (eukaryotes)	0.3297677075059815	0.04623977033203171	0.15466544120043432
+Ruminococcus_gnavus	TRPSYN-PWY: L-tryptophan biosynthesis	0.091029627592797	0.5920819580392869	0.7235217409848719
+Ruminococcus_gnavus	UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I	-0.3592112528190156	0.0290019092534488	0.11921549759572195

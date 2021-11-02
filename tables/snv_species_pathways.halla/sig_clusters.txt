@@ -1,0 +1,26 @@
+cluster_rank	cluster_X	cluster_Y	best_adjusted_pvalue
+1	Ruminococcus_gnavus;Adlercreutzia_equolifaciens;Asaccharobacter_celatus;Bifidobacterium_adolescentis;Bacteroides_thetaiotaomicron;Bacteroides_vulgatus	FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli);ARGININE-SYN4-PWY: L-ornithine biosynthesis II;POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli);PWY-5104: L-isoleucine biosynthesis IV	1.3049991342679067e-07
+2	Bifidobacterium_adolescentis	PWY-7209: superpathway of pyrimidine ribonucleosides degradation;PWY-622: starch biosynthesis;PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	8.34745898860839e-07
+3	Bifidobacterium_adolescentis	PWY-7234: inosine-5_p-phosphate biosynthesis III	1.1902571005994995e-06
+4	Bifidobacterium_adolescentis;Bacteroides_thetaiotaomicron;Bacteroides_vulgatus	PWY-5384: sucrose degradation IV (sucrose phosphorylase);DAPLYSINESYN-PWY: L-lysine biosynthesis I;PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type;PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type;PWY-5913: partial TCA cycle (obligate autotrophs);P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I;PWY0-781: aspartate superpathway	9.608036017260182e-06
+5	Intestinibacter_bartlettii	GLUCONEO-PWY: gluconeogenesis I;PWY-5384: sucrose degradation IV (sucrose phosphorylase);DAPLYSINESYN-PWY: L-lysine biosynthesis I;PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type;PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type;PWY-5913: partial TCA cycle (obligate autotrophs);P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I;PWY0-781: aspartate superpathway;PWY-7209: superpathway of pyrimidine ribonucleosides degradation;PWY-622: starch biosynthesis;PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV	3.580101260024097e-05
+6	Adlercreutzia_equolifaciens;Asaccharobacter_celatus	FERMENTATION-PWY: mixed acid fermentation	0.000519968049325821
+7	Bifidobacterium_adolescentis	PWY-6168: flavin biosynthesis III (fungi)	0.0008822510055932817
+8	Ruminococcus_gnavus;Adlercreutzia_equolifaciens;Asaccharobacter_celatus	PWY66-399: gluconeogenesis III	0.0024799437514685034
+9	Ruminococcus_gnavus;Adlercreutzia_equolifaciens;Asaccharobacter_celatus;Bifidobacterium_adolescentis;Bacteroides_thetaiotaomicron;Bacteroides_vulgatus	GLUCONEO-PWY: gluconeogenesis I	0.00619770423091349
+10	Alistipes_putredinis	GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronosides degradation;PWY-7242: D-fructuronate degradation	0.007616847156690972
+11	Intestinibacter_bartlettii	PWY-6168: flavin biosynthesis III (fungi);PWY-7234: inosine-5_p-phosphate biosynthesis III	0.007616847156690972
+12	Bifidobacterium_adolescentis	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.012439584343579932
+13	Adlercreutzia_equolifaciens;Asaccharobacter_celatus	PWY0-781: aspartate superpathway	0.012439584343579932
+14	Butyricimonas_virosa	PWY66-399: gluconeogenesis III	0.013454961736100633
+15	Intestinibacter_bartlettii	GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation	0.016579678742348822
+16	Intestinibacter_bartlettii	RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants)	0.01692070694320849
+17	Bacteroides_vulgatus	FERMENTATION-PWY: mixed acid fermentation	0.018638531293747086
+18	Bacteroides_thetaiotaomicron	PWY-7209: superpathway of pyrimidine ribonucleosides degradation	0.02524988185571747
+19	Alistipes_putredinis	PWY-7234: inosine-5_p-phosphate biosynthesis III	0.025557083329494672
+20	Intestinibacter_bartlettii	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.03394862070335139
+21	Butyricimonas_virosa	NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch) I	0.036219982169389806
+22	Mitsuokella_multacida	PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type;PWY-5913: partial TCA cycle (obligate autotrophs)	0.03704526087480955
+23	Mitsuokella_multacida	PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage	0.04343294646815218
+24	Mitsuokella_multacida	PWY-6285: superpathway of fatty acids biosynthesis (E. coli)	0.043739338874040745
+25	Intestinibacter_bartlettii	PWY-5971: palmitate biosynthesis (type II fatty acid synthase)	0.04477850373897591
