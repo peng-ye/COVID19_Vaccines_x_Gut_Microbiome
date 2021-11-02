@@ -1,0 +1,177 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(ggpubr)
+```
+
+```{r}
+source("R/theme.R")
+```
+
+```{r}
+samples_metadata <- read_tsv("metadata/samples_metadata_imm_272S_long.tsv")
+samples_metadata$Vac_Group <- factor(samples_metadata$Vac_Group, levels=c("SinoVac", "BioNTech"))
+```
+
+```{r}
+D0_sVNT <- samples_metadata %>% 
+    filter(TimePoint=="D0") %>%
+    select(ID, Vac_Group, TimePoint, M0_sVNT) %>%
+    distinct() %>%
+    rename(sVNT=M0_sVNT)
+    
+
+M1_sVNT <- samples_metadata %>%
+    filter(TimePoint=="D0") %>%
+    select(ID, Vac_Group, TimePoint, M1_sVNT_10) %>%
+    distinct() %>%
+    rename(sVNT=M1_sVNT_10) %>%
+    mutate(TimePoint="M1")
+    
+sVNT <- D0_sVNT %>% bind_rows(M1_sVNT) %>% arrange(ID)
+
+dim(sVNT)
+```
+
+# Extended Figure 1a
+```{r, fig.width=8, fig.height=8}
+fig1a <- 
+    ggboxplot(sVNT,
+              x="TimePoint", y="sVNT", fill="TimePoint") +
+    #geom_boxplot(aes(fill=TimePoint)) +
+    geom_jitter(position = position_jitter(height = 0, width=0), alpha=0.8) +
+    geom_line(aes(group=ID), color="grey", alpha=0.5) +
+    facet_wrap(~ Vac_Group) +
+    stat_compare_means(comparisons = list(c("D0", "M1")), method = "wilcox.test", paired=T) +
+    scale_fill_manual(values = timepoint_color_values,
+                      name = "Time Point",
+                      breaks=c("D0", "M1"), labels=c("Baseline", "One Month")) +
+    scale_x_discrete(labels=c("D0" = "Baseline", "M1" = "One Month")) +
+    theme(axis.text.x = element_text(size=17),
+          axis.text.y = element_text(size=17)) +
+    theme(strip.text.x = element_text(size = 17),
+          strip.text.y = element_text(size = 17),
+          legend.title = element_text(size = 17,color = "black"),
+          legend.text = element_text(size = 17,color = "black")) +
+    ggtitle("sVNT comparison for 138 subjects:\nSinoVac(sVNT_10), BioNTech(sVNT_200)") +
+    xlab("Time Point") + ylab("%inhibition") +
+    geom_hline(yintercept=20, linetype="dashed", color="black")
+
+print(fig1a)
+
+ggsave("figures/Extended_figure_1a-sVNT_comparison_138_subjects_sVNT_D0_M1_Sinovac_BioNTech.pdf",
+       fig1a, width=8, height=8)
+```
+
+
+
+# Extended Figure 1b
+```{r}
+fig1b <- ggboxplot(samples_metadata %>% filter(TimePoint=="D0"),
+                     x = "Vac_Group", y = "AUC_100_12800",
+                     fill = "Vac_Group", add = "dotplot",
+                     bxp.errorbar=TRUE, 
+                     #bxp.errorbar.width = 1,
+                     color = "black",
+                     binwidth=0.1, size=0.2) +
+    stat_compare_means(comparisons = list(c("BioNTech", "SinoVac")), method="wilcox.test", paired=F) +
+    scale_fill_manual(values=group_color_values) +
+    xlab("Vaccine type") + ylab("AUC") +
+    theme(axis.text.x=element_text(size=13),
+          axis.text.y=element_text(size=13),
+          legend.text=element_text(size=13)) +
+    guides(fill=FALSE) +
+    ggtitle("Violin plot for RBD_AUC in SinoVac and BioNTech group") #+
+    #geom_hline(yintercept=60, linetype="dashed", color="red")
+print(fig1b)
+ggsave("figures/Extended_figure_1b_violinplot_RBD_AUC_SinoVac_BioNTech.pdf", fig1b, width=8, height=8)
+```
+
+# Extended Figure 1c
+```{r}
+cor_imm_sinovac_svnt10_auc <- 
+    ggscatter(samples_metadata %>% filter(TimePoint=="D0" & Vac_Group=="SinoVac") ,
+              y="M1_sVNT_10", x="AUC_100_12800", alpha=0.8, color="#d56128",
+              #group="TimePoint", fill="TimePoint", colour="TimePoint", shape="TimePoint",
+              cor.method = "spearman", add = "reg.line", conf.int = TRUE, cor.coef = TRUE, cor.coef.size=7) +
+    #geom_smooth(aes(group=TimePoint, fill=TimePoint, colour=TimePoint)) +
+    ggtitle("SinoVac: RBD_AUC ~ sVNT_10") +
+    theme(axis.text.x = element_text(size=17),
+          axis.text.y = element_text(size=17)) +
+    theme(strip.text.x = element_text(size = 17),
+          strip.text.y = element_text(size = 17))
+print(cor_imm_sinovac_svnt10_auc)
+
+ggsave("figures/Extended_figure_1c-cor_imm_sinovac_auc_svnt10.pdf",
+       cor_imm_sinovac_svnt10_auc, width=8, height=8)
+```
+
+
+
+# Extended Figure 1d
+```{r}
+cor_imm_biontech_svnt10_auc <- 
+    ggscatter(samples_metadata %>% filter(TimePoint=="D0" & Vac_Group=="BioNTech") ,
+              y="M1_sVNT_10", x="AUC_100_12800", alpha=0.8, color = "#59b4e5",
+              #group="TimePoint", fill="TimePoint", colour="TimePoint", shape="TimePoint",
+              cor.method = "spearman", add = "reg.line", conf.int = TRUE, cor.coef = TRUE, cor.coef.size=7) +
+    #geom_smooth(aes(group=TimePoint, fill=TimePoint, colour=TimePoint)) +
+    ggtitle("BioNTech: RBD_AUC ~ sVNT_10") +
+    theme(axis.text.x = element_text(size=17),
+          axis.text.y = element_text(size=17)) +
+    theme(strip.text.x = element_text(size = 17),
+          strip.text.y = element_text(size = 17))
+print(cor_imm_biontech_svnt10_auc)
+
+ggsave("figures/Extended_figure_1d-cor_imm_biontech_auc_svnt10.pdf",
+       cor_imm_biontech_svnt10_auc, width=8, height=8)
+```
+## Extended Figure 1e
+```{r}
+fig1e <- ggboxplot(samples_metadata %>% filter(TimePoint=="D0") %>% filter(Vac_Group=="BioNTech"),
+                     x = "Vac_Group", y = "M1_sVNT_200",
+                     fill = "Vac_Group", add = "dotplot",
+                     bxp.errorbar=TRUE, 
+                     #bxp.errorbar.width = 1,
+                     color = "black",
+                     binwidth=0.1, size=0.2) +
+    stat_compare_means(comparisons = list(c("BioNTech", "SinoVac")), method="wilcox.test", paired=F) +
+    scale_fill_manual(values=group_color_values) +
+    xlab("Vaccine type") + ylab("%inhibition") +
+    theme(axis.text.x=element_text(size=13),
+          axis.text.y=element_text(size=13),
+          legend.text=element_text(size=13)) +
+    guides(fill=FALSE) +
+    ggtitle("Violin plot for M1_sVNT_200 in BioNTech group") #+
+    #geom_hline(yintercept=60, linetype="dashed", color="red")
+print(fig1e)
+ggsave("figures/Extended_figure_1e-violinplot_sVNT_200_BioNTech.pdf",
+       fig1e, width=8, height=8)
+```
+
+
+# Mege plot into one figure
+```{r, fig.width=15, fig.height=12}
+library(patchwork)
+ef1 <- (fig1a + fig1b) / (cor_imm_sinovac_svnt10_auc + cor_imm_biontech_svnt10_auc + fig1e)
+print(ef1)
+ggsave("figures/Extended_figure_1.pdf", width=15, height=12)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
