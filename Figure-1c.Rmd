@@ -1,0 +1,149 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# load library
+```{r}
+library(tidyverse)
+library(ggpubr)
+library(phyloseq)
+library(pairwiseAdonis)
+```
+
+```{r}
+source("R/theme.R")
+```
+
+# import data
+```{r}
+tax_s <- read_tsv("data/metaphlan3.merged.abundance.profile.species.272S.tsv") %>%
+        column_to_rownames("clade_name")
+
+metadata <- read_tsv("metadata/samples_metadata_imm_272S_long.tsv") %>%
+    mutate(group=case_when(
+        TimePoint == "D0" & Vac_Group=="BioNTech" ~ "Baseline & BioNTech",
+        TimePoint == "D0" & Vac_Group=="SinoVac" ~ "Baseline & SinoVac",
+        TimePoint == "M1" & Vac_Group=="BioNTech" ~ "One Month & BioNTech",
+        TimePoint == "M1" & Vac_Group=="SinoVac" ~ "One Month & SinoVac")) %>%
+    data.frame()
+
+metadata$Vac_Group <- factor(metadata$Vac_Group, levels=c("BioNTech", "SinoVac"))
+rownames(metadata) <- metadata$sample_id
+
+tax_s_pls <- phyloseq(otu_table(tax_s, taxa_are_rows=TRUE),
+                      sample_data(metadata))
+```
+
+# compute distance
+```{r}
+set.seed(1991)
+iDist <- distance(tax_s_pls, method="jsd")
+iNMDS <- ordinate(tax_s_pls, "NMDS", distance=iDist)
+```
+```{r}
+meta_table <- data.frame(phyloseq::sample_data(tax_s_pls))
+otu_table <- data.frame(phyloseq::otu_table(tax_s_pls))
+```
+
+```{r}
+mod <- vegan::betadisper(iDist, meta_table$group, type="centroid")
+mod
+```
+
+```{r}
+pmod <- vegan::permutest(mod, permutations=99, pairwise=TRUE)
+pmod
+```
+
+```{r}
+adonis_res <- vegan::adonis(iDist ~ group, data=meta_table)
+adonis_res_pw <- pairwise.adonis(iDist, factor=meta_table$group)
+adonis_res_pw
+```
+```{r}
+adonis_res_pw$p.value
+```
+
+```{r}
+iDist_df <- iDist %>% as.matrix() %>% as.data.frame() %>% rownames_to_column("sample_id") %>%
+    pivot_longer(!sample_id, names_to="sample_id2", values_to="distance")
+    
+iDist_df_filtered <-
+    iDist_df %>%
+    rowwise() %>%
+    filter(str_split(sample_id, "-|_")[[1]][1] == str_split(sample_id2, "-|_")[[1]][1] &
+            str_split(sample_id, "-|_")[[1]][2] != str_split(sample_id2, "-|_")[[1]][2]) %>%
+    left_join(metadata) %>% distinct(ID, .keep_all= TRUE)
+```
+
+
+```{r}
+pdata <- phyloseq::plot_ordination(tax_s_pls, iNMDS, color="TimePoint", shape="TimePoint")$data
+pdata <- pdata %>%
+    mutate(group=case_when(
+        Vac_Group=="SinoVac" & TimePoint=="D0" ~ "Baseline & SinoVac",
+        Vac_Group=="SinoVac" & TimePoint=="M1" ~ "One Month & SinoVac",
+        Vac_Group=="BioNTech" & TimePoint=="D0" ~ "Baseline & BioNTech",
+        Vac_Group=="BioNTech" & TimePoint=="M1" ~ "One Month & BioNTech"))
+```
+
+
+```{r}
+stress.value <- iNMDS$stress
+stress.label <- paste("STRESS=", round(stress.value, 4))
+
+#adn_pvalue <- adonis_res[[1]][["Pr(>F)"]][1]
+#adn_rsquared <- round(adonis_res[[1]][["R2"]], 3)
+#signi_label <- paste(cut(adn_pvalue,
+#                         breaks=c(-Inf, 0.001, 0.01, 0.05, Inf),
+#                         label=c("***", "**", "*", ".")))
+#adn_res_format <- bquote(atop(atop("PERMANOVA", R^2==~.(adn_rsquared)),
+#                              atop("p-value="~.(adn_pvalue)~.(signi_label),
+#                                   phantom())))
+```
+
+# Figure 1b
+```{r, fig.width=10, fig.height=8}
+betap <- ggscatter(pdata, x="NMDS1", y="NMDS2",
+                   shape="TimePoint", color="group",
+                   fill="group", size=3, alpha=0.9) +
+    #geom_point(size=3, alpha=0.5) +
+    stat_ellipse(aes(colour=group)) +
+    ggtitle(paste("NMDS using distance method ", "jsd", sep="")) +
+    scale_fill_manual(values=gt_color_values_v2) +
+    scale_color_manual(values=gt_color_values_v2) +
+    #geom_text(data=group_label, aes(x=NMDS1, y=NMDS2, label=group, color=group))
+    annotate('text', x=max(pdata$NMDS1)*0.8, y=max(pdata$NMDS2)*0.8,
+             label=stress.label) #+
+    #annotate('text', x=max(pdata$NMDS1)-0.05*max(pdata$NMDS1),
+    #                 y=min(pdata$NMDS1),
+    #         label=adn_res_format, size=5)
+    
+betap2 <- ggscatter(pdata, x="NMDS1", y="NMDS2", shape="TimePoint",
+                    color="group", fill="group", size=3, alpha=0.9) +
+    #geom_point(size=3, alpha=0.5) +
+    stat_ellipse(aes(colour=group)) +
+    facet_wrap(~Vac_Group) +
+    ggtitle(paste("NMDS using distance method ", "jsd", sep="")) +
+    scale_fill_manual(values=gt_color_values_v2) +
+    scale_color_manual(values=gt_color_values_v2)
+
+distp <- ggboxplot(iDist_df_filtered, x="Vac_Group", y="distance",
+          fill="Vac_Group", width = 0.5, outlier.shape = NA, 
+          bxp.errorbar = TRUE, bxp.errorbar.width = 0.2) +
+        stat_compare_means(comparisons = list(c("BioNTech", "SinoVac")),
+                           method = "wilcox.test", p.adjust.method = "fdr",
+                           paired=FALSE) +
+        ylab("Distance (Baseline vs One Month)") + xlab("") +
+        coord_flip() + 
+        scale_fill_manual(values=group_color_values)#, guide=FALSE)
+    
+pp <- ggarrange(betap, distp, nrow = 2, ncol = 1,align = "v",
+                heights = c(5,1), legend = "right")
+pp2 <- ggarrange(betap2, distp, nrow = 2, ncol = 1,align = "v",
+                 heights = c(5,1), legend = "right")
+
+print(pp)
+```
+

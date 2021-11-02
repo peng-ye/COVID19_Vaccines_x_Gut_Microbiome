@@ -1,25 +1,18 @@
 #!/usr/bin/env Rscript
+group_color_values <- c("BioNTech"="#59b4e5",
+                        "SinoVac"="#d56128")
 
-#group_color_values <- c("BioNTech"="#66c2a5", "SinoVac"="#fc8d62")
-#timepoint_color_values <- c("D0"="#8da0cb", "M1"="#e78ac3")
-
-#group_color_values <- c("BioNTech"="#33a02c", "SinoVac"="#b2df8a")
-#timepoint_color_values <- c("D0"="#1f78b4", "M1"="#a6cee3")
-
-#group_color_values <- c("BioNTech"="#0072B2", "SinoVac"="#E69F00")
-
-group_color_values <- c("BioNTech"="#E69F00", "SinoVac"="#0072B2")
-timepoint_color_values <- c("D0"="#CC79A7", "M1"="#009E73")
 timepoint_color_values <- c("D0"="#009E73", "M1"="#CC79A7")
-gt_color_values <- c("D0+BioNTech"="#F0E442",
-                    "D0+SinoVac"="#D55E00",
-                    "M1+BioNTech"="#56B4E9",
-                    "M1+SinoVac"="#000000")
 
 gt_color_values <- c("Baseline & BioNTech"="#CC79A7",
                      "Baseline & SinoVac"="#0072B2",
                      "One Month & BioNTech"="#E69F00",
                      "One Month & SinoVac"="#009E73")
+
+gt_color_values_v2 <- c("Baseline & BioNTech"="#59b4e5",
+                        "Baseline & SinoVac"="#d56128",
+                        "One Month & BioNTech"="#59b4e5",
+                        "One Month & SinoVac"="#d56128")
 
 gt2_color_values <- c("D0+sVNT>=20%"="#F0E442",
                     "D0+sVNT<20%"="#D55E00",
@@ -43,7 +36,6 @@ gt4_color_values <- c(
 "Sinovac & High"="#009E73")
 
 
-
 timepoint_labels <- c("Baseline", "One Month")
 names(timepoint_labels) <- c("D0", "M1")
 
@@ -56,7 +48,6 @@ names(probiotic_labels) <- c("0", "1")
 
 antibiotic_labels <- c("Antibiotic not use", "Antibiotic use")
 names(antibiotic_labels) <- c("0", "1")
-
 
 #000000 black
 #E69F00 orange
