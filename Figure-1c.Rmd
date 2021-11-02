@@ -1,0 +1,165 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# load library
+```{r}
+library(tidyverse)
+library(ggpubr)
+library(phyloseq)
+```
+
+```{r}
+source("R/config.R")
+source("R/theme.R")
+```
+
+
+# import data
+```{r}
+tax_p <-
+    read_tsv("data/metaphlan3.merged.abundance.profile.phylum.272S.tsv") %>%
+    column_to_rownames("clade_name")
+
+tax_s <-
+    read_tsv("data/metaphlan3.merged.abundance.profile.species.272S.tsv") %>%
+    column_to_rownames("clade_name")
+```
+
+```{r}
+metadata <- read_tsv("metadata/samples_metadata_imm_272S_long.tsv") %>% data.frame()
+rownames(metadata) <- metadata$sample_id
+```
+
+```{r}
+tax_s_d0_w <- 
+    tax_s %>%
+    rownames_to_column("clade_name") %>%
+    rowwise() %>%
+    mutate(Species=str_split(clade_name, "\\|s__")[[1]][2]) %>%
+    select(-clade_name) %>%
+    pivot_longer(names_to="sample_id", values_to="Abundance", -Species) %>%
+    pivot_wider(names_from="Species", values_from="Abundance") %>%
+    right_join(metadata %>% filter(TimePoint=="D0"))
+```
+
+```{r}
+tax_s_pls <- phyloseq(otu_table(tax_s, taxa_are_rows=TRUE),
+                      sample_data(metadata))
+tax_p_pls <- phyloseq(otu_table(tax_p, taxa_are_rows=TRUE),
+                      sample_data(metadata))
+```
+
+```{r}
+source("R/alpha_diversity.R")
+```
+
+
+```{r}
+species_diver_all <- alpha_diversity(tax_s_pls, method = "all")
+
+dim(species_diver_all)
+```
+
+```{r}
+species_diver_all <-
+    species_diver_all %>%
+    rename(sample_id = sample) %>%
+    left_join(metadata) %>% arrange(Cohort, Vac_Group, ID) %>%
+    mutate(Vac_Group=factor(Vac_Group, levels=c("SinoVac", "BioNTech")))
+    
+dim(species_diver_all)
+```
+
+```{r}
+species_diver_all_ <-
+    species_diver_all %>%
+    select(-sample_id) %>%
+    pivot_longer(
+        cols = matches("observed") | matches("simpson") | matches("shannon") | matches("evenness"),
+        names_to = "alpha_diversity_method",
+        values_to = "alpha_diversity_index") %>%
+    mutate(alpha_method_timepoint=case_when(
+        TimePoint == "D0" & alpha_diversity_method == "observed" ~ "D0_observed",
+        TimePoint == "D0" & alpha_diversity_method == "shannon" ~ "D0_shannon",
+        TimePoint == "D0" & alpha_diversity_method == "simpson" ~ "D0_simpson",
+        TimePoint == "D0" & alpha_diversity_method == "evenness" ~ "D0_evenness",
+        TimePoint == "M1" & alpha_diversity_method == "observed" ~ "M1_observed",
+        TimePoint == "M1" & alpha_diversity_method == "shannon" ~ "M1_shannon",
+        TimePoint == "M1" & alpha_diversity_method == "simpson" ~ "M1_simpson",
+        TimePoint == "M1" & alpha_diversity_method == "evenness" ~ "M1_evenness")) %>%
+    select(-TimePoint, -alpha_diversity_method) %>%
+    pivot_wider(
+        names_from="alpha_method_timepoint",
+        values_from="alpha_diversity_index") %>% 
+    arrange(Cohort, Vac_Group, ID)
+
+dim(species_diver_all_)
+```
+
+```{r}
+paired_ID <- count(species_diver_all, ID) %>% filter(n==2) %>% select(ID) %>% as.list()
+print(paired_ID)
+```
+
+```{r}
+species_diver_all_l <- 
+    species_diver_all %>%
+    select(sample_id, Vac_Group, TimePoint, ID,
+           observed, simpson, shannon, 
+           Cohort, Age, BMI, Time_diff, Probiotic_current, Antibiotics_3m_current) %>%
+    filter(!is.na(Vac_Group)) %>%
+    gather(key="alpha_diversity_method", value="alpha_diversity_index",
+           -c(sample_id, Vac_Group, TimePoint, ID,
+              Cohort, Age, BMI, Time_diff, Probiotic_current, Antibiotics_3m_current)) %>%
+    mutate(TimePoint=factor(TimePoint, levels=c("D0", "M1"))) %>%
+    mutate(Vac_Group=factor(Vac_Group, levels=c("SinoVac", "BioNTech")))
+```
+
+```{r}
+species_diver_all_l_paired <-
+    species_diver_all_l %>%
+    filter(ID %in% paired_ID$ID) %>%
+    arrange(ID, sample_id)
+
+dim(species_diver_all_l_paired)
+```
+
+
+# Figure-1b: plot diversity paired
+```{r, fig.width=8, fig.height=10}
+alpha_diversity_p <- 
+    ggboxplot(species_diver_all_l_paired,
+              x="TimePoint", y="alpha_diversity_index", fill="TimePoint") +
+    #geom_boxplot(aes(fill=TimePoint)) +
+    geom_jitter(position = position_jitter(height = 0, width=0), shape = 1) +
+    geom_line(aes(group=ID), color="grey", alpha=0.5) +
+    facet_wrap(Vac_Group ~ alpha_diversity_method, scales="free") +
+    stat_compare_means(comparisons = list(c("D0", "M1")), method = "wilcox.test", paired=T) +
+    scale_fill_manual(values = timepoint_color_values,
+                      name = "Time Point",
+                      breaks=c("D0", "M1"), labels=c("Baseline", "One Month")) +
+    scale_x_discrete(labels=c("D0" = "Baseline", "M1" = "One Month")) +
+    theme(axis.text.x = element_text(size=11),
+          axis.text.y = element_text(size=11)) +
+    theme(strip.text.x = element_text(size = 11),
+          strip.text.y = element_text(size = 11),
+          legend.title = element_text(size = 11,color = "black"),
+          legend.text = element_text(size = 11,color = "black")) +
+    ggtitle("Alpha diversity on species level") + xlab("Time Point") + ylab("Alpha diversity index")
+print(alpha_diversity_p)
+
+ggsave("figures/Figure-1c_alpha_diversity_species_paired_timepoint.pdf",
+       alpha_diversity_p, width=10, height=9)
+```
+
+
+
+
+
+
+
+
+
+
