@@ -88,7 +88,7 @@ fig1b <- ggboxplot(samples_metadata %>% filter(TimePoint=="D0"),
     ggtitle("Violin plot for RBD_AUC in SinoVac and BioNTech group") #+
     #geom_hline(yintercept=60, linetype="dashed", color="red")
 print(fig1b)
-ggsave("figures/Extended_figure_1b_violinplot_RBD_AUC_SinoVac_BioNTech.pdf", fig1b, width=8, height=8)
+ggsave("figures/Extended_figure_1b-violinplot_RBD_AUC_SinoVac_BioNTech.pdf", fig1b, width=8, height=8)
 ```
 
 # Extended Figure 1c
