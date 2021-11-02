@@ -1,0 +1,455 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# load library
+```{r}
+library(tidyverse)
+library(ggpubr)
+library(ggalluvial)
+library(phyloseq)
+```
+
+```{r}
+source("R/theme.R")
+```
+
+# import data
+```{r}
+metadata <-
+    read_tsv("metadata/samples_metadata_imm_272S_long.tsv") %>% data.frame()
+metadata$Vac_Group <- factor(metadata$Vac_Group, levels=c("BioNTech", "SinoVac"))
+rownames(metadata) <- metadata$sample_id
+```
+
+```{r}
+tax_s <- read_tsv("data/metaphlan3.merged.abundance.profile.species.272S.tsv")
+tax_p <- read_tsv("data/metaphlan3.merged.abundance.profile.phylum.272S.tsv")
+```
+
+```{r}
+species_phylum <-
+    tax_s %>%
+    select(clade_name) %>%
+    rowwise(clade_name) %>% 
+    mutate(clade=str_split(clade_name, "\\|s__")[[1]][2]) %>%
+    mutate(phylum=str_split(str_split(clade_name, "\\|")[[1]][2], "p__")[[1]][2]) %>%
+    ungroup() %>%
+    select(clade, phylum) %>%
+    mutate(clade=str_replace(clade, "_", " "))
+```
+
+```{r}
+tax_s_pls <- phyloseq(
+    otu_table(tax_s %>% column_to_rownames("clade_name"), taxa_are_rows=TRUE),
+    sample_data(metadata))
+
+tax_p_pls <- phyloseq(
+    otu_table(tax_p %>% column_to_rownames("clade_name"), taxa_are_rows=TRUE),
+    sample_data(metadata))
+
+tax_s_l <-
+    tax_s %>%
+    rowwise() %>%
+    mutate(clade=str_replace(str_split(clade_name, "\\|s__")[[1]][2], "_", " ")) %>%
+    ungroup() %>%
+    pivot_longer(
+        names_to="sample_id",
+        values_to="abundance",
+        -c(clade_name, clade))
+
+tax_p_l <-
+    tax_p %>%
+    rowwise() %>%
+    mutate(clade=str_split(clade_name, "\\|p__")[[1]][2]) %>%
+    pivot_longer(
+        names_to="sample_id",
+        values_to="abundance",
+        -c(clade_name, clade))
+```
+
+```{r}
+gen_data <- function(tax_l, topn=10) {
+    tax_occr <-
+        tax_l %>%
+        group_by(clade) %>%
+        summarize(occr=sum(abundance>0)/length(abundance),
+                  mean_abundance=sum(abundance)/length(abundance),
+                  median_abundance=median(abundance),
+                  abun_quartile_0=quantile(abundance, 0.00),
+                  abun_quartile_25=quantile(abundance, 0.25),
+                  abun_quartile_50=quantile(abundance, 0.50),
+                  abun_quartile_75=quantile(abundance, 0.75),
+                  abun_quartile_100=quantile(abundance, 1.00)) %>%
+        arrange(desc(mean_abundance, occr)) %>%
+        ungroup()
+
+    tax_l <- tax_l %>% left_join(tax_occr)
+    
+    top_clade_by_abun <- tax_occr %>% arrange(desc(mean_abundance)) %>% slice(1:topn)
+    tax_l_top_clade <- top_clade_by_abun %>% left_join(tax_l)
+
+    other_clade_abun <- 
+        tax_l_top_clade %>%
+        group_by(sample_id) %>%
+        summarize(abundance=1-sum(abundance)) %>%
+        mutate(clade="Others")
+
+    tax_l_top_clade_add_others <-
+        tax_l_top_clade %>%
+        select(sample_id, abundance, clade) %>%
+        bind_rows(other_clade_abun)
+
+    order_samples_p <-
+        tax_l_top_clade_add_others %>%
+        filter(clade==top_clade_by_abun$clade[1]) %>%
+        arrange(abundance) %>% select(sample_id) %>% as_tibble()
+    
+    tax_l_top_clade_add_others_add_metadata <-
+        tax_l_top_clade_add_others %>%
+        left_join(metadata) %>%
+        mutate(sample_id = factor(sample_id, levels=order_samples_p$sample_id),
+               clade=factor(clade, levels=c("Others", rev(top_clade_by_abun$clade))))
+    
+    tax_l_top_clade_add_others_add_metadata_group <-
+        tax_l_top_clade_add_others_add_metadata %>%
+        #group_by(Vac_Group, TimePoint, clade) %>%
+        group_by(TimePoint, clade) %>%
+        summarise(group_mean_abundance=mean(abundance)) %>%
+        ungroup() %>%
+        mutate(abun=paste0(round(group_mean_abundance*100, 1), "%"))
+    
+    return(list(tax=tax_l_top_clade_add_others_add_metadata,
+                group=tax_l_top_clade_add_others_add_metadata_group,
+                top=top_clade_by_abun))
+}
+
+gen_data2 <- function(tax_l, topn) {
+    tax_occr <-
+        tax_l %>%
+        group_by(clade) %>%
+        summarize(occr=sum(abundance>0)/length(abundance),
+                  mean_abundance=sum(abundance)/length(abundance),
+                  median_abundance=median(abundance),
+                  abun_quartile_0=quantile(abundance, 0.00),
+                  abun_quartile_25=quantile(abundance, 0.25),
+                  abun_quartile_50=quantile(abundance, 0.50),
+                  abun_quartile_75=quantile(abundance, 0.75),
+                  abun_quartile_100=quantile(abundance, 1.00)) %>%
+        arrange(desc(mean_abundance, occr)) %>%
+        ungroup()
+
+    tax_l <- tax_l %>% left_join(tax_occr)
+    
+    #top_clade_by_abun <- tax_occr %>% arrange(desc(mean_abundance)) %>% slice(1:topn)
+    top_clade_by_abun <- tax_occr %>% filter(clade %in% topn)
+    tax_l_top_clade <- top_clade_by_abun %>% left_join(tax_l)
+
+    other_clade_abun <- 
+        tax_l_top_clade %>%
+        group_by(sample_id) %>%
+        summarize(abundance=1-sum(abundance)) %>%
+        mutate(clade="Others")
+
+    tax_l_top_clade_add_others <-
+        tax_l_top_clade %>%
+        select(sample_id, abundance, clade) %>%
+        bind_rows(other_clade_abun)
+
+    order_samples_p <-
+        tax_l_top_clade_add_others %>%
+        filter(clade==top_clade_by_abun$clade[1]) %>%
+        arrange(abundance) %>% select(sample_id) %>% as_tibble()
+    
+    tax_l_top_clade_add_others_add_metadata <-
+        tax_l_top_clade_add_others %>%
+        left_join(metadata) %>%
+        mutate(sample_id = factor(sample_id, levels=order_samples_p$sample_id),
+               clade=factor(clade, levels=c("Others", rev(top_clade_by_abun$clade))))
+    
+    tax_l_top_clade_add_others_add_metadata_group <-
+        tax_l_top_clade_add_others_add_metadata %>%
+        #group_by(Vac_Group, TimePoint, clade) %>%
+        group_by(TimePoint, clade) %>%
+        summarise(group_mean_abundance=mean(abundance)) %>%
+        ungroup() %>%
+        mutate(abun=paste0(round(group_mean_abundance*100, 1), "%"))
+    
+    return(list(tax=tax_l_top_clade_add_others_add_metadata,
+                group=tax_l_top_clade_add_others_add_metadata_group,
+                top=top_clade_by_abun))
+}
+```
+
+```{r}
+tax_s_top <- gen_data(tax_s_l %>% filter(!str_detect(sample_id, "HKU171")))
+tax_p_top <- gen_data(tax_p_l %>% filter(!str_detect(sample_id, "HKU171")), 5)
+
+tax_s1_top <- gen_data2(tax_s_l %>% filter(str_detect(sample_id, "HKU171")), tax_s_top$top$clade)
+tax_p1_top <- gen_data2(tax_p_l %>% filter(str_detect(sample_id, "HKU171")), tax_p_top$top$clade)
+
+
+clade_levels <- levels(tax_s_top$group$clade)
+tax_s1_top$group$clade <- factor(tax_s1_top$group$clade, levels=clade_levels)
+tax_s_top$group$clade <- factor(tax_s_top$group$clade, levels=clade_levels)
+
+clade_levels2 <- levels(tax_p_top$group$clade)
+tax_p1_top$group$clade <- factor(tax_p1_top$group$clade, levels=clade_levels2)
+tax_p_top$group$clade <- factor(tax_p_top$group$clade, levels=clade_levels2)
+```
+
+# Extended Data Figure 3a
+```{r}
+phylum_color_values <- c("Firmicutes"="#E69F00",
+                         "Bacteroidetes"="#009E73",
+                         "Actinobacteria"="#0072B2",
+                         "Proteobacteria"="#D55E00",
+                         "Verrucomicrobia"="#F0E442",
+                         "Others"="#CC79A7")
+
+p1 <- ggplot() +
+    geom_col(data=tax_p_top$group,
+             aes(x = 4, y = group_mean_abundance, fill = clade)) +
+    geom_col(data=tax_p1_top$group,
+             aes(x = 3, y = group_mean_abundance, fill = clade)) +
+    #geom_bar(stat = "identity", color = "white") +
+    coord_polar(theta = "y") +
+    geom_text(aes(y=group_mean_abundance, x=3, label = abun),
+              position=position_stack(vjust=0.5),
+              data=tax_p_top$group, size=3, color = "black") +
+    geom_text(aes(y = group_mean_abundance, x=2, label = abun),
+              position=position_stack(vjust=0.5),
+              data=tax_p1_top$group, size=3, color = "black") +
+    scale_fill_manual(values=phylum_color_values) +
+    theme_void()+
+    #xlim(1, 20) +
+    #labs(x=NULL, y=NULL) +
+    facet_wrap(~TimePoint, labeller=labeller(TimePoint=timepoint_labels)) +
+    theme(strip.text.x = element_text(size = 13),
+          legend.title = element_text(size = 13,color = "black"),
+          legend.text = element_text(size = 13,color = "black"))
+
+print(p1)
+ggsave("figures/Extended_figure_3a-HKU171_phylum_donut_chart3.pdf",
+       p1, width=10, height=10)
+```
+
+
+```{r}
+gen2_data_mean <- function(tax_l, topn=25) {
+    tax_occr <-
+        tax_l %>%
+        group_by(clade) %>%
+        summarize(occr=sum(abundance>0)/length(abundance),
+                  mean_abundance=sum(abundance)/length(abundance),
+                  median_abundance=median(abundance),
+                  abun_quartile_0=quantile(abundance, 0.00),
+                  abun_quartile_25=quantile(abundance, 0.25),
+                  abun_quartile_50=quantile(abundance, 0.50),
+                  abun_quartile_75=quantile(abundance, 0.75),
+                  abun_quartile_100=quantile(abundance, 1.00)) %>%
+        arrange(desc(mean_abundance, occr)) %>%
+        #arrange(desc(mean_abundance, median_abundance, occr)) %>%
+        ungroup()
+
+    tax_l <- tax_l %>% left_join(tax_occr)
+    
+    top_clade_by_abun <- tax_occr %>% arrange(desc(mean_abundance)) %>% slice(1:topn)
+    tax_l_top_clade <- top_clade_by_abun %>% left_join(tax_l)
+
+    other_clade_abun <- 
+        tax_l_top_clade %>%
+        group_by(sample_id) %>%
+        summarize(abundance=1-sum(abundance)) %>%
+        mutate(clade="Others")
+
+    tax_l_top_clade_add_others <-
+        tax_l_top_clade %>%
+        select(sample_id, abundance, clade) %>%
+        bind_rows(other_clade_abun)
+
+    order_samples_p <-
+        tax_l_top_clade_add_others %>%
+        filter(clade==top_clade_by_abun$clade[1]) %>%
+        arrange(abundance) %>% select(sample_id) %>% as_tibble()
+    
+    tax_l_top_clade_add_others_add_metadata <-
+        tax_l_top_clade_add_others %>%
+        left_join(metadata) %>%
+        mutate(sample_id = factor(sample_id, levels=order_samples_p$sample_id),
+               clade=factor(clade, levels=c("Others", rev(top_clade_by_abun$clade))))
+    
+    tax_l_top_clade_add_others_add_metadata_group <-
+        tax_l_top_clade_add_others_add_metadata %>%
+        #group_by(Vac_Group, TimePoint, clade) %>%
+        group_by(TimePoint, clade) %>%
+        summarise(group_mean_abundance=mean(abundance)) %>%
+        ungroup() %>%
+        mutate(abun=paste0(round(group_mean_abundance*100, 1), "%"))
+    
+    return(list(tax=tax_l_top_clade_add_others_add_metadata,
+                group=tax_l_top_clade_add_others_add_metadata_group,
+                top=top_clade_by_abun))
+}
+
+gen2_data2_mean <- function(tax_l, topn) {
+    tax_occr <-
+        tax_l %>%
+        group_by(clade) %>%
+        summarize(occr=sum(abundance>0)/length(abundance),
+                  mean_abundance=sum(abundance)/length(abundance),
+                  median_abundance=median(abundance),
+                  abun_quartile_0=quantile(abundance, 0.00),
+                  abun_quartile_25=quantile(abundance, 0.25),
+                  abun_quartile_50=quantile(abundance, 0.50),
+                  abun_quartile_75=quantile(abundance, 0.75),
+                  abun_quartile_100=quantile(abundance, 1.00)) %>%
+        arrange(desc(mean_abundance, occr)) %>%
+        ungroup()
+
+    tax_l <- tax_l %>% left_join(tax_occr)
+    
+    #top_clade_by_abun <- tax_occr %>% arrange(desc(mean_abundance)) %>% slice(1:topn)
+    top_clade_by_abun <- tax_occr %>% filter(clade %in% topn)
+    tax_l_top_clade <- top_clade_by_abun %>% left_join(tax_l)
+
+    other_clade_abun <- 
+        tax_l_top_clade %>%
+        group_by(sample_id) %>%
+        summarize(abundance=1-sum(abundance)) %>%
+        mutate(clade="Others")
+
+    tax_l_top_clade_add_others <-
+        tax_l_top_clade %>%
+        select(sample_id, abundance, clade) %>%
+        bind_rows(other_clade_abun)
+
+    order_samples_p <-
+        tax_l_top_clade_add_others %>%
+        filter(clade==top_clade_by_abun$clade[1]) %>%
+        arrange(abundance) %>% select(sample_id) %>% as_tibble()
+    
+    tax_l_top_clade_add_others_add_metadata <-
+        tax_l_top_clade_add_others %>%
+        left_join(metadata) %>%
+        mutate(sample_id = factor(sample_id, levels=order_samples_p$sample_id),
+               clade=factor(clade, levels=c("Others", rev(top_clade_by_abun$clade))))
+    
+    tax_l_top_clade_add_others_add_metadata_group <-
+        tax_l_top_clade_add_others_add_metadata %>%
+        #group_by(Vac_Group, TimePoint, clade) %>%
+        group_by(TimePoint, clade) %>%
+        summarise(group_mean_abundance=mean(abundance)) %>%
+        ungroup() %>%
+        mutate(abun=paste0(round(group_mean_abundance*100, 1), "%"))
+    
+    return(list(tax=tax_l_top_clade_add_others_add_metadata,
+                group=tax_l_top_clade_add_others_add_metadata_group,
+                top=top_clade_by_abun))
+}
+```
+
+```{r}
+tax2_s_top <- gen2_data_mean(tax_s_l %>% filter(!str_detect(sample_id, "HKU171")), 12)
+tax2_s1_top <- gen2_data2_mean(tax_s_l %>% filter(str_detect(sample_id, "HKU171")), tax2_s_top$top$clade)
+
+clade_phylum <-
+    tax2_s_top$top %>% select(clade) %>% left_join(species_phylum) %>%
+    mutate(clade=factor(clade, levels=tax2_s_top$top$clade)) %>%
+    mutate(y="")    
+
+tax2_s_top_c <-
+    tax2_s_top$group %>% mutate(subjects="Others") %>%
+    bind_rows(tax2_s1_top$group %>% mutate(subjects="HKU171")) %>%
+    mutate(subjects=factor(subjects, levels=c("HKU171", "Others"))) %>%
+    filter(!clade=="Others") %>%
+    left_join(species_phylum) %>%
+    mutate(clade=factor(clade, levels=tax2_s_top$top$clade))
+```
+
+
+```{r}
+species_color_12 <- c("Faecalibacterium prausnitzii"="#a6cee3",
+                      "Bacteroides uniformis"="#1f78b4",
+                      "Bacteroides vulgatus"="#b2df8a",
+                      "Blautia wexlerae"="#33a02c",
+                      "Eubacterium rectale"="#fb9a99",
+                      "Bifidobacterium adolescentis"="#e31a1c",
+                      "Eubacterium eligens"="#fdbf6f",
+                      "Alistipes putredinis"="#ff7f00",
+                      "Prevotella copri"="#cab2d6",
+                      "Bacteroides plebeius"="#6a3d9a",
+                      "Roseburia faecis"="#ffff99",
+                      "Bacteroides stercoris"="#b15928")
+
+species_color_df <- tribble(
+    ~clade, ~color_clade,
+    "Faecalibacterium prausnitzii", "#a6cee3",
+    "Bacteroides uniformis", "#1f78b4",
+    "Bacteroides vulgatus", "#b2df8a",
+    "Blautia wexlerae", "#33a02c",
+    "Eubacterium rectale", "#fb9a99",
+    "Bifidobacterium adolescentis", "#e31a1c",
+    "Eubacterium eligens", "#fdbf6f",
+    "Alistipes putredinis", "#ff7f00",
+    "Prevotella copri", "#cab2d6",
+    "Bacteroides plebeius", "#6a3d9a",
+    "Roseburia faecis", "#ffff99",
+    "Bacteroides stercoris", "#b15928")
+
+phylum_color <- c(
+    "Firmicutes"="#E69F00",
+    "Bacteroidetes"="#009E73",
+    "Actinobacteria"="#0072B2",
+    "Proteobacteria"="#D55E00",
+    "Verrucomicrobia"="#F0E442",
+    "Others"="#CC79A7")
+
+phylum_color_df <- tribble(
+    ~phylum, ~color_phylum,
+    "Firmicutes", "#E69F00",
+    "Bacteroidetes", "#009E73",
+    "Actinobacteria", "#0072B2",
+    "Proteobacteria", "#D55E00",
+    "Verrucomicrobia", "#F0E442",
+    "Others", "#CC79A7")
+```
+
+
+```{r}
+p2 <- ggplot(tax2_s_top_c %>% filter(!clade=="Others"),
+            aes(x=subjects, y=group_mean_abundance, alluvium=clade, fill=clade)) +
+    geom_flow(stat="alluvium", color="darkgray") +
+    geom_stratum(stat="alluvium") +
+    facet_wrap(~TimePoint, labeller=labeller(TimePoint=timepoint_labels)) +
+    scale_fill_manual(values=species_color_12) +
+    scale_color_manual(values=species_color_12) +
+    ylab("Mean abundance") +
+    theme(axis.text.y=element_text(size=13, color="black"),
+          axis.ticks = element_blank(),
+          panel.grid = element_blank(),
+          legend.title = element_text(size = 13,color = "black"),
+          legend.text = element_text(size = 13,color = "black"),
+          axis.title = element_text(size = 13,color = "black"),
+          axis.text = element_text(size = 13,color = "black")) +
+    theme(strip.text.x = element_text(size = 13)) +
+        scale_x_discrete(labels=c("D0" = "Baseline", "M1" = "One Month")) +
+    theme_pubr(legend="right") +
+    labs(fill="Top12 species")
+
+print(p2)
+ggsave(
+    "figures/Extended_figure_3b-HKU171_vs_others_abundance_distribution_mean_group_top12_alluvial.pdf", p2,
+width=8, height=5)
+```
+
+# Merge two figures into one figure
+```{r, fig.height=12, fig.width=10}
+library(patchwork)
+
+p <- p1 / p2
+print(p)
+ggsave("figures/Extended_figure_3.pdf", width=10, height=12)
+```
+
